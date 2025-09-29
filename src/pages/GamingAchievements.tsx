@@ -6,34 +6,44 @@ const GamingAchievements = () => {
   const games = [
     {
       title: 'League of Legends',
-      period: '2011 - 2017',
+      period: '2011 - 2025',
       icon: <Trophy size={40} />,
       color: '#d4af37',
       achievements: [
-        'Played on Counter Logic Gaming (CLG), a top 3 team in North America',
+        'Played on Counter Logic Gaming (CLG), a top 3 team in North America in LCS (League Championship Series), the most popular esports league in the world',
         'Primary shotcaller for team - led team meetings, handled draft and theorycrafting',
         'Traveled to international LANs representing North America',
         'Maintained Top 10 Challenger rank on the ladder (2011-2015)',
-        'Content creation and sponsorships with Razer, IBuyPower, Azubu, Twitch, and Riot Games',
-        'Held fan meets and public events to increase brand awareness',
+        'Played on Team Liquid (TL)',
+        'Content creation and sponsorships with Riot Games, Twitch, Razer, IBuyPower, Azubu, Alienware, Logitech,',
+        'Held interviews, fan meets, public events to increase brand awareness and promote sales of sponorships and self merchandise',
         'Active Twitch streamer building gaming community',
         '100k+ Twitter followers and 50k+ Twitch followers',
       ],
     },
     {
       title: 'Dota',
-      period: '2009 - 2011, 2017',
+      period: '2009 - 2025',
       icon: <Gamepad2 size={40} />,
       color: '#ff6b6b',
       achievements: [
-        'Commentator and content creator for Dota Commentaries (2009-2011)',
-        'Helped expand awareness in the Western Dota scene',
+        'Commentator and content creator for Dota Commentaries (2009-2011) whiched helped expand awareness in the Western Dota Pro Scene',
         'Collaborated with future TI casters and professional players',
         'Achieved Top 50 rank on ladder (2017)',
-        'Created YouTube content for the Dota community',
+        'Created YouTube content for the Dota community sharing tips, tricks, and guides',
         '1v1 practice and theorycrafting with professional TI players',
+        'I also played Hon actively too when it first came out'.
       ],
     },
+    {
+        title: 'Deadlock',
+        period: '2024-2025',
+        icon: <Target size={40} />,
+        color: '#9370db',
+        achievements: [
+          'Reached Ascendant rank during Closed Alpha',
+        ],
+      },
     {
       title: 'Path of Exile',
       period: '2018 - 2024',
@@ -42,8 +52,8 @@ const GamingAchievements = () => {
       achievements: [
         'Top 3 Hardcore (HC) on Class Ladders across multiple seasons',
         'Placed 5th in Zizaran\'s HC Race Gauntlet',
-        'Demonstrated mastery of complex game mechanics and build theory',
-        'Competed at highest level in hardcore competitive environment',
+        'Theorycrafted and created various hipster meta builds',
+        'Content creation on Youtube'
       ],
     },
     {
@@ -54,7 +64,6 @@ const GamingAchievements = () => {
       achievements: [
         'Reached Top 10 Legend rank on ladder',
         'Created multiple self-made meta decks to dominate ladder',
-        'Pioneered deck strategies that influenced the meta',
       ],
     },
     {
@@ -64,8 +73,6 @@ const GamingAchievements = () => {
       color: '#ff4655',
       achievements: [
         'Achieved Immortal 3 rank in Beta/Season 1',
-        'Top 0.1% of all players globally',
-        'Mastered tactical FPS mechanics and team coordination',
       ],
     },
     {
@@ -75,19 +82,9 @@ const GamingAchievements = () => {
       color: '#ff8c00',
       achievements: [
         'Rank 3 to first level 100 on Class Gemma 1/2',
-        'Speed-leveling optimization and efficiency mastery',
       ],
     },
-    {
-      title: 'Deadlock',
-      period: '2024',
-      icon: <Target size={40} />,
-      color: '#9370db',
-      achievements: [
-        'Reached Ascendant rank',
-        'Early adopter and quick learner of new competitive title',
-      ],
-    },
+
     {
       title: 'H1Z1',
       period: '2016 - 2017',
@@ -95,7 +92,6 @@ const GamingAchievements = () => {
       color: '#ff6347',
       achievements: [
         'Achieved Royalty rank (top tier)',
-        'Battle royale mechanics mastery',
       ],
     },
   ]
@@ -126,8 +122,7 @@ const GamingAchievements = () => {
           <h3>Multi-Game Mastery</h3>
           <p>
             I'm highly proficient and excel at every game I invest time and effort into.
-            From professional League of Legends to hardcore Path of Exile, I consistently
-            reach top-tier ranks through strategic thinking, rapid learning, and competitive drive.
+            In any game I have played, I have acheived top 1% mastery. Below are some of my achievements throughout my gaming career.
           </p>
         </div>
       </motion.div>
@@ -175,31 +170,6 @@ const GamingAchievements = () => {
           </motion.div>
         ))}
       </div>
-
-      <motion.div
-        className="gaming-footer"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-      >
-        <div className="footer-stats">
-          <div className="stat-item">
-            <Trophy size={40} style={{ color: 'var(--accent)' }} />
-            <h3>6+ Years</h3>
-            <p>Professional Esports</p>
-          </div>
-          <div className="stat-item">
-            <Target size={40} style={{ color: 'var(--accent)' }} />
-            <h3>8 Games</h3>
-            <p>Top-Tier Rankings</p>
-          </div>
-          <div className="stat-item">
-            <Users size={40} style={{ color: 'var(--accent)' }} />
-            <h3>150k+</h3>
-            <p>Community Following</p>
-          </div>
-        </div>
-      </motion.div>
     </div>
   )
 }
