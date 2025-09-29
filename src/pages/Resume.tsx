@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Briefcase, GraduationCap, Award, Download, ExternalLink } from 'lucide-react'
+import { Briefcase, GraduationCap, Award, ExternalLink } from 'lucide-react'
 import './Pages.css'
 
 const Resume = () => {
@@ -82,29 +82,17 @@ const Resume = () => {
       >
         <h1>RESUME</h1>
         <div className="header-line"></div>
-        <div className="resume-actions">
-          <motion.a
-            href="https://docs.google.com/document/d/1ymPbw5Vk9lI6TSC7xU1gq7BXzcX22zJiqdWdqtFteeY/edit?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="download-btn primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ExternalLink size={20} />
-            View Full Resume
-          </motion.a>
-          <motion.a
-            href="/resume.pdf"
-            download="Austin_Link_Shin_Resume.pdf"
-            className="download-btn secondary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Download size={20} />
-            Download PDF
-          </motion.a>
-        </div>
+        <motion.a
+          href="https://docs.google.com/document/d/1ymPbw5Vk9lI6TSC7xU1gq7BXzcX22zJiqdWdqtFteeY/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="download-btn"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <ExternalLink size={20} />
+          View Full Resume
+        </motion.a>
       </motion.div>
 
       <div className="resume-content">
