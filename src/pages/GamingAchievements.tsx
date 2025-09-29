@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Trophy, Target, Users, TrendingUp, Award, Gamepad2 } from 'lucide-react'
+import { Users } from 'lucide-react'
 import './Pages.css'
 
 const GamingAchievements = () => {
@@ -7,7 +7,7 @@ const GamingAchievements = () => {
     {
       title: 'League of Legends',
       period: '2011 - 2025',
-      icon: <Trophy size={40} />,
+      icon: '/icons/league-of-legends.png',
       color: '#d4af37',
       achievements: [
         'Played on Counter Logic Gaming (CLG), a top 3 team in North America in LCS (League Championship Series), the most popular esports league in the world',
@@ -24,7 +24,7 @@ const GamingAchievements = () => {
     {
       title: 'Dota',
       period: '2009 - 2025',
-      icon: <Gamepad2 size={40} />,
+      icon: '/icons/dota.png',
       color: '#ff6b6b',
       achievements: [
         'Commentator and content creator for Dota Commentaries (2009-2011) whiched helped expand awareness in the Western Dota Pro Scene',
@@ -38,7 +38,7 @@ const GamingAchievements = () => {
     {
         title: 'Deadlock',
         period: '2024-2025',
-        icon: <Target size={40} />,
+        icon: '/icons/deadlock.png',
         color: '#9370db',
         achievements: [
           'Reached Ascendant rank during Closed Alpha',
@@ -47,7 +47,7 @@ const GamingAchievements = () => {
     {
       title: 'Path of Exile',
       period: '2018 - 2024',
-      icon: <Target size={40} />,
+      icon: '/icons/path-of-exile.png',
       color: '#8b4513',
       achievements: [
         'Top 3 Hardcore (HC) on Class Ladders across multiple seasons',
@@ -59,7 +59,7 @@ const GamingAchievements = () => {
     {
       title: 'Hearthstone',
       period: '2016',
-      icon: <Award size={40} />,
+      icon: '/icons/hearthstone.png',
       color: '#ffd700',
       achievements: [
         'Reached Top 10 Legend rank on ladder',
@@ -69,7 +69,7 @@ const GamingAchievements = () => {
     {
       title: 'Valorant',
       period: '2021',
-      icon: <TrendingUp size={40} />,
+      icon: '/icons/valorant.png',
       color: '#ff4655',
       achievements: [
         'Achieved Immortal 3 rank in Beta/Season 1',
@@ -78,7 +78,7 @@ const GamingAchievements = () => {
     {
       title: 'Torchlight Infinite',
       period: '2025',
-      icon: <Trophy size={40} />,
+      icon: '/icons/torchlight-infinite.png',
       color: '#ff8c00',
       achievements: [
         'Rank 3 to first level 100 on Class Gemma 1/2',
@@ -88,7 +88,7 @@ const GamingAchievements = () => {
     {
       title: 'H1Z1',
       period: '2016 - 2017',
-      icon: <Award size={40} />,
+      icon: '/icons/h1z1.png',
       color: '#ff6347',
       achievements: [
         'Achieved Royalty rank (top tier)',
@@ -140,11 +140,19 @@ const GamingAchievements = () => {
             <div className="game-header">
               <motion.div
                 className="game-icon"
-                style={{ color: game.color }}
                 whileHover={{ scale: 1.2, rotate: 15 }}
                 transition={{ duration: 0.3 }}
               >
-                {game.icon}
+                <img 
+                  src={game.icon} 
+                  alt={`${game.title} icon`}
+                  style={{ 
+                    width: '50px', 
+                    height: '50px', 
+                    objectFit: 'contain',
+                    filter: `drop-shadow(0 0 8px ${game.color})`,
+                  }}
+                />
               </motion.div>
               <div className="game-title-section">
                 <h2>{game.title}</h2>

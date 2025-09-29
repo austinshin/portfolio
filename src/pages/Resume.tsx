@@ -153,33 +153,6 @@ const Resume = () => {
             </motion.div>
           ))}
         </motion.section>
-
-        <motion.section
-          className="resume-section full-width"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <div className="section-title">
-            <Award size={30} />
-            <h2>Key Achievements</h2>
-          </div>
-          <div className="achievements-grid">
-            {achievements.map((achievement, i) => (
-              <motion.div
-                key={i}
-                className="achievement-item"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 + i * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="achievement-icon">✓</div>
-                <p>{achievement}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
       </div>
     </div>
   )
