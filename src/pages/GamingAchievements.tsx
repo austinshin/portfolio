@@ -32,7 +32,7 @@ const GamingAchievements = () => {
         'Achieved Top 50 rank on ladder (2017)',
         'Created YouTube content for the Dota community sharing tips, tricks, and guides',
         '1v1 practice and theorycrafting with professional TI players',
-        'I also played Hon actively too when it first came out'.
+        'I also played Hon actively too when it first came out',
       ],
     },
     {
