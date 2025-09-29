@@ -10,6 +10,7 @@ export interface Project {
   demoUrl?: string
   githubUrl?: string
   detailedInfo?: {
+    howItWorks?: string[]
     challenges?: string[]
     impact?: string[]
     learnings?: string[]
@@ -57,25 +58,60 @@ export const professionalProjects: Project[] = [
     period: 'May 2018 - Jan 2021',
     description: [
       'Led implementation of shareable payment links for social media commerce',
-      'Designed security process using credit card tokenization',
-      'Protected customer data through secure tokenization',
+      'Designed security process using credit card tokenization with double-layer security',
+      'Created comprehensive payment processing solution from simple form to enterprise-grade system',
+      'Protected customer data through secure nonce and multi-use token system',
+      'Enabled merchants to receive payments online without accessing customer data',
+      'Implemented recurring customer recognition for easier transaction processing',
       'Successfully generated significant revenue for the company',
     ],
-    tags: ['React', 'Node.js', 'Security', 'Tokenization', 'Payment Processing'],
+    tags: ['React', 'Node.js', 'Security', 'Tokenization', 'Payment Processing', 'PCI Compliance', 'JavaScript'],
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800',
     type: 'professional',
     detailedInfo: {
+      howItWorks: [
+        'Developers mount the Poynt Collect JavaScript block on their payment page',
+        'Customers enter sensitive card information using the Poynt Collect JavaScript form',
+        'The sensitive data is sent directly to the GoDaddy Poynt server (bypassing merchant server)',
+        'GoDaddy Poynt returns a unique nonce back to the browser',
+        'The page passes the nonce back to the developer server',
+        'The developer server calls the GoDaddy Poynt server and obtains a multi-use token using the initial nonce',
+        'The token is used to charge the customer without merchant ever accessing raw card data',
+      ],
       challenges: [
-        'Implementing PCI-compliant payment security',
+        'Implementing PCI-compliant payment security with double-layer protection',
         'Creating user-friendly shareable links for non-technical merchants',
-        'Handling payment processing errors gracefully',
+        'Designing secure nonce-to-token conversion system',
+        'Handling payment processing errors gracefully across multiple payment flows',
+        'Building recurring customer recognition without storing sensitive data',
+        'Centralizing payment processing services across GoDaddy Poynt ecosystem',
       ],
       impact: [
-        'Generated significant revenue through social commerce',
+        'Generated significant revenue through social commerce channels',
         'Zero security breaches with tokenization implementation',
         'Merchants could accept payments without physical terminals',
+        'Eliminated need for merchants to handle sensitive customer data',
+        'Enabled seamless recurring payments while maintaining security',
+        'Became comprehensive payment processing solution for GoDaddy Poynt merchants',
+      ],
+      learnings: [
+        'Payment processing and services are crucial for merchant operations',
+        'Every transaction contains confidential information subject to numerous regulations',
+        'Nonce-based tokenization provides secure payment processing',
+        'Recurring customer recognition improves merchant workflow efficiency',
+        'Separating sensitive data flow from merchant servers ensures PCI compliance',
       ],
     },
+    gallery: [
+      {
+        url: 'https://i.imgur.com/ePtSNaD.png',
+        caption: 'Poynt Collect payment form with secure customer data entry',
+      },
+      {
+        url: 'https://i.imgur.com/jUvksFQ.png',
+        caption: 'Poynt Collect architecture - JavaScript block flow with nonce and token system',
+      },
+    ],
   },
   {
     id: 'poynt-dashboard',

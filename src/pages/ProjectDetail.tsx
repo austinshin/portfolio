@@ -131,6 +131,20 @@ const ProjectDetail = () => {
             <div className="project-additional-info">
               <h3>Additional Details</h3>
               <div className="additional-content">
+                {project.detailedInfo.howItWorks && (
+                  <div className="info-section">
+                    <h4>How It Works</h4>
+                    <div className="how-it-works-content">
+                      {project.detailedInfo.howItWorks.map((step, idx) => (
+                        <div key={idx} className="workflow-step">
+                          <div className="step-number">{idx + 1}</div>
+                          <p>{step}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {project.detailedInfo.challenges && (
                   <div className="info-section">
                     <h4>Challenges & Solutions</h4>
