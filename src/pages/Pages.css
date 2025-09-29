@@ -462,6 +462,127 @@
   transition: all 0.3s ease;
 }
 
+/* Gaming Achievements Page */
+.gaming-intro {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+}
+
+.intro-card {
+  background: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.intro-card h3 {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+.intro-card p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.game-achievement-card {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-icon {
+  flex-shrink: 0;
+}
+
+.game-title-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.game-period {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievements-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.achievements-list .bullet {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+.gaming-footer {
+  background: var(--bg-secondary);
+  padding: 3rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  margin: 1rem 0 0.5rem;
+  color: var(--text-primary);
+}
+
+.stat-item p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .page {
@@ -484,5 +605,19 @@
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-stats {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .game-header {
+    flex-direction: column;
+    text-align: center;
   }
 }
