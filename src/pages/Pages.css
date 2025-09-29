@@ -92,18 +92,47 @@
 }
 
 /* Resume Page */
+.resume-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .download-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--accent);
-  color: var(--text-primary);
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.download-btn.primary {
+  background: var(--accent);
+  color: var(--text-primary);
+  box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+}
+
+.download-btn.primary:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
+}
+
+.download-btn.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.download-btn.secondary:hover {
+  background: var(--accent);
+  color: var(--text-primary);
 }
 
 .resume-content {
