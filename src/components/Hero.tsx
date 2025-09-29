@@ -24,9 +24,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            BUILDING THE
+            FROM ESPORTS
             <br />
-            <span className="highlight">FUTURE</span>
+            TO <span className="highlight">SOFTWARE</span>
           </motion.h1>
           
           <motion.p
@@ -35,9 +35,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            I'm a creative developer passionate about crafting exceptional
-            digital experiences. From elegant interfaces to robust systems,
-            I bring ideas to life with precision and innovation.
+            Former professional League of Legends player (CLG, Team Liquid) turned
+            Senior Software Engineer. I bring the same competitive drive and strategic
+            thinking from esports to building exceptional software experiences.
           </motion.p>
 
           <motion.div

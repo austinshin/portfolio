@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Twitter, Mail, Youtube, Instagram } from 'lucide-react'
+import { Github, Linkedin, Twitter, Mail, Instagram } from 'lucide-react'
 import './Pages.css'
 
 const Socials = () => {
@@ -7,44 +7,37 @@ const Socials = () => {
     {
       name: 'GitHub',
       icon: <Github size={40} />,
-      url: 'https://github.com/yourusername',
-      username: '@yourusername',
+      url: 'https://github.com/austinshin',
+      username: '@austinshin',
       color: '#ffffff',
     },
     {
       name: 'LinkedIn',
       icon: <Linkedin size={40} />,
-      url: 'https://linkedin.com/in/yourusername',
-      username: 'Your Name',
+      url: 'https://linkedin.com/in/austin-shin',
+      username: 'Austin "Link" Shin',
       color: '#0077b5',
     },
     {
       name: 'Twitter',
       icon: <Twitter size={40} />,
-      url: 'https://twitter.com/yourusername',
-      username: '@yourusername',
+      url: 'https://twitter.com/link115_',
+      username: '@link115_',
       color: '#1da1f2',
-    },
-    {
-      name: 'Email',
-      icon: <Mail size={40} />,
-      url: 'mailto:your.email@example.com',
-      username: 'your.email@example.com',
-      color: '#ea4335',
-    },
-    {
-      name: 'YouTube',
-      icon: <Youtube size={40} />,
-      url: 'https://youtube.com/@yourusername',
-      username: '@yourusername',
-      color: '#ff0000',
     },
     {
       name: 'Instagram',
       icon: <Instagram size={40} />,
-      url: 'https://instagram.com/yourusername',
-      username: '@yourusername',
+      url: 'https://instagram.com/link115',
+      username: '@link115',
       color: '#e4405f',
+    },
+    {
+      name: 'Email',
+      icon: <Mail size={40} />,
+      url: 'mailto:austin.shin@example.com',
+      username: 'Get in Touch',
+      color: '#ea4335',
     },
   ]
 
@@ -103,7 +96,7 @@ const Socials = () => {
           className="cta-button"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => window.location.href = 'mailto:your.email@example.com'}
+          onClick={() => window.location.href = 'mailto:austin.shin@example.com'}
         >
           Start a Conversation
         </motion.button>

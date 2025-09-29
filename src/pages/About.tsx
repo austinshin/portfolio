@@ -27,10 +27,11 @@ const About = () => {
           </div>
           <h2>Background</h2>
           <p>
-            I'm a passionate developer and designer with a love for creating
-            exceptional digital experiences. My journey in tech began with a
-            curiosity for how things work and evolved into a career dedicated
-            to crafting innovative solutions.
+            31-year-old Korean American with an unconventional path to software engineering.
+            Started at UC Berkeley studying Computer Science, then took a leap into
+            professional esports. After years competing at the highest level in League of
+            Legends, I returned to my roots in software engineering through HackReactor,
+            combining my analytical gaming mindset with technical expertise.
           </p>
         </motion.div>
 
@@ -45,10 +46,10 @@ const About = () => {
           </div>
           <h2>Mission</h2>
           <p>
-            To push the boundaries of what's possible in interactive
-            entertainment and create experiences that inspire and connect
-            people around the world. I believe in the power of technology
-            to tell stories and bring communities together.
+            To bridge the gap between gaming and software engineering. Having experienced
+            both worlds at the highest level—competing in professional esports and building
+            enterprise software—I understand what makes great interactive experiences.
+            I'm driven to create technology that empowers gamers and developers alike.
           </p>
         </motion.div>
 
@@ -63,10 +64,11 @@ const About = () => {
           </div>
           <h2>Passion</h2>
           <p>
-            Gaming, design, and cutting-edge technology drive everything I do.
-            I'm fascinated by immersive worlds, innovative gameplay mechanics,
-            and the intersection of art and technology in creating memorable
-            experiences.
+            Competitive gaming shaped who I am—it taught me strategic thinking, rapid
+            decision-making, and how to perform under pressure. Today, I channel that same
+            intensity into software engineering, building tools and systems with the precision
+            of a professional athlete. I'm also dedicated to continuous improvement through
+            calisthenics and mental health practices.
           </p>
         </motion.div>
 
@@ -81,10 +83,10 @@ const About = () => {
           </div>
           <h2>Expertise</h2>
           <p>
-            Full-stack development, UI/UX design, game development, and
-            system architecture. I specialize in React, TypeScript, C++,
-            and modern web technologies, with a focus on performance and
-            user experience.
+            Senior Software Engineer with experience at GoDaddy and Poynt startup.
+            Full-stack development specializing in React, TypeScript, Node.js, and Python.
+            Recent focus on trading automation, scripting, and AI tools. Strong foundation
+            in system architecture, performance optimization, and building scalable applications.
           </p>
         </motion.div>
       </div>
@@ -97,7 +99,7 @@ const About = () => {
       >
         <h2>Technical Skills</h2>
         <div className="skills-grid">
-          {['React', 'TypeScript', 'Node.js', 'C++', 'Python', 'Unity', 'Unreal Engine', 'WebGL', 'Three.js', 'PostgreSQL', 'AWS', 'Docker'].map((skill, i) => (
+          {['React', 'TypeScript', 'Node.js', 'Python', 'JavaScript', 'PostgreSQL', 'MongoDB', 'AWS', 'Docker', 'Git', 'CI/CD', 'REST APIs'].map((skill, i) => (
             <motion.div
               key={skill}
               className="skill-tag"

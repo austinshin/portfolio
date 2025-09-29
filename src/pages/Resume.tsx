@@ -5,39 +5,71 @@ import './Pages.css'
 const Resume = () => {
   const experiences = [
     {
+      title: 'Self Development & Trading',
+      company: 'Independent',
+      period: 'Nov 2023 - Present',
+      description: 'Developed trading automation scripts and tools. Building AI-powered applications. Focus on calisthenics, physical and mental health optimization.',
+    },
+    {
       title: 'Senior Software Engineer',
-      company: 'Tech Company',
-      period: '2022 - Present',
-      description: 'Leading development of cutting-edge web applications and mentoring junior developers.',
+      company: 'GoDaddy',
+      period: 'Jan 2021 - May 2023',
+      description: 'Led development of enterprise web applications. Architected scalable solutions serving millions of users. Mentored junior engineers and drove technical initiatives.',
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Startup Inc',
-      period: '2020 - 2022',
-      description: 'Built scalable backend systems and modern frontend interfaces.',
+      title: 'Software Engineer',
+      company: 'Poynt (Startup)',
+      period: 'May 2018 - Jan 2021',
+      description: 'Full-stack development for payment processing platform. Built features from concept to production. Worked in fast-paced startup environment.',
     },
     {
-      title: 'Junior Developer',
-      company: 'Digital Agency',
-      period: '2018 - 2020',
-      description: 'Developed responsive websites and collaborated with design teams.',
+      title: 'Professional Esports Player (Mid)',
+      company: 'Team Liquid',
+      period: 'Jun 2016 - Aug 2017',
+      description: 'Competed in League of Legends Championship Series (LCS). Represented Team Liquid at the highest level of competitive League of Legends.',
+    },
+    {
+      title: 'Professional Esports Player (Mid)',
+      company: 'Counter Logic Gaming (CLG)',
+      period: 'Jan 2013 - May 2015',
+      description: 'Competed professionally in League of Legends Championship Series. One of the pioneering NA LCS mid laners.',
     },
   ]
 
   const education = [
     {
-      degree: 'Bachelor of Science in Computer Science',
-      school: 'University Name',
-      period: '2014 - 2018',
-      description: 'Focus on software engineering and game development.',
+      degree: 'Software Engineering Immersive',
+      school: 'HackReactor Coding Bootcamp',
+      period: 'Dec 2017 - Mar 2018',
+      description: 'Intensive 3-month full-stack software engineering program. Advanced JavaScript, React, Node.js, and computer science fundamentals.',
+    },
+    {
+      degree: 'Computer Science (Readmission)',
+      school: 'UC Berkeley',
+      period: 'Sep 2015 - May 2016',
+      description: 'Returned to complete CS degree after professional esports career.',
+    },
+    {
+      degree: 'Computer Science Studies',
+      school: 'Berkeley City College',
+      period: 'Jun 2015 - Aug 2015',
+      description: 'Continued CS education during transition period.',
+    },
+    {
+      degree: 'Computer Science (Initial Studies)',
+      school: 'UC Berkeley',
+      period: 'Sep 2011 - Dec 2012',
+      description: 'Started Computer Science degree before pursuing professional esports.',
     },
   ]
 
   const achievements = [
-    'Led team that shipped 5+ major features',
-    'Reduced load time by 60% through optimization',
-    'Spoke at 3 tech conferences',
-    'Published 10+ open source projects',
+    'Competed at the highest level of League of Legends (LCS) for CLG and Team Liquid',
+    'Transitioned from professional esports to Senior Software Engineer',
+    'Built enterprise applications serving millions of users at GoDaddy',
+    'Developed payment processing features for Poynt startup',
+    'Created trading automation tools and AI-powered applications',
+    'Pioneered as one of the first generation NA LCS professional players',
   ]
 
   return (
