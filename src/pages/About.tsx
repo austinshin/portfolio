@@ -15,6 +15,28 @@ const About = () => {
         <div className="header-line"></div>
       </motion.div>
 
+      <motion.div
+        className="about-images"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <motion.div
+          className="profile-image-container"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img src="/icons/headshot.jpg" alt="Austin 'Link' Shin" className="profile-image" />
+        </motion.div>
+        <motion.div
+          className="companion-image-container"
+          whileHover={{ scale: 1.05, rotate: 5 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img src="/icons/mew.jpg" alt="Mew" className="companion-image" />
+        </motion.div>
+      </motion.div>
+
       <div className="content-grid">
         <motion.div
           className="content-section"
