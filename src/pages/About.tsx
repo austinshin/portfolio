@@ -32,7 +32,7 @@ const About = () => {
             professional esports. After years of competing at the highest level in League of
             Legends, I returned to software engineering to experience the corporate side of the world.
             I took a break to focus on my mental and physical health and to travel the world. 
-            I'm now looking to get back into work and build innovative cool products.
+            
           </p>
         </motion.div>
 
@@ -47,8 +47,8 @@ const About = () => {
           </div>
           <h2>Mission</h2>
           <p>
-            My goal is to learn and stay knowledgeable about the world and its advances in technology. 
-            I want to living a balanced and fulfilling life, while aiming to be the best at whatever I pursue.
+            My current goal is to enter the game development industry and build innovative cool products.
+            I want to living a balanced and fulfilling life, while aiming to be the absolute best at whatever I pursue.
             I'm very competitive and driven. I love sharing ideas and teaching others and just in general, being a good friend.
           </p>
         </motion.div>
@@ -68,6 +68,7 @@ const About = () => {
             decision-making, and how to perform under pressure. Today, I channel that same
             intensity into software engineering, building tools and systems to make my life and the others around me a bit easier.
             I'm a big advocate on health and wellness, constantly self-reflecting on how I can make my life 1% better everyday. 
+            I strongly believe that I can accomplish anything I put my mind to.
           </p>
         </motion.div>
 
