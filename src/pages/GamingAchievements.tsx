@@ -7,7 +7,7 @@ const GamingAchievements = () => {
     {
       title: 'League of Legends',
       period: '2011 - 2025',
-      icon: '/icons/league-of-legends.png',
+      icon: '/icons/league-of-legends.jpg',
       color: '#d4af37',
       achievements: [
         'Played on Counter Logic Gaming (CLG), a top 3 team in North America in LCS (League Championship Series), the most popular esports league in the world',
@@ -38,7 +38,7 @@ const GamingAchievements = () => {
     {
         title: 'Deadlock',
         period: '2024-2025',
-        icon: '/icons/deadlock.png',
+        icon: '/icons/deadlock.jpg',
         color: '#9370db',
         achievements: [
           'Reached Ascendant rank during Closed Alpha',
@@ -47,7 +47,7 @@ const GamingAchievements = () => {
     {
       title: 'Path of Exile',
       period: '2018 - 2024',
-      icon: '/icons/path-of-exile.png',
+      icon: '/icons/path-of-exile.jpg',
       color: '#8b4513',
       achievements: [
         'Top 3 Hardcore (HC) on Class Ladders across multiple seasons',
