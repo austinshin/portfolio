@@ -46,18 +46,6 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <div className="feature">
-              <Code size={24} />
-              <span>Clean Code</span>
-            </div>
-            <div className="feature">
-              <Palette size={24} />
-              <span>Beautiful Design</span>
-            </div>
-            <div className="feature">
-              <Zap size={24} />
-              <span>High Performance</span>
-            </div>
           </motion.div>
 
           <motion.button
@@ -90,7 +78,7 @@ const Hero = () => {
               <div className="image-wrapper">
                 <img src="/icons/headshot.jpg" alt="Austin and girlfriend" />
               </div>
-              <p className="image-caption">me and my girlfriend</p>
+              <p className="image-caption">Me and my girlfriend</p>
             </motion.div>
 
             <motion.div
@@ -103,7 +91,7 @@ const Hero = () => {
               <div className="image-wrapper">
                 <img src="/icons/mew.jpg" alt="Mew the cat" />
               </div>
-              <p className="image-caption">my cat, mew</p>
+              <p className="image-caption">My cat, mew</p>
             </motion.div>
           </div>
         </motion.div>

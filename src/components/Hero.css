@@ -99,9 +99,10 @@
 
 .hero-images {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 2rem;
   padding: 2rem;
+  justify-content: center;
 }
 
 .hero-image-card {
@@ -190,6 +191,7 @@
   .hero-images {
     padding: 0.5rem;
     gap: 1.5rem;
+    flex-direction: column;
   }
 
   .image-wrapper {
