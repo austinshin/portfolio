@@ -94,6 +94,17 @@ const GamingAchievements = () => {
         'Achieved Royalty rank (top tier)',
       ],
     },
+    {
+      title: 'Teamfight Tactics',
+      period: 'Season 12',
+      icon: '/icons/tft.png',
+      color: '#d4af37',
+      achievements: [
+        'Top 200 Challenger rank in Season 12',
+        'Demonstrated mastery of complex auto-battler mechanics',
+        'Strategic positioning and economy management at highest level',
+      ],
+    },
   ]
 
   return (

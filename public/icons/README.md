@@ -12,6 +12,7 @@ Add game icon images to this folder with the following filenames:
 6. **valorant.png** - Valorant logo
 7. **torchlight-infinite.png** - Torchlight Infinite logo
 8. **h1z1.png** - H1Z1 logo
+9. **tft.png** - Teamfight Tactics logo
 
 ## Icon Specifications:
 
