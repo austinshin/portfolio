@@ -27,8 +27,8 @@ const About = () => {
           </div>
           <h2>Background</h2>
           <p>
-            31-year-old Californian Korean American. 
-            Started at UC Berkeley studying Computer Science, then dropped out to chase my dreams in
+            31-year-old Californian Korean American. I started my journey as a highly gifted magnet student.
+            I went to UC Berkeley studying Computer Science, then dropped out to chase my dreams in
             professional esports. After years of competing at the highest level in League of
             Legends, I returned to software engineering to experience the corporate side of the world.
             I took a break to focus on my mental and physical health and to travel the world. 

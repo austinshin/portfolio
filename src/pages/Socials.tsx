@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Twitter, Mail, Instagram, BookOpen } from 'lucide-react'
+import { Github, Twitter, Mail, Instagram, BookOpen, Youtube } from 'lucide-react'
 import './Pages.css'
 
 const Socials = () => {
@@ -31,6 +31,13 @@ const Socials = () => {
       url: 'https://substack.com/@link115',
       username: '@link115',
       color: '#ff6719',
+    },
+    {
+      name: 'YouTube',
+      icon: <Youtube size={40} />,
+      url: 'https://www.youtube.com/@Link115_',
+      username: '@Link115_',
+      color: '#ff0000',
     },
     {
       name: 'Email',
