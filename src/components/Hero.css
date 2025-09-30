@@ -141,8 +141,9 @@
   color: var(--text-secondary);
   font-size: 0.9rem;
   font-style: italic;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   margin: 0;
+  line-height: 1;
 }
 
 .scroll-indicator {

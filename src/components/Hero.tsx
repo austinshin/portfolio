@@ -78,7 +78,7 @@ const Hero = () => {
               <div className="image-wrapper">
                 <img src="/icons/headshot.jpg" alt="Austin and girlfriend" />
               </div>
-              <p className="image-caption">Me and my girlfriend, Megan</p>
+              <p className="image-caption">Me and Megan</p>
             </motion.div>
 
             <motion.div
