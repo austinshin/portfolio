@@ -97,12 +97,11 @@ const GamingAchievements = () => {
     {
       title: 'Teamfight Tactics',
       period: 'Season 12',
-      icon: '/icons/tft.png',
+      icon: '/icons/tft.jpg',
       color: '#d4af37',
       achievements: [
         'Top 200 Challenger rank in Season 12',
-        'Demonstrated mastery of complex auto-battler mechanics',
-        'Strategic positioning and economy management at highest level',
+        'Peak 1000LP',
       ],
     },
   ]
