@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowDown, Code, Palette, Zap } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import './Hero.css'
 
 const Hero = () => {

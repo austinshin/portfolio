@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Briefcase, GraduationCap, Award, ExternalLink } from 'lucide-react'
+import { Briefcase, GraduationCap, ExternalLink } from 'lucide-react'
 import './Pages.css'
 
 const Resume = () => {
@@ -61,15 +61,6 @@ const Resume = () => {
       period: 'Sep 2011 - Dec 2012',
       description: 'Started Computer Science degree before pursuing professional esports.',
     },
-  ]
-
-  const achievements = [
-    'Competed at the highest level of League of Legends (LCS) for CLG and Team Liquid',
-    'Transitioned from professional esports to Senior Software Engineer',
-    'Built enterprise applications serving millions of users at GoDaddy',
-    'Developed payment processing features for Poynt startup',
-    'Created trading automation tools and AI-powered applications',
-    'Pioneered as one of the first generation NA LCS professional players',
   ]
 
   return (
