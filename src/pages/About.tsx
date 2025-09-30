@@ -90,29 +90,6 @@ const About = () => {
           </p>
         </motion.div>
       </div>
-
-      <motion.div
-        className="skills-section"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-      >
-        <h2>Technical Skills</h2>
-        <div className="skills-grid">
-          {['React', 'TypeScript', 'Node.js', 'Python', 'JavaScript', 'PostgreSQL', 'Vercel', 'CursorAI', 'AWS', 'Docker', 'Git', 'CI/CD', 'REST APIs', 'Jira', 'Trello', 'Figma', 'Obsidian', 'Notion'].map((skill, i) => (
-            <motion.div
-              key={skill}
-              className="skill-tag"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.7 + i * 0.05 }}
-              whileHover={{ scale: 1.1, backgroundColor: '#ff4444' }}
-            >
-              {skill}
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
     </div>
   )
 }
