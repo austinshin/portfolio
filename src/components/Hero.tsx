@@ -36,8 +36,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             Former professional League of Legends player (CLG, Team Liquid) turned
-            Senior Software Engineer. I bring the same competitive drive and strategic
-            thinking from esports to building exceptional software experiences.
+            Senior Software Engineer. I love to learn, travel, and am always excited to build cool stuff.
+            I want to experience as much in the world before I die.
           </motion.p>
 
           <motion.div
@@ -78,7 +78,7 @@ const Hero = () => {
               <div className="image-wrapper">
                 <img src="/icons/headshot.jpg" alt="Austin and girlfriend" />
               </div>
-              <p className="image-caption">Me and my girlfriend</p>
+              <p className="image-caption">Me and my girlfriend, Megan</p>
             </motion.div>
 
             <motion.div
@@ -91,7 +91,20 @@ const Hero = () => {
               <div className="image-wrapper">
                 <img src="/icons/mew.jpg" alt="Mew the cat" />
               </div>
-              <p className="image-caption">My cat, mew</p>
+              <p className="image-caption">My cat: Mew</p>
+            </motion.div>
+
+            <motion.div
+              className="hero-image-card"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              whileHover={{ y: -10, boxShadow: '0 15px 40px rgba(255, 68, 68, 0.4)' }}
+            >
+              <div className="image-wrapper">
+                <img src="/icons/zuli.png" alt="Zuli" />
+              </div>
+              <p className="image-caption">zuli</p>
             </motion.div>
           </div>
         </motion.div>
