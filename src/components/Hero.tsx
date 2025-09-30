@@ -35,9 +35,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Former professional League of Legends player (CLG, Team Liquid) turned
-            Senior Software Engineer. I love to learn, travel, and am always excited to build cool stuff.
-            I want to experience as much in the world before I die.
+            Former professional League of Legends player turned
+            Software Engineer. I love to learn, travel, read, write. I am always excited to build cool stuff.
+            I want to experience as much in the world and share that knowledge with others.
           </motion.p>
 
           <motion.div
@@ -91,7 +91,7 @@ const Hero = () => {
               <div className="image-wrapper">
                 <img src="/icons/mew.jpg" alt="Mew the cat" />
               </div>
-              <p className="image-caption">My cat: Mew</p>
+              <p className="image-caption">Mew</p>
             </motion.div>
 
             <motion.div
@@ -104,7 +104,7 @@ const Hero = () => {
               <div className="image-wrapper">
                 <img src="/icons/zuli.png" alt="Zuli" />
               </div>
-              <p className="image-caption">zuli</p>
+              <p className="image-caption">Zuli</p>
             </motion.div>
           </div>
         </motion.div>
