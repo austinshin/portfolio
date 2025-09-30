@@ -79,20 +79,32 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="visual-grid">
-            {[...Array(16)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="grid-item"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.8 + i * 0.05,
-                }}
-                whileHover={{ scale: 1.1, backgroundColor: '#ff4444' }}
-              />
-            ))}
+          <div className="hero-images">
+            <motion.div
+              className="hero-image-card"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              whileHover={{ y: -10, boxShadow: '0 15px 40px rgba(255, 68, 68, 0.4)' }}
+            >
+              <div className="image-wrapper">
+                <img src="/icons/headshot.jpg" alt="Austin and girlfriend" />
+              </div>
+              <p className="image-caption">me and my girlfriend</p>
+            </motion.div>
+
+            <motion.div
+              className="hero-image-card"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              whileHover={{ y: -10, boxShadow: '0 15px 40px rgba(255, 68, 68, 0.4)' }}
+            >
+              <div className="image-wrapper">
+                <img src="/icons/mew.jpg" alt="Mew the cat" />
+              </div>
+              <p className="image-caption">my cat, mew</p>
+            </motion.div>
           </div>
         </motion.div>
       </div>
