@@ -4,7 +4,7 @@ export interface Project {
   company?: string
   description: string[]
   tags: string[]
-  image: string
+  image?: string
   type: 'professional' | 'personal'
   period?: string
   demoUrl?: string
@@ -271,11 +271,10 @@ export const personalProjects: Project[] = [
     description: [
       'Discord bot using Python for household automation',
       'Manages daily chores for household of 4 friends',
-      'Automated reminder notifications',
-      'Simple but effective automation solution',
+      'Automated reminder notifications using Discord API and cronjob',
     ],
     tags: ['Python', 'Discord Bot', 'Automation', 'Notifications'],
-    image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=800',
+    image: '',
     type: 'personal',
   },
 ]

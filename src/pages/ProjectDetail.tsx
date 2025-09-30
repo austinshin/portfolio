@@ -91,9 +91,11 @@ const ProjectDetail = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className="project-detail-image">
-          <img src={project.image} alt={project.title} />
-        </div>
+        {project.image && (
+          <div className="project-detail-image">
+            <img src={project.image} alt={project.title} />
+          </div>
+        )}
 
         <div className="project-detail-info">
           <h3>Overview</h3>

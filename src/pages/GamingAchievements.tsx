@@ -32,13 +32,13 @@ const GamingAchievements = () => {
         'Achieved Top 50 rank on ladder (2017)',
         'Created YouTube content for the Dota community sharing tips, tricks, and guides',
         '1v1 practice and theorycrafting with professional TI players',
-        'I also played Hon actively too when it first came out',
+        'I also played Heroes of Newerth actively too when it first came out',
       ],
     },
     {
         title: 'Deadlock',
         period: '2024-2025',
-        icon: '/icons/deadlock.jpg',
+        icon: '/icons/deadlock.png',
         color: '#9370db',
         achievements: [
           'Reached Ascendant rank during Closed Alpha',
@@ -47,7 +47,7 @@ const GamingAchievements = () => {
     {
       title: 'Path of Exile',
       period: '2018 - 2024',
-      icon: '/icons/path-of-exile.jpg',
+      icon: '/icons/poe.png',
       color: '#8b4513',
       achievements: [
         'Top 3 Hardcore (HC) on Class Ladders across multiple seasons',
@@ -59,7 +59,7 @@ const GamingAchievements = () => {
     {
       title: 'Hearthstone',
       period: '2016',
-      icon: '/icons/hearthstone.png',
+      icon: '/icons/hearthstone.jpg',
       color: '#ffd700',
       achievements: [
         'Reached Top 10 Legend rank on ladder',
@@ -78,7 +78,7 @@ const GamingAchievements = () => {
     {
       title: 'Torchlight Infinite',
       period: '2025',
-      icon: '/icons/torchlight-infinite.png',
+      icon: '/icons/torchlight.png',
       color: '#ff8c00',
       achievements: [
         'Rank 3 to first level 100 on Class Gemma 1/2',
@@ -88,7 +88,7 @@ const GamingAchievements = () => {
     {
       title: 'H1Z1',
       period: '2016 - 2017',
-      icon: '/icons/h1z1.png',
+      icon: '/icons/h1z1.jpg',
       color: '#ff6347',
       achievements: [
         'Achieved Royalty rank (top tier)',
@@ -106,9 +106,6 @@ const GamingAchievements = () => {
       >
         <h1>GAMING ACHIEVEMENTS</h1>
         <div className="header-line"></div>
-        <p className="subtitle">
-          Professional esports career + consistent top-tier performance across multiple competitive titles
-        </p>
       </motion.div>
 
       <motion.div
@@ -121,8 +118,8 @@ const GamingAchievements = () => {
           <Users size={30} style={{ color: 'var(--accent)' }} />
           <h3>Multi-Game Mastery</h3>
           <p>
-            I'm highly proficient and excel at every game I invest time and effort into.
-            In any game I have played, I have acheived top 1% mastery. Below are some of my achievements throughout my gaming career.
+            I'm highly proficient and excel at every game genre I invest time and effort into.
+            In any game I have played, I have acheived top 1% mastery. Below are some of my accolades.
           </p>
         </div>
       </motion.div>

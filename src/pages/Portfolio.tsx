@@ -18,21 +18,23 @@ const Portfolio = () => {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       whileHover={{ y: -10 }}
     >
-      <Link to={`/portfolio/${project.id}`} className="project-link">
-        <div className="project-image">
-          <img src={project.image} alt={project.title} />
-          <div className="project-overlay">
-            <motion.div
-              className="view-details-btn"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <ArrowRight size={24} />
-              <span>View Details</span>
-            </motion.div>
+      {project.image && (
+        <Link to={`/portfolio/${project.id}`} className="project-link">
+          <div className="project-image">
+            <img src={project.image} alt={project.title} />
+            <div className="project-overlay">
+              <motion.div
+                className="view-details-btn"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <ArrowRight size={24} />
+                <span>View Details</span>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      )}
 
       <div className="project-info">
         <Link to={`/portfolio/${project.id}`} className="project-title-link">
@@ -79,7 +81,7 @@ const Portfolio = () => {
       >
         <h1>MY WORK</h1>
         <div className="header-line"></div>
-        <p className="subtitle">Professional experience at GoDaddy & Poynt + Personal AI/automation projects</p>
+        <p className="subtitle">Technical portfolio of professional and personal projects</p>
       </motion.div>
 
       {/* Professional Projects Section */}
@@ -91,7 +93,7 @@ const Portfolio = () => {
       >
         <div className="section-header">
           <Briefcase size={32} style={{ color: 'var(--accent)' }} />
-          <h2>Professional Projects</h2>
+          <h2>Professional Experience</h2>
         </div>
 
         {/* GoDaddy Subsection */}
@@ -125,7 +127,7 @@ const Portfolio = () => {
           <h2>Personal Projects</h2>
         </div>
         <p className="section-description">
-          Side projects showcasing AI integration, automation, and full-stack development
+          Side projects showcasing scripts, automation, personal apps using code & AI
         </p>
         <div className="projects-grid">
           {personalProjects.map((project, i) => renderProjectCard(project, i))}
