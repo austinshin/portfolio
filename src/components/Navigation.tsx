@@ -34,12 +34,28 @@ const Navigation = () => {
     >
       <div className="nav-container">
         <Link to="/" className="logo">
-          <motion.span
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            AUSTIN "LINK" SHIN
-          </motion.span>
+          <div className="logo-content">
+            <motion.img
+              src="/icons/headshot.jpg"
+              alt="Austin Link Shin"
+              className="nav-headshot"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              AUSTIN "LINK" SHIN
+            </motion.span>
+            <motion.img
+              src="/icons/mew.jpg"
+              alt="Mew"
+              className="nav-mew"
+              whileHover={{ scale: 1.1, rotate: -5 }}
+              transition={{ duration: 0.3 }}
+            />
+          </div>
         </Link>
 
         <div className={`nav-links ${isOpen ? 'active' : ''}`}>

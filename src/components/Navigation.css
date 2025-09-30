@@ -34,6 +34,29 @@
   transition: color 0.3s ease;
 }
 
+.logo-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-headshot {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+}
+
+.nav-mew {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
 .logo:hover {
   color: var(--accent);
 }
@@ -96,6 +119,24 @@
 @media (max-width: 768px) {
   .mobile-toggle {
     display: block;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .logo-content {
+    gap: 0.5rem;
+  }
+
+  .nav-headshot {
+    width: 35px;
+    height: 35px;
+  }
+
+  .nav-mew {
+    width: 30px;
+    height: 30px;
   }
 
   .nav-links {
