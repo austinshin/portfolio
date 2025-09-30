@@ -22,7 +22,7 @@ const Navigation = () => {
     { path: '/resume', label: 'RESUME' },
     { path: '/portfolio', label: 'PORTFOLIO' },
     { path: '/gaming', label: 'GAMING' },
-    { path: '/more', label: 'MORE' },
+    { path: '/socials', label: 'SOCIALS' },
   ]
 
   return (
