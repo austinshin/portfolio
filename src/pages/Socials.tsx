@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Twitter, Mail, Instagram } from 'lucide-react'
+import { Github, Twitter, Mail, Instagram, BookOpen } from 'lucide-react'
 import './Pages.css'
 
 const Socials = () => {
@@ -10,13 +10,6 @@ const Socials = () => {
       url: 'https://github.com/austinshin',
       username: '@austinshin',
       color: '#ffffff',
-    },
-    {
-      name: 'LinkedIn',
-      icon: <Linkedin size={40} />,
-      url: 'https://linkedin.com/in/austin-shin',
-      username: 'Austin "Link" Shin',
-      color: '#0077b5',
     },
     {
       name: 'Twitter',
@@ -33,10 +26,17 @@ const Socials = () => {
       color: '#e4405f',
     },
     {
+      name: 'Substack',
+      icon: <BookOpen size={40} />,
+      url: 'https://substack.com/@link115',
+      username: '@link115',
+      color: '#ff6719',
+    },
+    {
       name: 'Email',
       icon: <Mail size={40} />,
-      url: 'mailto:austin.shin@example.com',
-      username: 'Get in Touch',
+      url: 'mailto:shinaustijn@gmail.com',
+      username: 'shinaustijn@gmail.com',
       color: '#ea4335',
     },
   ]
@@ -96,7 +96,7 @@ const Socials = () => {
           className="cta-button"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => window.location.href = 'mailto:austin.shin@example.com'}
+          onClick={() => window.location.href = 'mailto:shinaustijn@gmail.com'}
         >
           Start a Conversation
         </motion.button>
