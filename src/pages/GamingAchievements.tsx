@@ -157,7 +157,7 @@ const GamingAchievements = () => {
                     width: '50px', 
                     height: '50px', 
                     objectFit: 'contain',
-                    filter: `drop-shadow(0 0 8px ${game.color})`,
+                    filter: `drop-shadow(0 0 15px ${game.color}) drop-shadow(0 0 30px ${game.color})`,
                   }}
                 />
               </motion.div>
