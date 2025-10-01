@@ -118,7 +118,7 @@
 
 .image-wrapper {
   width: 100%;
-  height: 220px;
+  height: 320px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -259,7 +259,7 @@
   }
 
   .image-wrapper {
-    height: 200px;
+    height: 280px;
   }
 
   .preview-grid {
@@ -284,7 +284,7 @@
   }
 
   .image-wrapper {
-    height: 250px;
+    height: 320px;
   }
 
   .social-links {

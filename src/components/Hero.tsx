@@ -37,9 +37,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Formerj professional League of Legends player turned
-              Software Engineer. I love to learn, travel, read, write. I am always excited to build cool stuff.
-              I want to experience everything the world has to offer.
+              Professional League of Legends player turned
+              Software Engineer. I love to learn, travel, read, write, and play games. I want to create and leave a legacy.
+              I want to experience everything the world has to offer while having fun!
             </motion.p>
 
             <motion.div
