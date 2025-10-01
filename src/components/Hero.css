@@ -44,6 +44,13 @@
   display: inline-block;
 }
 
+.two-time {
+  color: #C89B3C;
+  font-weight: 900;
+  text-shadow: 0 0 10px #C89B3C;
+  letter-spacing: 2px;
+}
+
 .hero-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
