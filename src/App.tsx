@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
+import ScrollToTop from './components/ScrollToTop'
 import Hero from './components/Hero'
 import About from './pages/About'
 import Resume from './pages/Resume'
@@ -10,6 +11,7 @@ import GamingAchievements from './pages/GamingAchievements'
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app">
         <Navigation />
         <Routes>
