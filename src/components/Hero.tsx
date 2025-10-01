@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowDown, Github, Twitter, Instagram, BookOpen, Youtube, Mail } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import './Hero.css'
 
 const Hero = () => {
@@ -28,9 +28,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <span className="two-time">TWO TIME</span> COLLEGE DROPOUT PRO <span className="lol-text">LEAGUE OF LEGENDS</span> PLAYER
-            <br />
-            TO <span className="highlight">SOFTWARE ENGINEER</span>
+            <span className="lol-text">PRO LEAGUE OF LEGENDS PLAYER</span> TO <span className="highlight">SOFTWARE ENGINEER</span>
           </motion.h1>
           
           <motion.p
@@ -39,9 +37,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Professional League of Legends player turned
-            Software Engineer. I love to learn, travel, read, write, and play games. I want to create and leave a legacy.
-            I want to experience everything the world has to offer while having fun!
+            Professional League of Legends player turned Software Engineer. I love to learn, travel, read, write, and play games. I want to create and leave a legacy. I want to experience everything the world has to offer while having fun!
           </motion.p>
 
           <motion.button
@@ -120,74 +116,6 @@ const Hero = () => {
         onClick={scrollToAbout}
       >
         <ArrowDown className="bounce" size={32} />
-      </motion.div>
-
-      <motion.div
-        className="hero-socials"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 1 }}
-      >
-        <div className="social-links">
-          <motion.a
-            href="https://github.com/austinshin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-link"
-            whileHover={{ scale: 1.2, y: -5 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Github size={24} />
-          </motion.a>
-          <motion.a
-            href="https://twitter.com/link115_"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-link"
-            whileHover={{ scale: 1.2, y: -5 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Twitter size={24} />
-          </motion.a>
-          <motion.a
-            href="https://instagram.com/link115"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-link"
-            whileHover={{ scale: 1.2, y: -5 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Instagram size={24} />
-          </motion.a>
-          <motion.a
-            href="https://substack.com/@link115"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-link"
-            whileHover={{ scale: 1.2, y: -5 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <BookOpen size={24} />
-          </motion.a>
-          <motion.a
-            href="https://www.youtube.com/@Link115_"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon-link"
-            whileHover={{ scale: 1.2, y: -5 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Youtube size={24} />
-          </motion.a>
-          <motion.a
-            href="mailto:shinaustin@gmail.com"
-            className="social-icon-link"
-            whileHover={{ scale: 1.2, y: -5 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Mail size={24} />
-          </motion.a>
-        </div>
       </motion.div>
     </div>
   )

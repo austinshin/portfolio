@@ -5,61 +5,73 @@ import './Pages.css'
 const Resume = () => {
   const experiences = [
     {
-      title: 'Self Development & Trading',
-      company: 'Independent',
-      period: 'Nov 2023 - Present',
-      description: 'Developed trading automation scripts and tools. Building AI-powered applications. Focus on calisthenics, physical and mental health optimization.',
-    },
-    {
-      title: 'Senior Software Engineer',
-      company: 'GoDaddy',
-      period: 'Jan 2021 - May 2023',
-      description: 'Led development of enterprise web applications. Architected scalable solutions serving millions of users. Mentored junior engineers and drove technical initiatives.',
+      title: 'Professional Esports Player (Mid)',
+      company: 'Counter Logic Gaming (CLG) & Team Liquid (TL)',
+      period: 'Jan 2013 - May 2015',
+      description: [
+        'Shotcaller and Drafter for professional League of Legends teams',
+        'Competed in League of Legends Championship Series (LCS)',
+        'One of the pioneering NA LCS mid laners'
+      ],
     },
     {
       title: 'Software Engineer',
       company: 'Poynt (Startup)',
       period: 'May 2018 - Jan 2021',
-      description: 'Full-stack development for payment processing platform. Built features from concept to production. Worked in fast-paced startup environment.',
+      description: [
+        'Full-stack development for payment processing platform to empower merchants and small businesses',
+        'Built features from concept to production',
+        'Worked in fast-paced startup environment'
+      ],
     },
     {
-      title: 'Professional Esports Player (Mid)',
-      company: 'Team Liquid',
-      period: 'Jun 2016 - Aug 2017',
-      description: 'Competed in League of Legends Championship Series (LCS). Represented Team Liquid at the highest level of competitive League of Legends.',
+      title: 'Senior Software Engineer',
+      company: 'GoDaddy (acquired Poynt)',
+      period: 'Jan 2021 - May 2023',
+      description: [
+        'Led development of enterprise web applications',
+        'Architected scalable solutions serving millions of users'
+      ],
     },
     {
-      title: 'Professional Esports Player (Mid)',
-      company: 'Counter Logic Gaming (CLG)',
-      period: 'Jan 2013 - May 2015',
-      description: 'Competed professionally in League of Legends Championship Series. One of the pioneering NA LCS mid laners.',
+      title: 'Self Development & Trading',
+      company: 'Independent',
+      period: 'Nov 2023 - Present',
+      description: [
+        'Developed trading automation scripts and tools',
+        'Building AI-powered applications',
+        'Focus on calisthenics, physical and mental health optimization'
+      ],
     },
   ]
 
   const education = [
     {
-      degree: 'Software Engineering Immersive',
-      school: 'HackReactor Coding Bootcamp',
-      period: 'Dec 2017 - Mar 2018',
-      description: 'Intensive 3-month full-stack software engineering program. Advanced JavaScript, React, Node.js, and computer science fundamentals.',
-    },
-    {
-      degree: 'Computer Science (Readmission)',
+      degree: 'Computer Science (Initial Studies)',
       school: 'UC Berkeley',
-      period: 'Sep 2015 - May 2016',
-      description: 'Returned to complete CS degree after professional esports career.',
+      period: 'Sep 2011 - Dec 2012',
+      description: ['Started Computer Science degree before pursuing professional esports'],
     },
     {
       degree: 'Computer Science Studies',
       school: 'Berkeley City College',
       period: 'Jun 2015 - Aug 2015',
-      description: 'Continued CS education during transition period.',
+      description: ['Continued CS education during transition period'],
     },
     {
-      degree: 'Computer Science (Initial Studies)',
+      degree: 'Computer Science (Readmission)',
       school: 'UC Berkeley',
-      period: 'Sep 2011 - Dec 2012',
-      description: 'Started Computer Science degree before pursuing professional esports.',
+      period: 'Sep 2015 - May 2016',
+      description: ['Returned to complete CS degree after professional esports career'],
+    },
+    {
+      degree: 'Software Engineering Immersive',
+      school: 'HackReactor Coding Bootcamp',
+      period: 'Dec 2017 - Mar 2018',
+      description: [
+        'Intensive 3-month full-stack software engineering program',
+        'Advanced JavaScript, React, Node.js, and computer science fundamentals'
+      ],
     },
   ]
 
@@ -114,7 +126,11 @@ const Resume = () => {
                   </div>
                   <span className="timeline-period">{exp.period}</span>
                 </div>
-                <p>{exp.description}</p>
+                <ul className="timeline-bullets">
+                  {exp.description.map((bullet, idx) => (
+                    <li key={idx}>{bullet}</li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}
@@ -147,7 +163,11 @@ const Resume = () => {
                   </div>
                   <span className="timeline-period">{edu.period}</span>
                 </div>
-                <p>{edu.description}</p>
+                <ul className="timeline-bullets">
+                  {edu.description.map((bullet, idx) => (
+                    <li key={idx}>{bullet}</li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}

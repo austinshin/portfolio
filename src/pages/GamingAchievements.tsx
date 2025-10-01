@@ -129,7 +129,7 @@ const GamingAchievements = () => {
           <h3>Multi-Game Mastery</h3>
           <p>
             I'm highly proficient and excel at every game genre I invest time and effort into.
-            In any game I have played, I have acheived top 1% mastery. Below are some of my accolades.
+            In any game I have played, I have achieved top 1% mastery. Below are some of my accolades.
           </p>
         </div>
       </motion.div>

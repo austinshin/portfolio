@@ -1,10 +1,11 @@
 .hero {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   position: relative;
   padding: 2rem;
+  padding-top: 8rem;
   overflow: hidden;
 }
 
@@ -27,7 +28,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  padding-top: 80px;
 }
 
 .hero-text h1 {
@@ -54,16 +54,20 @@
 .lol-text {
   color: #0BC5EA;
   font-weight: 900;
-  text-shadow: 0 0 10px #0BC5EA;
+  text-shadow: 0 0 3px rgba(11, 197, 234, 0.5);
   letter-spacing: 2px;
 }
 
 .hero-description {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
+  font-size: 1.05rem;
+  font-weight: 300 !important;
+  color: rgba(160, 160, 160, 1) !important;
   line-height: 1.8;
   margin-bottom: 2rem;
   max-width: 500px;
+  letter-spacing: 0 !important;
+  font-style: normal !important;
+  text-rendering: optimizeLegibility;
 }
 
 .cta-button {

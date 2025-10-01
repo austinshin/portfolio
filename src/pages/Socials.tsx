@@ -53,7 +53,8 @@ const Socials = () => {
       <motion.div
         className="page-header"
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
         <h1>CONNECT WITH ME</h1>
@@ -70,7 +71,8 @@ const Socials = () => {
             rel="noopener noreferrer"
             className="social-card"
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             whileHover={{ 
               y: -10, 
@@ -90,24 +92,6 @@ const Socials = () => {
           </motion.a>
         ))}
       </div>
-
-      <motion.div
-        className="social-cta"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-      >
-        <h2>Let's Build Something Amazing</h2>
-        <p>I'm always open to discussing new projects, creative ideas, or opportunities.</p>
-        <motion.button
-          className="cta-button"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => window.location.href = 'mailto:shinaustin@gmail.com'}
-        >
-          Start a Conversation
-        </motion.button>
-      </motion.div>
     </div>
   )
 }
