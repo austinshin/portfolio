@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Github, Twitter, Instagram, BookOpen, Youtube, Mail } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
 import './Hero.css'
 
 const Hero = () => {
-  const navigate = useNavigate()
-
-  const goToAbout = () => {
-    navigate('/about')
+  const scrollToContent = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    })
   }
 
   return (
@@ -115,7 +115,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        onClick={goToAbout}
+        onClick={scrollToContent}
       >
         <ArrowDown className="bounce" size={32} />
       </motion.div>
