@@ -8,7 +8,7 @@ const GamingAchievements = () => {
       title: 'League of Legends',
       period: '2011 - 2025',
       icon: '/icons/league-of-legends.jpg',
-      color: '#d4af37',
+      color: '#C89B3C', // Official League of Legends gold
       achievements: [
         'Played on Counter Logic Gaming (CLG), a top 3 team in North America in LCS (League Championship Series), the most popular esports league in the world',
         'Primary shotcaller for team - led team meetings, handled draft and theorycrafting',
@@ -25,7 +25,7 @@ const GamingAchievements = () => {
       title: 'Dota',
       period: '2009 - 2025',
       icon: '/icons/dota.png',
-      color: '#ff6b6b',
+      color: '#D32CE6', // Official Dota 2 magenta/pink
       achievements: [
         'Commentator and content creator for Dota Commentaries (2009-2011) whiched helped expand awareness in the Western Dota Pro Scene',
         'Collaborated with future TI casters and professional players',
@@ -39,7 +39,7 @@ const GamingAchievements = () => {
         title: 'Deadlock',
         period: '2024-2025',
         icon: '/icons/deadlock.png',
-        color: '#9370db',
+        color: '#E8B44F', // Deadlock gold
         achievements: [
           'Reached Ascendant rank during Closed Alpha',
         ],
@@ -48,7 +48,7 @@ const GamingAchievements = () => {
       title: 'Path of Exile',
       period: '2018 - 2024',
       icon: '/icons/poe.png',
-      color: '#8b4513',
+      color: '#AF6025', // Path of Exile bronze/orange
       achievements: [
         'Top 3 Hardcore (HC) on Class Ladders across multiple seasons',
         'Placed 5th in Zizaran\'s HC Race Gauntlet',
@@ -60,7 +60,7 @@ const GamingAchievements = () => {
       title: 'Hearthstone',
       period: '2016',
       icon: '/icons/hearthstone.jpg',
-      color: '#ffd700',
+      color: '#FFB600', // Hearthstone gold
       achievements: [
         'Reached Top 10 Legend rank on ladder',
         'Created multiple self-made meta decks to dominate ladder',
@@ -79,7 +79,7 @@ const GamingAchievements = () => {
       title: 'Torchlight Infinite',
       period: '2025',
       icon: '/icons/torchlight.png',
-      color: '#ff8c00',
+      color: '#FF6B35', // Torchlight orange/red
       achievements: [
         'Rank 3 to first level 100 on Class Gemma 1/2',
       ],
@@ -89,7 +89,7 @@ const GamingAchievements = () => {
       title: 'H1Z1',
       period: '2016 - 2017',
       icon: '/icons/h1z1.jpg',
-      color: '#ff6347',
+      color: '#00A8E8', // H1Z1 blue
       achievements: [
         'Achieved Royalty rank (top tier)',
       ],
@@ -98,7 +98,7 @@ const GamingAchievements = () => {
       title: 'Teamfight Tactics',
       period: 'Season 12',
       icon: '/icons/tft.jpg',
-      color: '#d4af37',
+      color: '#C89B3C', // Same as League of Legends gold (TFT is a League game mode)
       achievements: [
         'Top 200 Challenger rank in Season 12',
         'Peak 1000LP',
@@ -162,7 +162,7 @@ const GamingAchievements = () => {
                 />
               </motion.div>
               <div className="game-title-section">
-                <h2>{game.title}</h2>
+                <h2 style={{ color: game.color }}>{game.title}</h2>
                 <span className="game-period" style={{ color: game.color }}>
                   {game.period}
                 </span>
