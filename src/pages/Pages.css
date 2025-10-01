@@ -710,7 +710,7 @@
   font-size: 1.6rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
-  text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  text-shadow: 0 0 8px currentColor;
 }
 
 .game-period {
@@ -719,7 +719,6 @@
   padding: 0.25rem 0.75rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 4px;
-  text-shadow: 0 0 10px currentColor;
 }
 
 .achievements-list {
