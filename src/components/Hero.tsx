@@ -28,7 +28,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <span className="two-time">TWO TIME</span> COLLEGE DROPOUT PRO LEAGUE OF LEGENDS PLAYER
+            <span className="two-time">TWO TIME</span> COLLEGE DROPOUT PRO <span className="lol-text">LEAGUE OF LEGENDS</span> PLAYER
             <br />
             TO <span className="highlight">SOFTWARE ENGINEER</span>
           </motion.h1>

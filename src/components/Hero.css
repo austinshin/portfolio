@@ -51,6 +51,13 @@
   letter-spacing: 2px;
 }
 
+.lol-text {
+  color: #0BC5EA;
+  font-weight: 900;
+  text-shadow: 0 0 10px #0BC5EA;
+  letter-spacing: 2px;
+}
+
 .hero-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
