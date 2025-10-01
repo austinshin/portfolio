@@ -104,6 +104,14 @@
   line-height: 1.8;
 }
 
+.intro-text {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  line-height: 2.2 !important;
+  letter-spacing: 0.6px !important;
+}
+
 .skills-section {
   text-align: center;
 }

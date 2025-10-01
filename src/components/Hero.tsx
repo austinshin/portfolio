@@ -30,7 +30,7 @@ const Hero = () => {
           >
             TWO TIME COLLEGE DROPOUT PRO LEAGUE OF LEGENDS PLAYER
             <br />
-            TO <span className="highlight">SOFTWARE</span>
+            TO <span className="highlight">SOFTWARE ENGINEER</span>
           </motion.h1>
           
           <motion.p

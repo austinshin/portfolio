@@ -26,7 +26,7 @@ const About = () => {
             <User size={40} />
           </div>
           <h2>Background</h2>
-          <p>
+          <p className="intro-text">
             31-year-old Californian Korean American. I started my journey as a highly gifted magnet student.
             I went to UC Berkeley studying Computer Science, then dropped out to chase my dreams in
             professional esports. After years of competing at the highest level in League of
