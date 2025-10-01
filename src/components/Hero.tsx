@@ -28,7 +28,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            FROM ESPORTS
+            TWO TIME COLLEGE DROPOUT PRO LEAGUE OF LEGENDS PLAYER
             <br />
             TO <span className="highlight">SOFTWARE</span>
           </motion.h1>
