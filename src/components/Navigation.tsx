@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import './Navigation.css'
@@ -7,21 +6,45 @@ import './Navigation.css'
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const location = useLocation()
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+
+      // Detect which section is in view
+      const sections = ['home', 'about', 'resume', 'portfolio', 'gaming']
+      const current = sections.find(section => {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 100 && rect.bottom >= 100
+        }
+        return false
+      })
+      if (current) setActiveSection(current)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const offsetTop = element.offsetTop - 80 // Account for fixed nav height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      })
+    }
+    setIsOpen(false)
+  }
+
   const navItems = [
-    { path: '/about', label: 'ABOUT' },
-    { path: '/resume', label: 'RESUME' },
-    { path: '/portfolio', label: 'PORTFOLIO' },
-    { path: '/gaming', label: 'GAMING' },
+    { id: 'about', label: 'ABOUT' },
+    { id: 'resume', label: 'RESUME' },
+    { id: 'portfolio', label: 'PORTFOLIO' },
+    { id: 'gaming', label: 'GAMING' },
   ]
 
   return (
@@ -32,30 +55,29 @@ const Navigation = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-container">
-        <Link to="/" className="logo">
+        <div className="logo" onClick={() => scrollToSection('home')} style={{ cursor: 'pointer' }}>
           <motion.span
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             AUSTIN "LINK" SHIN
           </motion.span>
-        </Link>
+        </div>
 
         <div className={`nav-links ${isOpen ? 'active' : ''}`}>
           {navItems.map((item, index) => (
             <motion.div
-              key={item.path}
+              key={item.id}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Link
-                to={item.path}
-                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                onClick={() => setIsOpen(false)}
+              <div
+                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                onClick={() => scrollToSection(item.id)}
               >
                 {item.label}
-              </Link>
+              </div>
             </motion.div>
           ))}
         </div>
