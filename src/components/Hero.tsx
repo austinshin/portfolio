@@ -178,7 +178,7 @@ const Hero = () => {
             <Youtube size={24} />
           </motion.a>
           <motion.a
-            href="mailto:shinaustijn@gmail.com"
+            href="mailto:shinaustin@gmail.com"
             className="social-icon-link"
             whileHover={{ scale: 1.2, y: -5 }}
             whileTap={{ scale: 0.9 }}

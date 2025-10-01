@@ -42,8 +42,8 @@ const Socials = () => {
     {
       name: 'Email',
       icon: <Mail size={40} />,
-      url: 'mailto:shinaustijn@gmail.com',
-      username: 'shinaustijn@gmail.com',
+      url: 'mailto:shinaustin@gmail.com',
+      username: 'shinaustin@gmail.com',
       color: '#ea4335',
     },
   ]
@@ -103,7 +103,7 @@ const Socials = () => {
           className="cta-button"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => window.location.href = 'mailto:shinaustijn@gmail.com'}
+          onClick={() => window.location.href = 'mailto:shinaustin@gmail.com'}
         >
           Start a Conversation
         </motion.button>
