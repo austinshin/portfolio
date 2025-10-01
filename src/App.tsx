@@ -6,7 +6,6 @@ import Resume from './pages/Resume'
 import Portfolio from './pages/Portfolio'
 import ProjectDetail from './pages/ProjectDetail'
 import GamingAchievements from './pages/GamingAchievements'
-import Socials from './pages/Socials'
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
           <Route path="/gaming" element={<GamingAchievements />} />
-          <Route path="/socials" element={<Socials />} />
         </Routes>
       </div>
     </Router>
