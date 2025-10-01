@@ -107,9 +107,13 @@ const Resume = () => {
             >
               <div className="timeline-marker"></div>
               <div className="timeline-content">
-                <h3>{exp.title}</h3>
-                <h4>{exp.company}</h4>
-                <span className="period">{exp.period}</span>
+                <div className="timeline-header">
+                  <div className="timeline-title-section">
+                    <h3>{exp.title}</h3>
+                    <h4>{exp.company}</h4>
+                  </div>
+                  <span className="timeline-period">{exp.period}</span>
+                </div>
                 <p>{exp.description}</p>
               </div>
             </motion.div>
@@ -136,9 +140,13 @@ const Resume = () => {
             >
               <div className="timeline-marker"></div>
               <div className="timeline-content">
-                <h3>{edu.degree}</h3>
-                <h4>{edu.school}</h4>
-                <span className="period">{edu.period}</span>
+                <div className="timeline-header">
+                  <div className="timeline-title-section">
+                    <h3>{edu.degree}</h3>
+                    <h4>{edu.school}</h4>
+                  </div>
+                  <span className="timeline-period">{edu.period}</span>
+                </div>
                 <p>{edu.description}</p>
               </div>
             </motion.div>
