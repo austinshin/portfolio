@@ -126,9 +126,12 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
           >
             <h3>Background</h3>
-            <p>
-              31-year-old Californian Korean American. Studied Computer Science at UC Berkeley before pursuing professional esports. After competing at the highest level in League of Legends with Counter Logic Gaming and Team Liquid, I returned to software engineering to build innovative products and contribute to the tech industry.
-            </p>
+            <ul>
+              <li>31-year-old Californian Korean American</li>
+              <li>Studied Computer Science at UC Berkeley</li>
+              <li>Professional League of Legends player (Counter Logic Gaming, Team Liquid)</li>
+              <li>Returned to software engineering to build innovative products</li>
+            </ul>
           </motion.div>
 
           <motion.div
@@ -139,11 +142,13 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
           >
             <h3>Mission</h3>
-            <p>
-              My current goal is to enter the game development industry and build innovative cool products.
-              I want to living a balanced and fulfilling life, while aiming to be the absolute best at whatever I pursue.
-              I'm very competitive and driven. I love sharing ideas and teaching others and just in general, being a good friend.
-            </p>
+            <ul>
+              <li>Enter the game development industry</li>
+              <li>Build innovative cool products</li>
+              <li>Live a balanced and fulfilling life</li>
+              <li>Be the absolute best at whatever I pursue</li>
+              <li>Share ideas and teach others</li>
+            </ul>
           </motion.div>
 
           <motion.div
@@ -154,13 +159,13 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
           >
             <h3>Passion</h3>
-            <p>
-              Competitive gaming shaped who I am—it taught me strategic thinking, rapid
-              decision-making, and how to perform under pressure. Today, I channel that same
-              intensity into software engineering, building tools and systems to make my life and the others around me a bit easier.
-              I'm a big advocate on health and wellness, constantly self-reflecting on how I can make my life 1% better everyday. 
-              I strongly believe that I can accomplish anything I put my mind to.
-            </p>
+            <ul>
+              <li>Competitive gaming taught strategic thinking & rapid decision-making</li>
+              <li>Channel intensity into software engineering</li>
+              <li>Build tools to make life easier for myself and others</li>
+              <li>Advocate for health and wellness</li>
+              <li>Make life 1% better every day</li>
+            </ul>
           </motion.div>
 
           <motion.div
@@ -171,12 +176,13 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
           >
             <h3>Expertise</h3>
-            <p>
-              Senior Software Engineer with experience at GoDaddy and Poynt startup.
-              Full-stack development specializing in React, TypeScript, Node.js. 
-              Recent focus on trading automation, scripting, and AI tools. Strong foundation
-              in system architecture, performance optimization, and building scalable applications.
-            </p>
+            <ul>
+              <li>Senior Software Engineer at GoDaddy and Poynt</li>
+              <li>Full-stack: React, TypeScript, Node.js</li>
+              <li>Recent focus: Trading automation, scripting, AI tools</li>
+              <li>System architecture & performance optimization</li>
+              <li>Building scalable applications</li>
+            </ul>
           </motion.div>
         </div>
       </motion.section>
