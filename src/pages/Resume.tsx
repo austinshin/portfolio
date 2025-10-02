@@ -56,6 +56,17 @@ const Resume = () => {
       >
         <h1>RESUME</h1>
         <div className="header-line"></div>
+        <motion.a
+          href="https://docs.google.com/document/d/1ymPbw5Vk9lI6TSC7xU1gq7BXzcX22zJiqdWdqtFteeY/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="download-btn"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <ExternalLink size={20} />
+          Formal Resume
+        </motion.a>
       </motion.div>
 
       <div className="resume-content">
@@ -117,27 +128,6 @@ const Resume = () => {
               </motion.div>
             ))}
           </div>
-        </motion.section>
-
-        <motion.section
-          className="resume-section full-width"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          style={{ textAlign: 'center', marginTop: '3rem' }}
-        >
-
-          <motion.a
-            href="https://docs.google.com/document/d/1ymPbw5Vk9lI6TSC7xU1gq7BXzcX22zJiqdWdqtFteeY/edit?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="download-btn"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ExternalLink size={20} />
-            View full formal resume elsewhere
-          </motion.a>
         </motion.section>
       </div>
     </div>
