@@ -16,11 +16,12 @@ const Resume = () => {
     },
     {
       title: 'Senior Software Engineer',
-      company: 'GoDaddy (acquired Poynt)',
+      company: 'GoDaddy',
       period: 'Jan 2021 - May 2023',
       description: [
         'Led development of enterprise web applications',
-        'Architected scalable solutions serving millions of users'
+        'Architected scalable solutions serving millions of users',
+        'Continued at GoDaddy following their acquisition of Poynt'
       ],
     },
     {
