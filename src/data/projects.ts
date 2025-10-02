@@ -52,7 +52,7 @@ export const professionalProjects: Project[] = [
   {
     id: 'poynt-pay-links',
     title: 'Poynt Collect Pay Links',
-    company: 'Poynt',
+    company: 'GoDaddy',
     period: 'May 2018 - Jan 2021',
     description: [
       'Led implementation of shareable payment links for social media commerce',
