@@ -114,7 +114,7 @@ export const professionalProjects: Project[] = [
   {
     id: 'in-person-selling',
     title: 'In Person Selling (IPS)',
-    company: 'Poynt',
+    company: 'GoDaddy',
     period: 'May 2018 - May 2023',
     description: [
       'Built end-to-end device fulfillment system for Poynt payment terminals',
