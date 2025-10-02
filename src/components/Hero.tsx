@@ -174,7 +174,7 @@ const Hero = () => {
           >
             <h3>Expertise</h3>
             <ul>
-              <li>Senior Software Engineer, Competitive Gamer, DayTrader, Entrepreneur</li>
+              <li>Senior Software Engineer, Competitive Gamer, Day Trader, Entrepreneur</li>
               <li>Full-stack: React, TypeScript, Node.js</li>
               <li>Recent focus: Trading automation, scripting, AI tools</li>
               <li>Building scalable applications</li>
@@ -207,7 +207,28 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 2.0 }}
       >
-        <h2 style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '2.5rem', fontWeight: '800' }}>My Journey</h2>
+        <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', fontSize: '2.5rem', fontWeight: '800' }}>My Journey</h2>
+        
+        {/* Timeline Legend */}
+        <div className="timeline-legend">
+          <div className="legend-item">
+            <div className="legend-dot education"></div>
+            <span>School</span>
+          </div>
+          <div className="legend-item">
+            <div className="legend-dot esports"></div>
+            <span>Professional Gaming</span>
+          </div>
+          <div className="legend-item">
+            <div className="legend-dot work"></div>
+            <span>Professional Experience</span>
+          </div>
+          <div className="legend-item">
+            <div className="legend-dot future"></div>
+            <span>Other</span>
+          </div>
+        </div>
+
         <div className="visual-timeline">
           {timeline.map((item, i) => (
             <motion.div
