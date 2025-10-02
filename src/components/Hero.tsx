@@ -115,7 +115,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.2 }}
       >
-        <h2 style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '2.5rem', fontWeight: '800' }}>WHO I AM</h2>
+        <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', fontSize: '2.5rem', fontWeight: '800' }}>WHO I AM</h2>
         <div className="about-grid">
           <motion.div
             className="about-card"
