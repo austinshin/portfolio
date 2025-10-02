@@ -259,6 +259,16 @@ export const personalProjects: Project[] = [
         'Voice recognition and NLP integration',
       ],
     },
+    gallery: [
+      {
+        url: 'https://i.imgur.com/minxhwU.png',
+        caption: 'ProductivityHub dashboard interface',
+      },
+      {
+        url: 'https://i.imgur.com/Bn7UvPB.png',
+        caption: 'ProductivityHub features and widgets',
+      },
+    ],
   },
   {
     id: 'trading-journal',
