@@ -126,9 +126,9 @@ const Hero = () => {
           >
             <h3>Background</h3>
             <ul>
-              <li>31-year-old Californian Korean American</li>
+              <li>Californian Korean American</li>
               <li>Studied Computer Science at UC Berkeley</li>
-              <li>Professional League of Legends player (Counter Logic Gaming, Team Liquid)</li>
+              <li>Former Professional League of Legends player (Counter Logic Gaming 2011-2015, Team Liquid 2017)</li>
               <li>Returned to software engineering to build innovative products</li>
             </ul>
           </motion.div>
@@ -158,10 +158,10 @@ const Hero = () => {
           >
             <h3>Passion</h3>
             <ul>
-              <li>Love gaming and competing</li>
-              <li>Build tools to make life easier for myself and others</li>
-              <li>Advocate for health and wellness</li>
-              <li>Improve at life by 1% every day</li>
+              <li>Gaming and competing</li>
+              <li>Building tools to make life easier for myself and others</li>
+              <li>Advocating for health and wellness</li>
+              <li>Improving at life by 1% every day</li>
             </ul>
           </motion.div>
 
