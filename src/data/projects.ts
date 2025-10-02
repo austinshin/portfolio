@@ -301,23 +301,6 @@ export const personalProjects: Project[] = [
     },
   },
   {
-    id: 'portfolio-site',
-    title: 'Portfolio Website',
-    period: 'Feb 2025',
-    description: [
-      'Built this professional portfolio in 1-2 days',
-      'Used Cursor, Claude, and Obsidian for AI-assisted development',
-      'React and TypeScript for type-safe development',
-      'Framer Motion for smooth animations',
-      'Supabase for backend and database',
-      'Deployed on Vercel with CI/CD',
-      'Demonstrates rapid AI-powered development',
-    ],
-    tags: ['React', 'TypeScript', 'AI-Assisted', 'Framer Motion', 'Supabase', 'Vercel'],
-    type: 'personal',
-    githubUrl: 'https://github.com/austinshin/portfolio',
-  },
-  {
     id: 'chore-bot',
     title: 'ChoreBot',
     period: '2024',
