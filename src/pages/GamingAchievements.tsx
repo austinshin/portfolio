@@ -126,8 +126,7 @@ const GamingAchievements = () => {
           <Users size={30} style={{ color: 'var(--accent)' }} />
           <h3>Multi-Game Mastery</h3>
           <p>
-            I'm highly proficient and excel at every game genre I invest time and effort into.
-            In any game I have played, I have achieved top 1% mastery. Below are some of my accolades.
+          I bring the same discipline and focus from professional gaming into engineering. Across every genre I’ve committed to, I’ve consistently ranked in the top 1% of players. This mastery reflects not only skill, but also dedication, rapid learning, and the ability to strategize which are all qualities I now apply towards my professional career. Here are some of my accolades.
           </p>
         </div>
       </motion.div>

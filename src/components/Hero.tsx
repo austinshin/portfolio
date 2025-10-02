@@ -98,9 +98,10 @@ const Hero = () => {
           >
             <h3>Background</h3>
             <ul>
-              <li>Californian Korean American</li>
+            <li>Former Professional League of Legends player (Counter Logic Gaming 2011-2015, Team Liquid 2017)</li>
+              <li>I am a Californian and also Korean American</li>
               <li>Studied Computer Science at UC Berkeley</li>
-              <li>Former Professional League of Legends player (Counter Logic Gaming 2011-2015, Team Liquid 2017)</li>
+              
               <li>Returned to software engineering to build innovative products</li>
             </ul>
           </motion.div>
