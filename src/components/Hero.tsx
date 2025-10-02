@@ -75,7 +75,6 @@ const Hero = () => {
               <div className="image-wrapper">
                 <img src="https://i.imgur.com/Gbv96Hk.jpeg" alt="Austin Shin" />
               </div>
-              <p className="image-caption">Austin "Link" Shin</p>
             </motion.div>
           </div>
         </motion.div>
