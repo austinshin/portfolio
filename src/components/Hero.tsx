@@ -189,9 +189,9 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 1 }}
         onClick={() => {
-          const resumeSection = document.getElementById('resume')
-          if (resumeSection) {
-            const offsetTop = resumeSection.offsetTop - 80
+          const timelineSection = document.getElementById('timeline')
+          if (timelineSection) {
+            const offsetTop = timelineSection.offsetTop - 80
             window.scrollTo({ top: offsetTop, behavior: 'smooth' })
           }
         }}
@@ -201,6 +201,7 @@ const Hero = () => {
 
       {/* Timeline Section */}
       <motion.section
+        id="timeline"
         className="timeline-in-hero"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
