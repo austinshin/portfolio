@@ -142,9 +142,9 @@ const Hero = () => {
           >
             <h3>Mission</h3>
             <ul>
-              <li>Enter the game development industry</li>
+              <li>Enter the field of game development industry</li>
               <li>Live a balanced and fulfilling life</li>
-              <li>Be the absolute best at whatever I pursue</li>
+              <li>Be the absolute best at anything I pursue</li>
               <li>Share ideas and teach others</li>
             </ul>
           </motion.div>
