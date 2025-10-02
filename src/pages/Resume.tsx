@@ -9,8 +9,8 @@ const Resume = () => {
       company: 'Independent',
       period: 'Nov 2023 - Present',
       description: [
-        'Developed trading automation scripts and tools',
-        'Building AI-powered applications for personal efficiency',
+        'Developed trading scripts using Python, Obsidian, Claude for journaling, data news scraping, and algorithmic trading strategies',
+        'Built AI-powered applications to automate repetitive tasks',
         'Improved day to day systems and productivity'
       ],
     },
@@ -37,7 +37,7 @@ const Resume = () => {
     {
       title: 'Professional Esports Player (Mid Laner)',
       company: 'Counter Logic Gaming (CLG) & Team Liquid (TL)',
-      period: 'Jan 2013 - May 2015',
+      period: 'November 2011 - May 2015',
       description: [
         'Shotcaller and Drafter for professional League of Legends teams',
         'Competed in League of Legends Championship Series (LCS)',
@@ -56,17 +56,6 @@ const Resume = () => {
       >
         <h1>RESUME</h1>
         <div className="header-line"></div>
-        <motion.a
-          href="https://docs.google.com/document/d/1ymPbw5Vk9lI6TSC7xU1gq7BXzcX22zJiqdWdqtFteeY/edit?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="download-btn"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <ExternalLink size={20} />
-          View Full Resume
-        </motion.a>
       </motion.div>
 
       <div className="resume-content">
@@ -128,6 +117,29 @@ const Resume = () => {
               </motion.div>
             ))}
           </div>
+        </motion.section>
+
+        <motion.section
+          className="resume-section full-width"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          style={{ textAlign: 'center', marginTop: '3rem' }}
+        >
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1rem' }}>
+            If you need a formal resume instead of just reading this page, here it is
+          </p>
+          <motion.a
+            href="https://docs.google.com/document/d/1ymPbw5Vk9lI6TSC7xU1gq7BXzcX22zJiqdWdqtFteeY/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="download-btn"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ExternalLink size={20} />
+            View Full Resume
+          </motion.a>
         </motion.section>
       </div>
     </div>
