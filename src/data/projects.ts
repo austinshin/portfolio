@@ -268,6 +268,14 @@ export const personalProjects: Project[] = [
         url: 'https://i.imgur.com/Bn7UvPB.png',
         caption: 'ProductivityHub features and widgets',
       },
+      {
+        url: 'https://i.imgur.com/k0tJrSn.png',
+        caption: 'android app mobile view',
+      },
+      {
+        url: 'https://i.imgur.com/POTONri.png',
+        caption: 'android app mobile view',
+      },
     ],
   },
   {
