@@ -182,7 +182,7 @@ const Resume = () => {
         >
           <h2 style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '2rem' }}>Technical Skills</h2>
           <div className="skills-grid">
-            {['React', 'TypeScript', 'Node.js', 'Python', 'JavaScript', 'PostgreSQL', 'Vercel', 'CursorAI', 'AWS', 'Docker', 'Git', 'CI/CD', 'REST APIs', 'Jira', 'Trello', 'Figma', 'Obsidian', 'Notion'].map((skill, i) => (
+            {['React', 'TypeScript', 'Node.js', 'Python', 'JavaScript', 'PostgreSQL', 'Vercel', 'CursorAI', 'AWS', 'Docker', 'Git', 'CI/CD', 'REST', 'Jira', 'Trello', 'Figma', 'Obsidian', 'Notion'].map((skill, i) => (
               <motion.div
                 key={skill}
                 className="skill-tag"

@@ -24,7 +24,7 @@ export interface Project {
 export const professionalProjects: Project[] = [
   {
     id: 'godaddy-migration',
-    title: 'GoDaddy Merchant HQ Migration',
+    title: 'Merchant HQ Migration',
     company: 'GoDaddy',
     period: 'Jan 2021 - May 2023',
     description: [
@@ -157,7 +157,7 @@ export const professionalProjects: Project[] = [
   },
   {
     id: 'poynt-dashboard',
-    title: 'Poynt Merchant HQ Dashboard',
+    title: 'Merchant HQ Dashboard',
     company: 'Poynt',
     period: 'May 2018 - Jan 2021',
     description: [
@@ -171,7 +171,7 @@ export const professionalProjects: Project[] = [
   },
   {
     id: 'poynt-api',
-    title: 'Poynt API Service',
+    title: 'API Service',
     company: 'Poynt',
     period: 'May 2018 - Jan 2021',
     description: [

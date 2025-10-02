@@ -40,16 +40,6 @@ const Portfolio = () => {
         <Link to={`/portfolio/${project.id}`} className="project-title-link">
           <h3>{project.title}</h3>
         </Link>
-        {project.company && (
-          <h4 style={{ 
-            color: 'var(--text-secondary)', 
-            fontSize: '0.9rem', 
-            fontWeight: 500, 
-            marginBottom: '0.5rem' 
-          }}>
-            {project.company}
-          </h4>
-        )}
         <ul className="project-description-list">
           {project.description.slice(0, 3).map((item: string, idx: number) => (
             <li key={idx}>{item}</li>
