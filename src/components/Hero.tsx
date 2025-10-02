@@ -15,17 +15,6 @@ const Hero = () => {
     { year: '2025', type: 'future', title: 'Present Day', subtitle: 'Building & Learning' },
   ]
 
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about')
-    if (aboutSection) {
-      const offsetTop = aboutSection.offsetTop - 80
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      })
-    }
-  }
-
   return (
     <div className="hero">
       <div className="hero-content">
@@ -120,12 +109,84 @@ const Hero = () => {
         </motion.div>
       </div>
 
+      {/* Who I Am Section */}
+      <motion.section
+        className="about-in-hero"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '2.5rem', fontWeight: '800' }}>WHO I AM</h2>
+        <div className="about-grid">
+          <motion.div
+            className="about-card"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.4 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3>Background</h3>
+            <p>
+              31-year-old Californian Korean American. Studied Computer Science at UC Berkeley before pursuing professional esports. After competing at the highest level in League of Legends with Counter Logic Gaming and Team Liquid, I returned to software engineering to build innovative products and contribute to the tech industry.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="about-card"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.5 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3>Mission</h3>
+            <p>
+              My current goal is to enter the game development industry and build innovative cool products.
+              I want to living a balanced and fulfilling life, while aiming to be the absolute best at whatever I pursue.
+              I'm very competitive and driven. I love sharing ideas and teaching others and just in general, being a good friend.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="about-card"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.6 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3>Passion</h3>
+            <p>
+              Competitive gaming shaped who I am—it taught me strategic thinking, rapid
+              decision-making, and how to perform under pressure. Today, I channel that same
+              intensity into software engineering, building tools and systems to make my life and the others around me a bit easier.
+              I'm a big advocate on health and wellness, constantly self-reflecting on how I can make my life 1% better everyday. 
+              I strongly believe that I can accomplish anything I put my mind to.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="about-card"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.7 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <h3>Expertise</h3>
+            <p>
+              Senior Software Engineer with experience at GoDaddy and Poynt startup.
+              Full-stack development specializing in React, TypeScript, Node.js. 
+              Recent focus on trading automation, scripting, and AI tools. Strong foundation
+              in system architecture, performance optimization, and building scalable applications.
+            </p>
+          </motion.div>
+        </div>
+      </motion.section>
+
       {/* Timeline Section */}
       <motion.section
         className="timeline-in-hero"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
+        transition={{ duration: 0.8, delay: 1.8 }}
       >
         <h2 style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '2.5rem', fontWeight: '800' }}>My Journey</h2>
         <div className="visual-timeline">
@@ -155,8 +216,14 @@ const Hero = () => {
         className="scroll-indicator"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.5, duration: 1 }}
-        onClick={scrollToAbout}
+        transition={{ delay: 3, duration: 1 }}
+        onClick={() => {
+          const resumeSection = document.getElementById('resume')
+          if (resumeSection) {
+            const offsetTop = resumeSection.offsetTop - 80
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' })
+          }
+        }}
       >
         <ArrowDown className="bounce" size={32} />
       </motion.div>
