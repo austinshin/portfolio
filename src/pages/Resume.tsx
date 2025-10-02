@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Briefcase, GraduationCap, ExternalLink } from 'lucide-react'
+import { Briefcase, ExternalLink } from 'lucide-react'
 import './Pages.css'
 
 const Resume = () => {
@@ -43,36 +43,6 @@ const Resume = () => {
         'Competed in League of Legends Championship Series (LCS)',
         'One of the pioneering NA LCS mid laners'
       ],
-    },
-  ]
-
-  const education = [
-    {
-      degree: 'Software Engineering Immersive',
-      school: 'HackReactor Coding Bootcamp',
-      period: 'Dec 2017 - Mar 2018',
-      description: [
-        'Intensive 3-month full-stack software engineering program',
-        'Advanced JavaScript, React, Node.js, and computer science fundamentals'
-      ],
-    },
-    {
-      degree: 'Computer Science (Readmission)',
-      school: 'UC Berkeley',
-      period: 'Sep 2015 - May 2016',
-      description: ['Returned to complete CS degree after professional esports career'],
-    },
-    {
-      degree: 'Computer Science Studies',
-      school: 'Berkeley City College',
-      period: 'Jun 2015 - Aug 2015',
-      description: ['Continued CS education during transition period'],
-    },
-    {
-      degree: 'Computer Science (Initial Studies)',
-      school: 'UC Berkeley',
-      period: 'Sep 2011 - Dec 2012',
-      description: ['Started Computer Science degree before pursuing professional esports'],
     },
   ]
 
@@ -129,43 +99,6 @@ const Resume = () => {
                 </div>
                 <ul className="timeline-bullets">
                   {exp.description.map((bullet, idx) => (
-                    <li key={idx}>{bullet}</li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
-        </motion.section>
-
-        <motion.section
-          className="resume-section"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <div className="section-title">
-            <GraduationCap size={30} />
-            <h2>Education</h2>
-          </div>
-          {education.map((edu, i) => (
-            <motion.div
-              key={i}
-              className="timeline-item"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 + i * 0.1 }}
-            >
-              <div className="timeline-marker"></div>
-              <div className="timeline-content">
-                <div className="timeline-header">
-                  <div className="timeline-title-section">
-                    <h3>{edu.degree}</h3>
-                    <h4>{edu.school}</h4>
-                  </div>
-                  <span className="timeline-period">{edu.period}</span>
-                </div>
-                <ul className="timeline-bullets">
-                  {edu.description.map((bullet, idx) => (
                     <li key={idx}>{bullet}</li>
                   ))}
                 </ul>
