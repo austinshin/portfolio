@@ -38,26 +38,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Professional League of Legends player turned Software Engineer. I love to learn, travel, read, write, and play games. I want to create and leave a legacy. I want to experience everything the world has to offer while having fun!
           </motion.p>
 
-          <motion.button
-            className="cta-button"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const portfolioSection = document.getElementById('portfolio')
-              if (portfolioSection) {
-                const offsetTop = portfolioSection.offsetTop - 80
-                window.scrollTo({ top: offsetTop, behavior: 'smooth' })
-              }
-            }}
-          >
-            VIEW MY WORK
-          </motion.button>
         </motion.div>
 
         <motion.div
@@ -144,7 +126,6 @@ const Hero = () => {
             <h3>Mission</h3>
             <ul>
               <li>Enter the game development industry</li>
-              <li>Build innovative cool products</li>
               <li>Live a balanced and fulfilling life</li>
               <li>Be the absolute best at whatever I pursue</li>
               <li>Share ideas and teach others</li>
@@ -160,11 +141,10 @@ const Hero = () => {
           >
             <h3>Passion</h3>
             <ul>
-              <li>Competitive gaming taught strategic thinking & rapid decision-making</li>
-              <li>Channel intensity into software engineering</li>
+              <li>Love gaming and competing</li>
               <li>Build tools to make life easier for myself and others</li>
               <li>Advocate for health and wellness</li>
-              <li>Make life 1% better every day</li>
+              <li>Improve at life by 1% every day</li>
             </ul>
           </motion.div>
 
@@ -177,10 +157,9 @@ const Hero = () => {
           >
             <h3>Expertise</h3>
             <ul>
-              <li>Senior Software Engineer at GoDaddy and Poynt</li>
+              <li>Senior Software Engineer, Competitive Gamer, DayTrader, Entrepreneur</li>
               <li>Full-stack: React, TypeScript, Node.js</li>
               <li>Recent focus: Trading automation, scripting, AI tools</li>
-              <li>System architecture & performance optimization</li>
               <li>Building scalable applications</li>
             </ul>
           </motion.div>
