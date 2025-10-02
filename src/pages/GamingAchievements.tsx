@@ -23,16 +23,15 @@ const GamingAchievements = () => {
     },
     {
       title: 'Dota',
-      period: '2009 - 2025',
+      period: '2006 - 2025',
       icon: '/icons/dota.png',
       color: '#D32CE6', // Official Dota 2 magenta/pink
       achievements: [
-        'Commentator and content creator for Dota Commentaries (2009-2011) whiched helped expand awareness in the Western Dota Pro Scene',
-        'Collaborated with future TI casters and professional players',
         'Achieved Top 50 rank on ladder (2017)',
+        'Commentator and content creator for Dota Commentaries (2009-2011) whiched helped expand awareness in the Western Dota Pro Scene',
+        'Collaborated with TI casters and professional players',
         'Created YouTube content for the Dota community sharing tips, tricks, and guides',
         '1v1 practice and theorycrafting with professional TI players',
-        'I also played Heroes of Newerth actively too when it first came out',
       ],
     },
     {
@@ -46,7 +45,7 @@ const GamingAchievements = () => {
       },
     {
       title: 'Path of Exile',
-      period: '2018 - 2024',
+      period: '2018 - 2025',
       icon: '/icons/poe.png',
       color: '#AF6025', // Path of Exile bronze/orange
       achievements: [
@@ -58,7 +57,7 @@ const GamingAchievements = () => {
     },
     {
       title: 'Hearthstone',
-      period: '2016',
+      period: '2013-2017',
       icon: '/icons/hearthstone.jpg',
       color: '#FFB600', // Hearthstone gold
       achievements: [
@@ -91,12 +90,12 @@ const GamingAchievements = () => {
       icon: '/icons/h1z1.jpg',
       color: '#00A8E8', // H1Z1 blue
       achievements: [
-        'Achieved Royalty rank (top tier)',
+        'Achieved Royalty rank',
       ],
     },
     {
       title: 'Teamfight Tactics',
-      period: 'Season 12',
+      period: '2019-2025',
       icon: '/icons/tft.jpg',
       color: '#C89B3C', // Same as League of Legends gold (TFT is a League game mode)
       achievements: [

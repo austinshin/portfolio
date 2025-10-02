@@ -5,13 +5,13 @@ import './Pages.css'
 const Resume = () => {
   const experiences = [
     {
-      title: 'Self Development & Trading',
+      title: 'DayTrading & AI Learning',
       company: 'Independent',
       period: 'Nov 2023 - Present',
       description: [
         'Developed trading automation scripts and tools',
-        'Building AI-powered applications',
-        'Focus on calisthenics, physical and mental health optimization'
+        'Building AI-powered applications for personal efficiency',
+        'Improved day to day systems and productivity'
       ],
     },
     {
@@ -20,8 +20,8 @@ const Resume = () => {
       period: 'Jan 2021 - May 2023',
       description: [
         'Led development of enterprise web applications',
-        'Architected scalable solutions serving millions of users',
-        'Continued at GoDaddy following their acquisition of Poynt'
+        'Architected scalable solutions serving millions of merchants and customers',
+        'Led sprints on In person selling team and helped maintain apps on Payments Hub team'
       ],
     },
     {
@@ -29,8 +29,8 @@ const Resume = () => {
       company: 'Poynt (Startup)',
       period: 'May 2018 - Jan 2021',
       description: [
-        'Full-stack development for payment processing platform to empower merchants and small businesses',
-        'Built features from concept to production',
+        'Full-stack development on Merchant team with 3 others',
+        'Built features from concept to production working with design, android, and product',
         'Worked in fast-paced startup environment'
       ],
     },
