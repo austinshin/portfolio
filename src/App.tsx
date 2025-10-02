@@ -6,6 +6,7 @@ import Portfolio from './pages/Portfolio'
 import ProjectDetail from './pages/ProjectDetail'
 import GamingAchievements from './pages/GamingAchievements'
 import Socials from './pages/Socials'
+import QuickLinks from './components/QuickLinks'
 
 // Single-page scroller home
 const HomePage = () => {
@@ -35,6 +36,7 @@ function App() {
     <Router>
       <div className="app">
         <Navigation />
+        <QuickLinks />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
