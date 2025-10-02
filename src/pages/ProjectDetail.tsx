@@ -26,7 +26,15 @@ const ProjectDetail = () => {
           className="project-not-found"
         >
           <h1>Project Not Found</h1>
-          <Link to="/portfolio" className="back-link">
+          <Link to="/" className="back-link" onClick={() => {
+            setTimeout(() => {
+              const element = document.getElementById('portfolio')
+              if (element) {
+                const offsetTop = element.offsetTop - 80
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' })
+              }
+            }, 100)
+          }}>
             <ArrowLeft size={20} />
             Back to Portfolio
           </Link>
@@ -42,7 +50,15 @@ const ProjectDetail = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Link to="/portfolio" className="back-link">
+        <Link to="/" className="back-link" onClick={() => {
+          setTimeout(() => {
+            const element = document.getElementById('portfolio')
+            if (element) {
+              const offsetTop = element.offsetTop - 80
+              window.scrollTo({ top: offsetTop, behavior: 'smooth' })
+            }
+          }, 100)
+        }}>
           <ArrowLeft size={20} />
           Back to Portfolio
         </Link>
