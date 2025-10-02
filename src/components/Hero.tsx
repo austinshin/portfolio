@@ -3,10 +3,22 @@ import { ArrowDown } from 'lucide-react'
 import './Hero.css'
 
 const Hero = () => {
-  const scrollToTimeline = () => {
-    const timelineSection = document.getElementById('timeline')
-    if (timelineSection) {
-      const offsetTop = timelineSection.offsetTop - 80
+  const timeline = [
+    { year: '2011', type: 'education', title: 'Started UC Berkeley', subtitle: 'Computer Science' },
+    { year: '2013', type: 'esports', title: 'Counter Logic Gaming', subtitle: 'Professional League of Legends' },
+    { year: '2015', type: 'education', title: 'Returned to UC Berkeley', subtitle: 'Computer Science' },
+    { year: '2016', type: 'esports', title: 'Team Liquid', subtitle: 'Professional League of Legends' },
+    { year: '2018', type: 'education', title: 'HackReactor Bootcamp', subtitle: 'Software Engineering' },
+    { year: '2018', type: 'work', title: 'Poynt', subtitle: 'Software Engineer' },
+    { year: '2021', type: 'work', title: 'GoDaddy', subtitle: 'Senior Software Engineer' },
+    { year: '2023', type: 'work', title: 'Self Development', subtitle: 'Trading & AI Applications' },
+    { year: '2025', type: 'future', title: 'Present Day', subtitle: 'Building & Learning' },
+  ]
+
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about')
+    if (aboutSection) {
+      const offsetTop = aboutSection.offsetTop - 80
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -108,12 +120,43 @@ const Hero = () => {
         </motion.div>
       </div>
 
+      {/* Timeline Section */}
+      <motion.section
+        className="timeline-in-hero"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '2.5rem', fontWeight: '800' }}>My Journey</h2>
+        <div className="visual-timeline">
+          {timeline.map((item, i) => (
+            <motion.div
+              key={i}
+              className={`timeline-node ${item.type}`}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.4 + i * 0.1 }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <div className="timeline-year">{item.year}</div>
+              <div className="timeline-node-content">
+                <div className="timeline-dot"></div>
+                <div className="timeline-info">
+                  <h4>{item.title}</h4>
+                  <p>{item.subtitle}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
       <motion.div
         className="scroll-indicator"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        onClick={scrollToTimeline}
+        transition={{ delay: 2.5, duration: 1 }}
+        onClick={scrollToAbout}
       >
         <ArrowDown className="bounce" size={32} />
       </motion.div>

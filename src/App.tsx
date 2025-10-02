@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
-import Timeline from './components/Timeline'
 import About from './pages/About'
 import Resume from './pages/Resume'
 import Portfolio from './pages/Portfolio'
@@ -15,9 +14,6 @@ const HomePage = () => {
     <>
       <div id="home">
         <Hero />
-      </div>
-      <div id="timeline">
-        <Timeline />
       </div>
       <div id="about">
         <About />
