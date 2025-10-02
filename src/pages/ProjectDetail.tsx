@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Github, X } from 'lucide-react'
+import { useState } from 'react'
 import './Pages.css'
 
 // Import project data (we'll centralize this)
@@ -9,6 +10,7 @@ import { allProjects } from '../data/projects'
 const ProjectDetail = () => {
   const { projectId } = useParams()
   const project = allProjects.find(p => p.id === projectId)
+  const [lightboxImage, setLightboxImage] = useState<{ url: string; caption?: string } | null>(null)
 
   if (!project) {
     return (
@@ -195,6 +197,8 @@ const ProjectDetail = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.6 + idx * 0.1 }}
                     whileHover={{ scale: 1.05 }}
+                    onClick={() => setLightboxImage(image)}
+                    style={{ cursor: 'pointer' }}
                   >
                     <img src={image.url} alt={image.caption || `Screenshot ${idx + 1}`} />
                     {image.caption && <p className="gallery-caption">{image.caption}</p>}
@@ -205,6 +209,40 @@ const ProjectDetail = () => {
           )}
         </div>
       </motion.div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxImage && (
+          <motion.div
+            className="lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxImage(null)}
+          >
+            <motion.div
+              className="lightbox-content"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="lightbox-close"
+                onClick={() => setLightboxImage(null)}
+                aria-label="Close lightbox"
+              >
+                <X size={32} />
+              </button>
+              <img src={lightboxImage.url} alt={lightboxImage.caption || 'Project screenshot'} />
+              {lightboxImage.caption && (
+                <p className="lightbox-caption">{lightboxImage.caption}</p>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
