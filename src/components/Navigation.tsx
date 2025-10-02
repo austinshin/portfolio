@@ -13,7 +13,7 @@ const Navigation = () => {
       setScrolled(window.scrollY > 50)
 
       // Detect which section is in view
-      const sections = ['home', 'about', 'resume', 'portfolio', 'gaming']
+      const sections = ['home', 'resume', 'portfolio', 'gaming']
       const current = sections.find(section => {
         const element = document.getElementById(section)
         if (element) {
@@ -41,7 +41,6 @@ const Navigation = () => {
   }
 
   const navItems = [
-    { id: 'about', label: 'ABOUT' },
     { id: 'resume', label: 'RESUME' },
     { id: 'portfolio', label: 'PORTFOLIO' },
     { id: 'gaming', label: 'GAMING' },
