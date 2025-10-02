@@ -10,15 +10,14 @@ const GamingAchievements = () => {
       icon: '/icons/league-of-legends.jpg',
       color: '#C89B3C', // Official League of Legends gold
       achievements: [
-        'Played on Counter Logic Gaming (CLG), a top 3 team in North America in LCS (League Championship Series), the most popular esports league in the world',
+        'Played on Counter Logic Gaming (CLG) and Team Liquid (TL), in North America LCS (League Championship Series), one of the most popular esports league in the world',
         'Primary shotcaller for team - led team meetings, handled draft and theorycrafting',
         'Traveled to international LANs representing North America',
         'Maintained Top 10 Challenger rank on the ladder (2011-2015)',
-        'Played on Team Liquid (TL)',
         'Content creation and sponsorships with Riot Games, Twitch, Razer, IBuyPower, Azubu, Alienware, Logitech,',
         'Held interviews, fan meets, public events to increase brand awareness and promote sales of sponorships and self merchandise',
-        'Active Twitch streamer building gaming community',
-        '100k+ Twitter followers and 50k+ Twitch followers',
+        'Former Twitch streamer',
+        '100k+ X followers and 50k+ Twitch followers',
       ],
     },
     {

@@ -45,6 +45,7 @@ const Navigation = () => {
     { id: 'portfolio', label: 'PORTFOLIO' },
     { id: 'gaming', label: 'GAMING' },
     { id: 'socials', label: 'SOCIALS' },
+    { id: 'contact', label: 'CONTACT', isEmail: true, url: 'mailto:shinaustin@gmail.com' },
   ]
 
   return (
@@ -72,12 +73,22 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <div
-                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-                onClick={() => scrollToSection(item.id)}
-              >
-                {item.label}
-              </div>
+              {item.isEmail ? (
+                <a
+                  href={item.url}
+                  className="nav-link"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <div
+                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                  onClick={() => scrollToSection(item.id)}
+                >
+                  {item.label}
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
