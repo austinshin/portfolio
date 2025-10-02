@@ -73,35 +73,9 @@ const Hero = () => {
               whileHover={{ y: -10, boxShadow: '0 15px 40px rgba(255, 68, 68, 0.4)' }}
             >
               <div className="image-wrapper">
-                <img src="/icons/headshot.jpg" alt="Austin and girlfriend" />
+                <img src="https://i.imgur.com/Gbv96Hk.jpeg" alt="Austin Shin" />
               </div>
-              <p className="image-caption">Me and Megan</p>
-            </motion.div>
-
-            <motion.div
-              className="hero-image-card"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              whileHover={{ y: -10, boxShadow: '0 15px 40px rgba(255, 68, 68, 0.4)' }}
-            >
-              <div className="image-wrapper">
-                <img src="/icons/mew.jpg" alt="Mew the cat" />
-              </div>
-              <p className="image-caption">Mew</p>
-            </motion.div>
-
-            <motion.div
-              className="hero-image-card"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-              whileHover={{ y: -10, boxShadow: '0 15px 40px rgba(255, 68, 68, 0.4)' }}
-            >
-              <div className="image-wrapper">
-                <img src="/icons/zuli.png" alt="Zuli" />
-              </div>
-              <p className="image-caption">Zuli</p>
+              <p className="image-caption">Austin "Link" Shin</p>
             </motion.div>
           </div>
         </motion.div>

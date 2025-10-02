@@ -98,11 +98,11 @@
 }
 
 .hero-images {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
-  max-width: 900px;
+  max-width: 500px;
 }
 
 .hero-image-card {
@@ -200,7 +200,6 @@
 
   .hero-images {
     padding: 1rem;
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .image-wrapper {
@@ -215,8 +214,6 @@
 
   .hero-images {
     padding: 0.5rem;
-    gap: 1.5rem;
-    grid-template-columns: 1fr;
   }
 
   .image-wrapper {
