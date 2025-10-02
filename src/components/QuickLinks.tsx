@@ -4,7 +4,7 @@ import { useState } from 'react'
 import './QuickLinks.css'
 
 const QuickLinks = () => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
