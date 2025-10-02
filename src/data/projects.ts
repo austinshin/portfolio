@@ -33,7 +33,6 @@ export const professionalProjects: Project[] = [
       'Integrated with GoDaddy\'s design system and component library',
     ],
     tags: ['React', 'Redux', 'TypeScript', 'React Router'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
     type: 'professional',
     detailedInfo: {
       challenges: [
@@ -64,7 +63,6 @@ export const professionalProjects: Project[] = [
       'Successfully generated significant revenue for the company',
     ],
     tags: ['React', 'Node.js', 'Security', 'Tokenization', 'Payment Processing', 'PCI Compliance', 'JavaScript'],
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800',
     type: 'professional',
     detailedInfo: {
       howItWorks: [
@@ -124,7 +122,6 @@ export const professionalProjects: Project[] = [
       'Integrated with Payments Hub for seamless merchant experience',
     ],
     tags: ['React', 'TypeScript', 'E-commerce', 'Order Management', 'Fulfillment', 'REST API'],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
     type: 'professional',
     demoUrl: 'https://support.poynt.com/hc/en-us/articles/1500001772841-Online-Pay-Links',
     detailedInfo: {
@@ -170,7 +167,6 @@ export const professionalProjects: Project[] = [
       'Enabled customer data management and support features',
     ],
     tags: ['Ember', 'React', 'Data Visualization', 'Dashboard', 'UI/UX'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
     type: 'professional',
   },
   {
@@ -185,7 +181,6 @@ export const professionalProjects: Project[] = [
       'Built streaming services for error tracking and analytics',
     ],
     tags: ['Node.js', 'API', 'Redis', 'Kibana', 'Banking Integration'],
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800',
     type: 'professional',
   },
   {
@@ -200,7 +195,6 @@ export const professionalProjects: Project[] = [
       'Integrated with Poynt terminal hardware',
     ],
     tags: ['Full Stack', 'React', 'Node.js', 'API', 'E-commerce'],
-    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800',
     type: 'professional',
   },
   {
@@ -215,7 +209,6 @@ export const professionalProjects: Project[] = [
       'Provided real-time team alerts for critical bugs',
     ],
     tags: ['Node.js', 'API', 'Automation', 'Monitoring', 'Slack Integration'],
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800',
     type: 'professional',
   },
 ]
@@ -237,7 +230,6 @@ export const personalProjects: Project[] = [
       'Android app bundle for mobile access',
     ],
     tags: ['React', 'TypeScript', 'AI', 'Supabase', 'Redis', 'Vercel', 'Android'],
-    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800',
     type: 'personal',
     detailedInfo: {
       challenges: [
@@ -291,8 +283,7 @@ export const personalProjects: Project[] = [
       'Cron jobs for automated report generation',
       'Built to avoid paying for third-party services',
     ],
-    tags: ['Python', 'AI', 'Automation', 'Web Scraping', 'Cron Jobs'],
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800',
+    tags: ['Python', 'AI', 'Automation', 'Web Scraping', 'Cronjobs'],
     type: 'personal',
     detailedInfo: {
       challenges: [
@@ -323,7 +314,6 @@ export const personalProjects: Project[] = [
       'Demonstrates rapid AI-powered development',
     ],
     tags: ['React', 'TypeScript', 'AI-Assisted', 'Framer Motion', 'Supabase', 'Vercel'],
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800',
     type: 'personal',
     githubUrl: 'https://github.com/austinshin/portfolio',
   },
