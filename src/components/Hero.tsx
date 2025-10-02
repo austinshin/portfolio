@@ -11,8 +11,7 @@ const Hero = () => {
     { year: '2018', type: 'education', title: 'HackReactor Bootcamp', subtitle: 'Software Engineering' },
     { year: '2018', type: 'work', title: 'Poynt', subtitle: 'Software Engineer' },
     { year: '2021', type: 'work', title: 'GoDaddy', subtitle: 'Senior Software Engineer' },
-    { year: '2023', type: 'work', title: 'Self Development', subtitle: 'Trading & AI Applications' },
-    { year: '2025', type: 'future', title: 'Present Day', subtitle: 'Building & Learning' },
+    { year: '2023', type: 'future', title: 'Day Trading & AI Learning', subtitle: 'Self Development' },
   ]
 
   return (
@@ -213,7 +212,7 @@ const Hero = () => {
         <div className="timeline-legend">
           <div className="legend-item">
             <div className="legend-dot education"></div>
-            <span>School</span>
+            <span>Education</span>
           </div>
           <div className="legend-item">
             <div className="legend-dot esports"></div>
@@ -221,11 +220,11 @@ const Hero = () => {
           </div>
           <div className="legend-item">
             <div className="legend-dot work"></div>
-            <span>Professional Experience</span>
+            <span>Engineering Work</span>
           </div>
           <div className="legend-item">
             <div className="legend-dot future"></div>
-            <span>Other</span>
+            <span>Day Trading</span>
           </div>
         </div>
 
