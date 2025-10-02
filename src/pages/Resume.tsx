@@ -5,7 +5,7 @@ import './Pages.css'
 const Resume = () => {
   const experiences = [
     {
-      title: 'DayTrading & AI Learning',
+      title: 'Day trading & AI Learning',
       company: 'Independent',
       period: 'Nov 2023 - Present',
       description: [
@@ -35,7 +35,7 @@ const Resume = () => {
       ],
     },
     {
-      title: 'Professional Esports Player (Mid)',
+      title: 'Professional Esports Player (Mid Laner)',
       company: 'Counter Logic Gaming (CLG) & Team Liquid (TL)',
       period: 'Jan 2013 - May 2015',
       description: [

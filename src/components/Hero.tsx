@@ -11,7 +11,7 @@ const Hero = () => {
     { year: '2018', type: 'education', title: 'HackReactor Bootcamp', subtitle: 'Software Engineering' },
     { year: '2018', type: 'work', title: 'Poynt', subtitle: 'Software Engineer' },
     { year: '2021', type: 'work', title: 'GoDaddy', subtitle: 'Senior Software Engineer' },
-    { year: '2023', type: 'future', title: 'Day Trading & AI Learning', subtitle: 'Self Development' },
+    { year: '2023', type: 'future', title: 'Day trading & AI Learning', subtitle: 'Self Development' },
   ]
 
   return (
