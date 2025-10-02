@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft, ExternalLink, Github, X } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Pages.css'
 
 // Import project data (we'll centralize this)
@@ -11,6 +11,11 @@ const ProjectDetail = () => {
   const { projectId } = useParams()
   const project = allProjects.find(p => p.id === projectId)
   const [lightboxImage, setLightboxImage] = useState<{ url: string; caption?: string } | null>(null)
+
+  // Scroll to top when component mounts or projectId changes
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [projectId])
 
   if (!project) {
     return (
