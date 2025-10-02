@@ -40,6 +40,23 @@ const Hero = () => {
           >
           </motion.p>
 
+          <motion.button
+            className="cta-button"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const portfolioSection = document.getElementById('portfolio')
+              if (portfolioSection) {
+                const offsetTop = portfolioSection.offsetTop - 80
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' })
+              }
+            }}
+          >
+            VIEW MY WORK
+          </motion.button>
         </motion.div>
 
         <motion.div
@@ -166,12 +183,28 @@ const Hero = () => {
         </div>
       </motion.section>
 
+      <motion.div
+        className="scroll-indicator"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8, duration: 1 }}
+        onClick={() => {
+          const resumeSection = document.getElementById('resume')
+          if (resumeSection) {
+            const offsetTop = resumeSection.offsetTop - 80
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' })
+          }
+        }}
+      >
+        <ArrowDown className="bounce" size={32} />
+      </motion.div>
+
       {/* Timeline Section */}
       <motion.section
         className="timeline-in-hero"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.8 }}
+        transition={{ duration: 0.8, delay: 2.0 }}
       >
         <h2 style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '2.5rem', fontWeight: '800' }}>My Journey</h2>
         <div className="visual-timeline">
@@ -181,7 +214,7 @@ const Hero = () => {
               className={`timeline-node ${item.type}`}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.4 + i * 0.1 }}
+              transition={{ delay: 2.2 + i * 0.1 }}
               whileHover={{ scale: 1.1 }}
             >
               <div className="timeline-year">{item.year}</div>
@@ -196,22 +229,6 @@ const Hero = () => {
           ))}
         </div>
       </motion.section>
-
-      <motion.div
-        className="scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 3, duration: 1 }}
-        onClick={() => {
-          const resumeSection = document.getElementById('resume')
-          if (resumeSection) {
-            const offsetTop = resumeSection.offsetTop - 80
-            window.scrollTo({ top: offsetTop, behavior: 'smooth' })
-          }
-        }}
-      >
-        <ArrowDown className="bounce" size={32} />
-      </motion.div>
     </div>
   )
 }
