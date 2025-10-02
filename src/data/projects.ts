@@ -262,19 +262,19 @@ export const personalProjects: Project[] = [
     gallery: [
       {
         url: 'https://i.imgur.com/minxhwU.png',
-        caption: 'ProductivityHub dashboard interface',
+        caption: 'ProductivityHub Journal',
       },
       {
         url: 'https://i.imgur.com/Bn7UvPB.png',
-        caption: 'ProductivityHub features and widgets',
+        caption: 'ProductivityHub Dashboard Interface',
       },
       {
         url: 'https://i.imgur.com/k0tJrSn.png',
-        caption: 'android app mobile view',
+        caption: 'Android app mobile view of TODO',
       },
       {
         url: 'https://i.imgur.com/POTONri.png',
-        caption: 'android app mobile view',
+        caption: 'Android app mobile view of Journal',
       },
     ],
   },
