@@ -112,12 +112,12 @@ const Hero = () => {
             transition={{ delay: 1.5 }}
             whileHover={{ scale: 1.05 }}
           >
-            <h3>Mission</h3>
+            <h3>Expertise</h3>
             <ul>
-              <li>Enter the field of game development industry</li>
-              <li>Live a balanced and fulfilling life</li>
-              <li>Be the absolute best at anything I pursue</li>
-              <li>Share ideas and teach others</li>
+              <li>Senior Software Engineer, Competitive Gamer, Day Trader, Entrepreneur</li>
+              <li>Full-stack: React, TypeScript, Node.js</li>
+              <li>Recent focus: Trading automation, scripting, AI tools</li>
+              <li>Building scalable applications</li>
             </ul>
           </motion.div>
 
@@ -144,12 +144,12 @@ const Hero = () => {
             transition={{ delay: 1.7 }}
             whileHover={{ scale: 1.05 }}
           >
-            <h3>Expertise</h3>
+            <h3>Mission</h3>
             <ul>
-              <li>Senior Software Engineer, Competitive Gamer, Day Trader, Entrepreneur</li>
-              <li>Full-stack: React, TypeScript, Node.js</li>
-              <li>Recent focus: Trading automation, scripting, AI tools</li>
-              <li>Building scalable applications</li>
+              <li>Enter the field of game development industry</li>
+              <li>Live a balanced and fulfilling life</li>
+              <li>Be the absolute best at anything I pursue</li>
+              <li>Share ideas and teach others</li>
             </ul>
           </motion.div>
         </div>
