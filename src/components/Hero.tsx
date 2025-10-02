@@ -146,10 +146,11 @@ const Hero = () => {
           >
             <h3>Mission</h3>
             <ul>
-              <li>Enter the field of game development industry</li>
-              <li>Live a balanced and fulfilling life</li>
-              <li>Be the absolute best at anything I pursue</li>
-              <li>Share ideas and teach others</li>
+              <li>Build innovative, player-focused experiences</li>
+              <li>Balance creativity with technical excellence</li>
+              <li>Strive for mastery in every pursuit</li>
+              <li>Share knowledge and give back to community</li>
+              <li>Develop refined solutions to complex problems</li>
             </ul>
           </motion.div>
         </div>

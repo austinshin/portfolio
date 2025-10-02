@@ -126,9 +126,7 @@ const Resume = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           style={{ textAlign: 'center', marginTop: '3rem' }}
         >
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1rem' }}>
-            If you need a formal resume instead of just reading this page, here it is
-          </p>
+
           <motion.a
             href="https://docs.google.com/document/d/1ymPbw5Vk9lI6TSC7xU1gq7BXzcX22zJiqdWdqtFteeY/edit?usp=sharing"
             target="_blank"
@@ -138,7 +136,7 @@ const Resume = () => {
             whileTap={{ scale: 0.95 }}
           >
             <ExternalLink size={20} />
-            View Full Resume
+            View full formal resume elsewhere
           </motion.a>
         </motion.section>
       </div>
