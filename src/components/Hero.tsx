@@ -3,10 +3,10 @@ import { ArrowDown } from 'lucide-react'
 import './Hero.css'
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about')
-    if (aboutSection) {
-      const offsetTop = aboutSection.offsetTop - 80
+  const scrollToTimeline = () => {
+    const timelineSection = document.getElementById('timeline')
+    if (timelineSection) {
+      const offsetTop = timelineSection.offsetTop - 80
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -113,7 +113,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        onClick={scrollToAbout}
+        onClick={scrollToTimeline}
       >
         <ArrowDown className="bounce" size={32} />
       </motion.div>
