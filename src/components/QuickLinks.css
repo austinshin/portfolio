@@ -14,22 +14,18 @@
   background: var(--accent);
   color: white;
   border: none;
-  padding: 1rem 0.75rem;
+  padding: 0.75rem 1rem;
   border-radius: 8px 0 0 8px;
   cursor: pointer;
   font-weight: 600;
   font-size: 0.9rem;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
   transition: all 0.3s ease;
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1;
 }
 
 .quicklinks-sidebar.open .quicklinks-toggle {
-  writing-mode: horizontal-tb;
-  padding: 0.75rem 1rem;
   font-size: 1.5rem;
-  line-height: 1;
 }
 
 .quicklinks-toggle:hover {
