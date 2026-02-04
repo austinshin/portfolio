@@ -1,10 +1,27 @@
+import { useEffect } from 'react'
+
 const ArtFlow = () => {
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [])
+
   return (
-    <div className="w-full min-h-screen bg-black">
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: '#000',
+        zIndex: 0,
+      }}
+    >
       <iframe
         title="ArtFlow"
         src="/artflow/index.html"
-        className="w-full h-screen border-0"
+        style={{ width: '100%', height: '100%', border: 0 }}
         allow="fullscreen"
       />
     </div>

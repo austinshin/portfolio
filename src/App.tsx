@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import Resume from './pages/Resume'
@@ -32,18 +32,27 @@ const HomePage = () => {
   )
 }
 
+const AppLayout = () => {
+  const location = useLocation()
+  const isArtFlow = location.pathname.startsWith('/artflow')
+
+  return (
+    <div className="app">
+      {!isArtFlow && <Navigation />}
+      {!isArtFlow && <QuickLinks />}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
+        <Route path="/artflow" element={<ArtFlow />} />
+      </Routes>
+    </div>
+  )
+}
+
 function App() {
   return (
     <Router>
-      <div className="app">
-        <Navigation />
-        <QuickLinks />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
-          <Route path="/artflow" element={<ArtFlow />} />
-        </Routes>
-      </div>
+      <AppLayout />
     </Router>
   )
 }
