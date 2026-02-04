@@ -1,4 +1,4 @@
-# 🎮 Valve Portfolio Website
+# 🎮 Austin Shin Portfolio Website
 
 > A professional, sleek, minimalistic portfolio website for Valve Gaming Company application
 
