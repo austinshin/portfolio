@@ -215,6 +215,20 @@ export const professionalProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
+    id: 'artflow',
+    title: 'ArtFlow AI Studio',
+    period: '2026',
+    description: [
+      'Generate artwork, mockups, and listings in a guided workflow',
+      'Batch variations with a pick-the-best flow',
+      'Optimized for quick Etsy listing creation',
+    ],
+    tags: ['Gemini', 'Veo', 'Etsy', 'React', 'AI'],
+    type: 'personal',
+    demoUrl: '/artflow',
+    image: '/side-projects/artflow.svg',
+  },
+  {
     id: 'productivity-hub',
     title: 'ProductivityHub',
     period: 'Feb 2025 - Present',

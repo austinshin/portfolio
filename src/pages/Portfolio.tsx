@@ -9,7 +9,14 @@ const Portfolio = () => {
   const poyntProjects = professionalProjects.filter(p => p.company === 'Poynt')
   const godaddyProjects = professionalProjects.filter(p => p.company === 'GoDaddy')
 
-  const renderProjectCard = (project: any, index: number) => (
+  const renderProjectCard = (project: any, index: number) => {
+    const linkTo = project.demoUrl || `/portfolio/${project.id}`
+    const isExternal = typeof linkTo === 'string' && linkTo.startsWith('http')
+    const LinkTag: any = isExternal ? 'a' : Link
+    const linkProps = isExternal ? { href: linkTo, target: '_blank', rel: 'noopener noreferrer' } : { to: linkTo }
+    const ctaLabel = project.demoUrl ? 'Open App' : 'View Details'
+
+    return (
     <motion.div
       key={project.id}
       className="project-card"
@@ -19,7 +26,7 @@ const Portfolio = () => {
       whileHover={{ y: -10 }}
     >
       {project.image && (
-        <Link to={`/portfolio/${project.id}`} className="project-link">
+        <LinkTag {...linkProps} className="project-link">
           <div className="project-image">
             <img src={project.image} alt={project.title} />
             <div className="project-overlay">
@@ -29,22 +36,22 @@ const Portfolio = () => {
                 whileTap={{ scale: 0.9 }}
               >
                 <ArrowRight size={24} />
-                <span>View Details</span>
+                <span>{ctaLabel}</span>
               </motion.div>
             </div>
           </div>
-        </Link>
+        </LinkTag>
       )}
 
       <div className="project-info">
-        <Link to={`/portfolio/${project.id}`} className="project-title-link">
+        <LinkTag {...linkProps} className="project-title-link">
           <h3>{project.title}</h3>
-        </Link>
+        </LinkTag>
         <ul className="project-description-list">
           {project.description.slice(0, 3).map((item: string, idx: number) => (
             <li key={idx}>{item}</li>
           ))}
-          {project.description.length > 3 && (
+          {!project.demoUrl && project.description.length > 3 && (
             <li className="read-more">
               <Link to={`/portfolio/${project.id}`}>
                 Read more →
@@ -59,7 +66,8 @@ const Portfolio = () => {
         </div>
       </div>
     </motion.div>
-  )
+    )
+  }
 
   return (
     <div className="page portfolio-page">

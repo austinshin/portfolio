@@ -4,8 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "artflow:build": "npm --prefix apps/artflow install && npm --prefix apps/artflow run build",
+    "artflow:sync": "rm -rf public/artflow && cp -R apps/artflow/dist public/artflow",
+    "artflow:deploy": "npm run artflow:build && npm run artflow:sync",
     "dev": "vite",
     "build": "tsc && vite build",
+    "prebuild": "npm run artflow:deploy",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },

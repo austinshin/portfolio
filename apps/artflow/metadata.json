@@ -1,0 +1,5 @@
+{
+  "name": "Etsy ArtFlow AI",
+  "description": "A comprehensive workflow to generate AI art, video thumbnails, and Etsy metadata using Gemini Nano and Veo.",
+  "requestFramePermissions": []
+}

@@ -7,6 +7,7 @@ import ProjectDetail from './pages/ProjectDetail'
 import GamingAchievements from './pages/GamingAchievements'
 import Socials from './pages/Socials'
 import QuickLinks from './components/QuickLinks'
+import ArtFlow from './pages/ArtFlow'
 
 // Single-page scroller home
 const HomePage = () => {
@@ -40,6 +41,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
+          <Route path="/artflow" element={<ArtFlow />} />
         </Routes>
       </div>
     </Router>
