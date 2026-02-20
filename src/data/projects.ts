@@ -327,6 +327,62 @@ export const personalProjects: Project[] = [
     image: '',
     type: 'personal',
   },
+  {
+    id: 'playful-parents',
+    title: 'PlayfulParents',
+    period: '2026',
+    description: [
+      'Educational app concept for parents and kids',
+      'Repository includes startup planning docs and product strategy',
+      'Built with Next.js and Supabase tooling for rapid iteration',
+    ],
+    tags: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind'],
+    type: 'personal',
+    demoUrl: 'https://github.com/austinshin/PlayfulParents',
+    githubUrl: 'https://github.com/austinshin/PlayfulParents',
+  },
+  {
+    id: 'league-library',
+    title: 'LeagueLibrary',
+    period: '2026',
+    description: [
+      'League of Legends learning resource platform inspired by curated gaming libraries',
+      'Content-focused MVP with markdown-driven authoring workflow',
+      'Web app built with React, Vite, and mobile packaging via Capacitor',
+    ],
+    tags: ['React', 'TypeScript', 'Vite', 'Supabase', 'Capacitor'],
+    type: 'personal',
+    demoUrl: 'https://github.com/austinshin/LeagueLibrary',
+    githubUrl: 'https://github.com/austinshin/LeagueLibrary',
+  },
+  {
+    id: 'chase-budget-dashboard',
+    title: 'Chase Budget Dashboard',
+    period: '2026',
+    description: [
+      'Personal finance dashboard for budgeting workflows',
+      'Built with React + TypeScript on Vite',
+      'Prepared for Plaid credential integration via environment configuration',
+    ],
+    tags: ['React', 'TypeScript', 'Vite', 'Finance', 'Plaid'],
+    type: 'personal',
+    demoUrl: 'https://github.com/austinshin/chase-budget-dashboard',
+    githubUrl: 'https://github.com/austinshin/chase-budget-dashboard',
+  },
+  {
+    id: 'handy',
+    title: 'Handy (Fork)',
+    period: '2026',
+    description: [
+      'Fork of Handy, an offline speech-to-text desktop application',
+      'Cross-platform app architecture using Tauri with Rust and React/TypeScript',
+      'Privacy-first transcription workflow designed to run locally',
+    ],
+    tags: ['Tauri', 'Rust', 'React', 'TypeScript', 'Speech-to-Text'],
+    type: 'personal',
+    demoUrl: 'https://github.com/austinshin/Handy',
+    githubUrl: 'https://github.com/austinshin/Handy',
+  },
 ]
 
 export const allProjects = [...professionalProjects, ...personalProjects]
