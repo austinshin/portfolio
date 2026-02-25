@@ -1,10 +1,4 @@
 {
-  "crons": [
-    {
-      "path": "/api/cron/tcg-sync",
-      "schedule": "0 * * * *"
-    }
-  ],
   "rewrites": [
     {
       "source": "/((?!api/).*)",

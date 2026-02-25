@@ -38,14 +38,24 @@ Open `/tcg`, enter your password, then:
 3. Watch new posts in the feed (newest first)
 4. Open the `Logs` tab to view the latest sync summary (includes provider and auth status)
 
-## 4) Cron schedule
+## 4) Hourly sync runner (GitHub Actions)
 
-`vercel.json` includes a cron job:
+Hourly sync is configured via:
 
-- path: `/api/cron/tcg-sync`
-- schedule: every hour (`0 * * * *`)
+- `.github/workflows/tcg-sync.yml`
+- schedule: every hour (`0 * * * *`, UTC)
 
-If `CRON_SECRET` is set, the cron endpoint requires `Authorization: Bearer <CRON_SECRET>`.
+Set these GitHub repository secrets (Settings -> Secrets and variables -> Actions):
+
+- `VITE_SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `TCG_POSTS_PER_HANDLE`
+- `INSTALOADER_USERNAME` (optional)
+- `INSTALOADER_PASSWORD` (optional)
+- `INSTALOADER_SESSIONFILE` (optional)
+- `TELEGRAM_BOT_TOKEN` (optional)
+- `TELEGRAM_CHAT_ID` (optional)
+- `DISCORD_WEBHOOK_URL` (optional)
 
 ## 5) Local/manual sync
 
