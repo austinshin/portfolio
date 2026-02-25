@@ -25,6 +25,12 @@
 - 📝 Contact form with Supabase
 - 🔗 Social media integration
 
+## 🃏 TCG Dashboard
+
+This repo includes a password-protected `/tcg` dashboard for curated Instagram feeds with cron sync and Discord/Telegram alerts.
+
+Setup guide: [TCG_SETUP.md](./TCG_SETUP.md)
+
 ---
 
 ## 📋 STEP-BY-STEP TODO LIST

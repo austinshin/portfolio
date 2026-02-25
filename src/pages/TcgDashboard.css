@@ -1,0 +1,444 @@
+.tcg-page {
+  min-height: 100vh;
+  padding: 2.5rem 1.25rem;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 68, 68, 0.2), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(39, 174, 96, 0.2), transparent 35%),
+    linear-gradient(160deg, #07090c 0%, #0f1218 100%);
+}
+
+.tcg-shell,
+.tcg-lock-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(13, 16, 22, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.tcg-lock-card {
+  max-width: 480px;
+  margin-top: 10vh;
+  padding: 2rem;
+}
+
+.tcg-lock-card h1,
+.tcg-header h1 {
+  letter-spacing: 0.6px;
+}
+
+.tcg-kicker {
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-size: 0.72rem;
+  color: #87f9aa;
+  margin-bottom: 0.5rem;
+}
+
+.tcg-subtitle {
+  margin-top: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.tcg-lock-form {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.tcg-lock-form input,
+.tcg-handle-form input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.8rem 0.9rem;
+  color: var(--text-primary);
+}
+
+.tcg-lock-form button,
+.tcg-handle-form button,
+.tcg-header-actions button,
+.tcg-handle-row button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.72rem 1rem;
+  color: #ffffff;
+  background: linear-gradient(140deg, #ff4444 0%, #cf3425 100%);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.tcg-header-actions button,
+.tcg-handle-row button {
+  padding: 0.55rem 0.85rem;
+}
+
+.tcg-lock-form button:disabled,
+.tcg-handle-form button:disabled,
+.tcg-header-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tcg-lock-form button:hover:not(:disabled),
+.tcg-handle-form button:hover:not(:disabled),
+.tcg-header-actions button:hover:not(:disabled),
+.tcg-handle-row button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.tcg-shell {
+  padding: 1.35rem;
+}
+
+.tcg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.tcg-header h1 {
+  font-size: 1.55rem;
+}
+
+.tcg-sync-timer {
+  margin-top: 0.45rem;
+  color: #a4a8b2;
+  font-size: 0.9rem;
+}
+
+.tcg-sync-timer strong {
+  color: #dfe3ea;
+}
+
+.tcg-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+button.danger {
+  background: linear-gradient(140deg, #9f2f2f 0%, #7d2323 100%);
+}
+
+button.ghost {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tcg-layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.tcg-sidebar {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.tcg-panel {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(7, 10, 15, 0.85);
+}
+
+.tcg-panel h2,
+.tcg-feed-header h2 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.tcg-stat {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin: 0.55rem 0;
+}
+
+.tcg-muted {
+  color: #a4a8b2;
+}
+
+.tcg-muted.small {
+  font-size: 0.78rem;
+}
+
+.tcg-handle-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tcg-provider-toggle {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0.65rem 0;
+}
+
+.provider-option {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.provider-option.active {
+  background: linear-gradient(140deg, #ff4444 0%, #cf3425 100%);
+}
+
+.tcg-handle-list-panel {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.tcg-handle-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tcg-handle-row:last-child {
+  border-bottom: none;
+}
+
+.tcg-handle-name {
+  font-weight: 600;
+}
+
+.tcg-feed {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(7, 10, 15, 0.85);
+  padding: 1rem;
+}
+
+.tcg-feed-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.tcg-view-tabs {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.tcg-view-tab {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #dfe3ea;
+  padding: 0.35rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tcg-view-tab.active {
+  border-color: rgba(255, 68, 68, 0.6);
+  background: rgba(255, 68, 68, 0.2);
+  color: #fff;
+}
+
+.tcg-feed-list {
+  display: grid;
+  gap: 0.75rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 0.2rem;
+}
+
+.tcg-post {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.tcg-post-media {
+  min-height: 140px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tcg-post-media img,
+.tcg-media-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tcg-media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+}
+
+.tcg-post-content {
+  padding: 0.75rem 0.85rem 0.8rem 0;
+}
+
+.tcg-post-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.65rem;
+  color: #dfe3ea;
+  font-size: 0.85rem;
+}
+
+.tcg-post-caption {
+  margin: 0.42rem 0 0.62rem;
+  color: #aeb4bf;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tcg-post a {
+  color: #87f9aa;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tcg-log-view {
+  min-height: 220px;
+}
+
+.tcg-log-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.9rem;
+}
+
+.tcg-log-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem 1rem;
+}
+
+.tcg-log-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.35rem;
+}
+
+.tcg-log-row span {
+  color: #a4a8b2;
+}
+
+.tcg-log-label {
+  margin-top: 0.9rem;
+  margin-bottom: 0.35rem;
+  color: #dfe3ea;
+  font-weight: 700;
+}
+
+.tcg-log-value {
+  color: #bac0cb;
+  overflow-wrap: anywhere;
+}
+
+.tcg-log-label.error,
+.tcg-log-value.error {
+  color: #ffc5c5;
+}
+
+.tcg-log-errors {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #ffc5c5;
+}
+
+.tcg-status,
+.tcg-error {
+  margin-top: 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+}
+
+.tcg-status {
+  background: rgba(135, 249, 170, 0.14);
+  color: #baf9ca;
+  border: 1px solid rgba(135, 249, 170, 0.35);
+}
+
+.tcg-error {
+  background: rgba(255, 68, 68, 0.12);
+  color: #ffc5c5;
+  border: 1px solid rgba(255, 68, 68, 0.35);
+}
+
+@media (max-width: 1020px) {
+  .tcg-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tcg-feed-list {
+    max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .tcg-page {
+    padding: 1rem 0.75rem;
+  }
+
+  .tcg-shell {
+    padding: 1rem;
+  }
+
+  .tcg-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tcg-header-actions {
+    width: 100%;
+  }
+
+  .tcg-header-actions button {
+    flex: 1;
+  }
+
+  .tcg-post {
+    grid-template-columns: 1fr;
+  }
+
+  .tcg-post-media {
+    max-height: 280px;
+  }
+
+  .tcg-post-content {
+    padding: 0.75rem;
+  }
+
+  .tcg-handle-form {
+    flex-direction: column;
+  }
+
+  .tcg-handle-form button {
+    width: 100%;
+  }
+
+  .tcg-log-grid {
+    grid-template-columns: 1fr;
+  }
+}

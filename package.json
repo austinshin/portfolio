@@ -7,6 +7,8 @@
     "artflow:build": "npm --prefix apps/artflow install && npm --prefix apps/artflow run build",
     "artflow:sync": "rm -rf public/artflow && cp -R apps/artflow/dist public/artflow",
     "artflow:deploy": "npm run artflow:build && npm run artflow:sync",
+    "tcg:sync": "node scripts/tcg-sync.mjs",
+    "dev:full": "bash scripts/dev-full.sh",
     "dev": "vite",
     "build": "tsc && vite build",
     "prebuild": "npm run artflow:deploy",

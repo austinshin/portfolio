@@ -8,6 +8,7 @@ import GamingAchievements from './pages/GamingAchievements'
 import Socials from './pages/Socials'
 import QuickLinks from './components/QuickLinks'
 import ArtFlow from './pages/ArtFlow'
+import TcgDashboard from './pages/TcgDashboard'
 
 // Single-page scroller home
 const HomePage = () => {
@@ -34,16 +35,17 @@ const HomePage = () => {
 
 const AppLayout = () => {
   const location = useLocation()
-  const isArtFlow = location.pathname.startsWith('/artflow')
+  const hideChrome = ['/artflow', '/tcg'].some((path) => location.pathname.startsWith(path))
 
   return (
     <div className="app">
-      {!isArtFlow && <Navigation />}
-      {!isArtFlow && <QuickLinks />}
+      {!hideChrome && <Navigation />}
+      {!hideChrome && <QuickLinks />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
         <Route path="/artflow" element={<ArtFlow />} />
+        <Route path="/tcg" element={<TcgDashboard />} />
       </Routes>
     </div>
   )
