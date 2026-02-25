@@ -19,6 +19,11 @@ Copy `.env.example` to `.env` and fill in:
 - `VITE_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `TCG_PAGE_PASSWORD` (default: `tcg115`)
+- `TCG_SYNC_EXECUTOR` (`github` in cloud, `local` for local-only direct sync)
+- `GITHUB_ACTIONS_TOKEN` (required if `TCG_SYNC_EXECUTOR=github`)
+- `GITHUB_REPOSITORY` (`owner/repo`, required if `TCG_SYNC_EXECUTOR=github`)
+- `GITHUB_WORKFLOW_ID` (default `tcg-sync.yml`)
+- `GITHUB_WORKFLOW_REF` (default `main`)
 - `TCG_PYTHON_BIN` (default `python3`)
 - `INSTALOADER_USERNAME` + `INSTALOADER_PASSWORD` (optional, for login)
 - `INSTALOADER_SESSIONFILE` (optional, alternative to username/password)
@@ -57,7 +62,19 @@ Set these GitHub repository secrets (Settings -> Secrets and variables -> Action
 - `TELEGRAM_CHAT_ID` (optional)
 - `DISCORD_WEBHOOK_URL` (optional)
 
-## 5) Local/manual sync
+## 5) Cloud manual trigger from `/tcg`
+
+When you click `Run Sync` in the deployed dashboard, the API dispatches the GitHub workflow (instead of trying to run Python inside Vercel).
+
+Required Vercel env vars for this:
+
+- `TCG_SYNC_EXECUTOR=github`
+- `GITHUB_ACTIONS_TOKEN` (token with permission to dispatch workflows on the repo)
+- `GITHUB_REPOSITORY` (`owner/repo`, example: `austinshin/portfolio`)
+- `GITHUB_WORKFLOW_ID` (`tcg-sync.yml`)
+- `GITHUB_WORKFLOW_REF` (`main`)
+
+## 6) Local/manual sync
 
 Run:
 

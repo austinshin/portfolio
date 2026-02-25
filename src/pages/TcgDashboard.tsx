@@ -30,6 +30,9 @@ interface SyncResult {
   handles?: string[]
   notificationErrors?: string[]
   latest?: unknown[]
+  queued?: boolean
+  trigger?: string
+  workflowUrl?: string
 }
 
 const PASSWORD_STORAGE_KEY = 'tcg-dashboard-password'
@@ -46,6 +49,9 @@ interface SyncLogEntry {
   handles: string[]
   notificationErrors: string[]
   latestCount: number
+  queued?: boolean
+  trigger?: string
+  workflowUrl?: string
   failed?: boolean
   error?: string
 }
@@ -306,6 +312,9 @@ const TcgDashboard = () => {
       const notified = result?.notified ?? 0
       const syncedWith = result?.provider || 'instaloader'
       const authStatus = result?.authStatus || 'unknown'
+      const queued = Boolean(result?.queued)
+      const workflowUrl = typeof result?.workflowUrl === 'string' ? result.workflowUrl : ''
+      const trigger = typeof result?.trigger === 'string' ? result.trigger : ''
       const logEntry: SyncLogEntry = {
         ranAt: new Date().toISOString(),
         provider: syncedWith,
@@ -316,13 +325,23 @@ const TcgDashboard = () => {
         handles: Array.isArray(result?.handles) ? result.handles : [],
         notificationErrors: Array.isArray(result?.notificationErrors) ? result.notificationErrors : [],
         latestCount: Array.isArray(result?.latest) ? result.latest.length : 0,
+        queued,
+        workflowUrl,
+        trigger,
       }
 
       setLatestSyncLog(logEntry)
       window.localStorage.setItem(SYNC_LOG_STORAGE_KEY, JSON.stringify(logEntry))
 
-      setStatusMessage(`Sync complete via ${syncedWith}. Fetched ${fetched}, inserted ${inserted}, notified ${notified}.`)
-      await loadDashboardData()
+      if (queued) {
+        const message = workflowUrl
+          ? `Sync queued via GitHub Actions. Track run: ${workflowUrl}`
+          : 'Sync queued via GitHub Actions.'
+        setStatusMessage(message)
+      } else {
+        setStatusMessage(`Sync complete via ${syncedWith}. Fetched ${fetched}, inserted ${inserted}, notified ${notified}.`)
+        await loadDashboardData()
+      }
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Manual sync failed.'
       const failedLogEntry: SyncLogEntry = {
@@ -582,7 +601,29 @@ const TcgDashboard = () => {
                         <span>Latest Saved</span>
                         <strong>{latestSyncLog.latestCount}</strong>
                       </div>
+                      <div className="tcg-log-row">
+                        <span>Queued</span>
+                        <strong>{latestSyncLog.queued ? 'yes' : 'no'}</strong>
+                      </div>
                     </div>
+
+                    {latestSyncLog.trigger && (
+                      <>
+                        <p className="tcg-log-label">Trigger</p>
+                        <p className="tcg-log-value">{latestSyncLog.trigger}</p>
+                      </>
+                    )}
+
+                    {latestSyncLog.workflowUrl && (
+                      <>
+                        <p className="tcg-log-label">Workflow</p>
+                        <p className="tcg-log-value">
+                          <a href={latestSyncLog.workflowUrl} target="_blank" rel="noreferrer">
+                            Open GitHub Actions
+                          </a>
+                        </p>
+                      </>
+                    )}
 
                     <p className="tcg-log-label">Handles</p>
                     <p className="tcg-log-value">
