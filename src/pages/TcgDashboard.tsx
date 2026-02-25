@@ -358,9 +358,12 @@ const TcgDashboard = () => {
 
       if (queued) {
         const message = workflowUrl
-          ? `Sync queued via GitHub Actions. Track run: ${workflowUrl}`
-          : 'Sync queued via GitHub Actions.'
+          ? `Sync queued via GitHub Actions. Track run: ${workflowUrl}. Feed auto-refreshes in 60s.`
+          : 'Sync queued via GitHub Actions. Feed auto-refreshes in 60s.'
         setStatusMessage(message)
+        window.setTimeout(() => {
+          void loadDashboardData()
+        }, 60000)
       } else {
         setStatusMessage(`Sync complete via ${syncedWith}. Fetched ${fetched}, inserted ${inserted}, notified ${notified}.`)
         await loadDashboardData()

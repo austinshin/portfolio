@@ -57,7 +57,7 @@ Set these GitHub repository secrets (Settings -> Secrets and variables -> Action
 - `TCG_POSTS_PER_HANDLE`
 - `INSTALOADER_USERNAME` (optional)
 - `INSTALOADER_PASSWORD` (optional)
-- `INSTALOADER_SESSIONFILE` (optional)
+- `INSTALOADER_SESSION_B64` (recommended, base64 of a valid session file)
 - `TELEGRAM_BOT_TOKEN` (optional)
 - `TELEGRAM_CHAT_ID` (optional)
 - `DISCORD_WEBHOOK_URL` (optional)
@@ -73,6 +73,11 @@ Required Vercel env vars for this:
 - `GITHUB_REPOSITORY` (`owner/repo`, example: `austinshin/portfolio`)
 - `GITHUB_WORKFLOW_ID` (`tcg-sync.yml`)
 - `GITHUB_WORKFLOW_REF` (`main`)
+
+If you see repeated Instagram `429 Too Many Requests` in Actions logs, run authenticated mode:
+
+1. Set `INSTALOADER_USERNAME` and `INSTALOADER_PASSWORD` as GitHub secrets.
+2. Optionally generate a session file locally and set `INSTALOADER_SESSION_B64` in GitHub secrets (base64 content of the session file).
 
 ## 6) Local/manual sync
 

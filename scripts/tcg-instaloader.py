@@ -2,7 +2,9 @@
 import argparse
 import json
 import os
+import random
 import sys
+import time
 from datetime import timezone
 
 try:
@@ -52,22 +54,43 @@ def build_loader():
     return loader, auth_status
 
 
-def scrape_handles(handles, posts_per_handle):
-    loader, auth_status = build_loader()
-    items = []
-    errors = []
-    success_handles = 0
+def get_env_float(name, default_value):
+    raw = os.getenv(name, "").strip()
+    if not raw:
+        return float(default_value)
+    try:
+        return float(raw)
+    except ValueError:
+        return float(default_value)
 
-    for handle in handles:
+
+def get_env_int(name, default_value):
+    raw = os.getenv(name, "").strip()
+    if not raw:
+        return int(default_value)
+    try:
+        return int(raw)
+    except ValueError:
+        return int(default_value)
+
+
+def is_rate_limited(error):
+    message = str(error).lower()
+    return "429" in message or "too many requests" in message or "please wait a few minutes" in message
+
+
+def get_retry_delay(base_seconds, attempt):
+    jitter = random.uniform(0.5, 2.0)
+    return max(0.0, base_seconds * attempt + jitter)
+
+
+def scrape_single_handle(loader, handle, posts_per_handle, max_retries, retry_backoff_seconds):
+    last_error = None
+    for attempt in range(1, max_retries + 1):
         try:
             profile = instaloader.Profile.from_username(loader.context, handle)
-        except Exception as error:
-            print(f"Failed to load profile @{handle}: {error}", file=sys.stderr)
-            errors.append({"handle": handle, "stage": "profile", "error": str(error)})
-            continue
-
-        count = 0
-        try:
+            handle_items = []
+            count = 0
             for post in profile.get_posts():
                 shortcode = getattr(post, "shortcode", "")
                 media_id = getattr(post, "mediaid", "")
@@ -78,7 +101,7 @@ def scrape_handles(handles, posts_per_handle):
                 timestamp = to_iso(getattr(post, "date_utc", None))
                 post_url = f"https://www.instagram.com/p/{shortcode}/" if shortcode else None
 
-                items.append(
+                handle_items.append(
                     {
                         "id": str(media_id or shortcode),
                         "shortCode": shortcode,
@@ -95,11 +118,46 @@ def scrape_handles(handles, posts_per_handle):
                 count += 1
                 if count >= posts_per_handle:
                     break
-            success_handles += 1
+
+            return handle_items, None
         except Exception as error:
-            print(f"Failed to read posts for @{handle}: {error}", file=sys.stderr)
-            errors.append({"handle": handle, "stage": "posts", "error": str(error)})
-            continue
+            last_error = error
+            if attempt < max_retries and is_rate_limited(error):
+                delay_seconds = get_retry_delay(retry_backoff_seconds, attempt)
+                print(
+                    f"Rate limited on @{handle}, retrying in {delay_seconds:.1f}s (attempt {attempt}/{max_retries})",
+                    file=sys.stderr,
+                )
+                time.sleep(delay_seconds)
+                continue
+            break
+
+    return [], last_error
+
+
+def scrape_handles(handles, posts_per_handle):
+    loader, auth_status = build_loader()
+    items = []
+    errors = []
+    success_handles = 0
+    max_retries = max(1, min(get_env_int("INSTALOADER_MAX_RETRIES", 3), 8))
+    retry_backoff_seconds = max(1.0, get_env_float("INSTALOADER_RETRY_BACKOFF_SECONDS", 8.0))
+    handle_delay_seconds = max(0.0, get_env_float("INSTALOADER_HANDLE_DELAY_SECONDS", 2.0))
+
+    for index, handle in enumerate(handles):
+        handle_items, error = scrape_single_handle(
+            loader, handle, posts_per_handle, max_retries, retry_backoff_seconds
+        )
+        if error is not None:
+            print(f"Failed to load/read @{handle}: {error}", file=sys.stderr)
+            errors.append({"handle": handle, "stage": "profile_or_posts", "error": str(error)})
+        else:
+            items.extend(handle_items)
+            success_handles += 1
+
+        if index < len(handles) - 1 and handle_delay_seconds > 0:
+            delay_seconds = handle_delay_seconds + random.uniform(0.0, 1.0)
+            time.sleep(delay_seconds)
 
     return items, auth_status, errors, success_handles
 

@@ -30,6 +30,14 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install instaloader
 
+      - name: Prepare Instaloader session
+        if: ${{ secrets.INSTALOADER_SESSION_B64 != '' }}
+        shell: bash
+        run: |
+          echo "${{ secrets.INSTALOADER_SESSION_B64 }}" | base64 --decode > "$RUNNER_TEMP/instaloader-session"
+          chmod 600 "$RUNNER_TEMP/instaloader-session"
+          echo "INSTALOADER_SESSIONFILE=$RUNNER_TEMP/instaloader-session" >> "$GITHUB_ENV"
+
       - name: Run TCG sync
         run: npm run tcg:sync
         env:
@@ -39,7 +47,10 @@ jobs:
           TCG_PYTHON_BIN: python3
           INSTALOADER_USERNAME: ${{ secrets.INSTALOADER_USERNAME }}
           INSTALOADER_PASSWORD: ${{ secrets.INSTALOADER_PASSWORD }}
-          INSTALOADER_SESSIONFILE: ${{ secrets.INSTALOADER_SESSIONFILE }}
+          INSTALOADER_SESSIONFILE: ${{ env.INSTALOADER_SESSIONFILE }}
+          INSTALOADER_MAX_RETRIES: "4"
+          INSTALOADER_RETRY_BACKOFF_SECONDS: "10"
+          INSTALOADER_HANDLE_DELAY_SECONDS: "4"
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
