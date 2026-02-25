@@ -55,12 +55,15 @@ def build_loader():
 def scrape_handles(handles, posts_per_handle):
     loader, auth_status = build_loader()
     items = []
+    errors = []
+    success_handles = 0
 
     for handle in handles:
         try:
             profile = instaloader.Profile.from_username(loader.context, handle)
         except Exception as error:
             print(f"Failed to load profile @{handle}: {error}", file=sys.stderr)
+            errors.append({"handle": handle, "stage": "profile", "error": str(error)})
             continue
 
         count = 0
@@ -92,11 +95,13 @@ def scrape_handles(handles, posts_per_handle):
                 count += 1
                 if count >= posts_per_handle:
                     break
+            success_handles += 1
         except Exception as error:
             print(f"Failed to read posts for @{handle}: {error}", file=sys.stderr)
+            errors.append({"handle": handle, "stage": "posts", "error": str(error)})
             continue
 
-    return items, auth_status
+    return items, auth_status, errors, success_handles
 
 
 def parse_args():
@@ -111,8 +116,33 @@ def main():
     handles = [h.strip().lstrip("@").lower() for h in args.handles if h and h.strip()]
     posts_per_handle = max(1, min(args.posts_per_handle, 12))
 
-    items, auth_status = scrape_handles(handles, posts_per_handle)
-    print(json.dumps({"posts": items, "authStatus": auth_status}))
+    items, auth_status, errors, success_handles = scrape_handles(handles, posts_per_handle)
+    if success_handles == 0 and len(handles) > 0:
+        print(
+            json.dumps(
+                {
+                    "posts": items,
+                    "authStatus": auth_status,
+                    "errors": errors,
+                    "successHandles": success_handles,
+                    "totalHandles": len(handles),
+                }
+            ),
+            file=sys.stderr,
+        )
+        sys.exit(3)
+
+    print(
+        json.dumps(
+            {
+                "posts": items,
+                "authStatus": auth_status,
+                "errors": errors,
+                "successHandles": success_handles,
+                "totalHandles": len(handles),
+            }
+        )
+    )
 
 
 if __name__ == "__main__":

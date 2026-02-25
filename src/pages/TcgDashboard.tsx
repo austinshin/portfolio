@@ -24,6 +24,9 @@ interface PostRow {
 interface SyncResult {
   provider?: string
   authStatus?: string
+  scrapeErrors?: Array<{ handle?: string; stage?: string; error?: string } | string>
+  successHandles?: number
+  totalHandles?: number
   inserted: number
   fetched: number
   notified: number
@@ -52,6 +55,9 @@ interface SyncLogEntry {
   queued?: boolean
   trigger?: string
   workflowUrl?: string
+  scrapeErrors?: string[]
+  successHandles?: number
+  totalHandles?: number
   failed?: boolean
   error?: string
 }
@@ -315,6 +321,20 @@ const TcgDashboard = () => {
       const queued = Boolean(result?.queued)
       const workflowUrl = typeof result?.workflowUrl === 'string' ? result.workflowUrl : ''
       const trigger = typeof result?.trigger === 'string' ? result.trigger : ''
+      const scrapeErrors = Array.isArray(result?.scrapeErrors)
+        ? result.scrapeErrors.map((entry) => {
+          if (!entry || typeof entry !== 'object') {
+            return String(entry)
+          }
+
+          const handle = typeof entry.handle === 'string' && entry.handle ? `@${entry.handle}` : '@unknown'
+          const stage = typeof entry.stage === 'string' && entry.stage ? `[${entry.stage}] ` : ''
+          const error = typeof entry.error === 'string' && entry.error ? entry.error : JSON.stringify(entry)
+          return `${handle} ${stage}${error}`
+        })
+        : []
+      const successHandles = Number.isFinite(result?.successHandles) ? Number(result.successHandles) : 0
+      const totalHandles = Number.isFinite(result?.totalHandles) ? Number(result.totalHandles) : 0
       const logEntry: SyncLogEntry = {
         ranAt: new Date().toISOString(),
         provider: syncedWith,
@@ -328,6 +348,9 @@ const TcgDashboard = () => {
         queued,
         workflowUrl,
         trigger,
+        scrapeErrors,
+        successHandles,
+        totalHandles,
       }
 
       setLatestSyncLog(logEntry)
@@ -644,6 +667,26 @@ const TcgDashboard = () => {
                         <p className="tcg-log-label error">Notification Errors</p>
                         <ul className="tcg-log-errors">
                           {latestSyncLog.notificationErrors.map((error, index) => (
+                            <li key={`${error}-${index}`}>{error}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+
+                    {latestSyncLog.totalHandles !== undefined && latestSyncLog.totalHandles > 0 && (
+                      <>
+                        <p className="tcg-log-label">Scrape Coverage</p>
+                        <p className="tcg-log-value">
+                          {latestSyncLog.successHandles || 0}/{latestSyncLog.totalHandles} handles succeeded
+                        </p>
+                      </>
+                    )}
+
+                    {latestSyncLog.scrapeErrors && latestSyncLog.scrapeErrors.length > 0 && (
+                      <>
+                        <p className="tcg-log-label error">Scrape Errors</p>
+                        <ul className="tcg-log-errors">
+                          {latestSyncLog.scrapeErrors.map((error, index) => (
                             <li key={`${error}-${index}`}>{error}</li>
                           ))}
                         </ul>
