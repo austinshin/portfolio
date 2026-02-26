@@ -1,8 +1,8 @@
-name: TCG Sync (Hourly)
+name: TCG Sync (Every 2 Hours)
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 */2 * * *"
   workflow_dispatch: {}
 
 jobs:

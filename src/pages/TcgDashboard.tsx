@@ -102,12 +102,11 @@ const formatDate = (value: string) =>
     timeStyle: 'short',
   }).format(new Date(value))
 
-const getNextHourlySync = (nowMs: number) => {
+const getNextTwoHourSync = (nowMs: number) => {
   const next = new Date(nowMs)
   next.setMinutes(0, 0, 0)
-  if (next.getTime() <= nowMs) {
-    next.setHours(next.getHours() + 1)
-  }
+  const hour = next.getHours()
+  next.setHours(hour + (hour % 2 === 0 ? 2 : 1))
   return next
 }
 
@@ -136,6 +135,7 @@ const TcgDashboard = () => {
 
   const [isLoading, setIsLoading] = useState(false)
   const [isSyncing, setIsSyncing] = useState(false)
+  const [isTestingTelegram, setIsTestingTelegram] = useState(false)
   const [isClearing, setIsClearing] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
   const [statusError, setStatusError] = useState('')
@@ -149,7 +149,7 @@ const TcgDashboard = () => {
     () => handles.filter((handle) => handle.is_active).length,
     [handles],
   )
-  const nextSyncDate = useMemo(() => getNextHourlySync(nowMs), [nowMs])
+  const nextSyncDate = useMemo(() => getNextTwoHourSync(nowMs), [nowMs])
   const nextSyncClock = useMemo(
     () => new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }).format(nextSyncDate),
     [nextSyncDate],
@@ -403,6 +403,26 @@ const TcgDashboard = () => {
     }
   }
 
+  const handleTestTelegram = async () => {
+    setIsTestingTelegram(true)
+    setStatusError('')
+    setStatusMessage('')
+
+    try {
+      const response = await secureFetch('/api/tcg/test-telegram', { method: 'POST' })
+      const sentAt = response?.result?.sentAt
+      if (typeof sentAt === 'string' && sentAt) {
+        setStatusMessage(`Telegram test sent (${sentAt}).`)
+      } else {
+        setStatusMessage('Telegram test sent.')
+      }
+    } catch (error) {
+      setStatusError(error instanceof Error ? error.message : 'Failed to send Telegram test.')
+    } finally {
+      setIsTestingTelegram(false)
+    }
+  }
+
   const handleClearFeed = async () => {
     const confirmed = window.confirm(
       'Clear all currently visible posts for active handles? This deletes them from storage.',
@@ -477,17 +497,20 @@ const TcgDashboard = () => {
             <p className="tcg-kicker">austinshin.io/tcg</p>
             <h1>Instagram Feed Console</h1>
             <p className="tcg-sync-timer">
-              Next hourly cron sync: <strong>{nextSyncClock}</strong> (in {nextSyncCountdown})
+              Next 2-hour sync: <strong>{nextSyncClock}</strong> (in {nextSyncCountdown})
             </p>
           </div>
           <div className="tcg-header-actions">
-            <button type="button" onClick={handleRefresh} disabled={isLoading || isSyncing || isClearing}>
+            <button type="button" onClick={handleRefresh} disabled={isLoading || isSyncing || isTestingTelegram || isClearing}>
               Refresh
             </button>
-            <button type="button" onClick={handleManualSync} disabled={isSyncing || isClearing}>
+            <button type="button" onClick={handleManualSync} disabled={isSyncing || isTestingTelegram || isClearing}>
               {isSyncing ? 'Syncing...' : 'Run Sync'}
             </button>
-            <button type="button" className="danger" onClick={handleClearFeed} disabled={isSyncing || isClearing}>
+            <button type="button" onClick={handleTestTelegram} disabled={isSyncing || isTestingTelegram || isClearing}>
+              {isTestingTelegram ? 'Testing...' : 'Test Telegram'}
+            </button>
+            <button type="button" className="danger" onClick={handleClearFeed} disabled={isSyncing || isTestingTelegram || isClearing}>
               {isClearing ? 'Clearing...' : 'Clear'}
             </button>
             <button type="button" className="danger" onClick={handleLogout}>

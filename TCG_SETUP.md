@@ -46,12 +46,12 @@ Open `/tcg`, enter your password, then:
 3. Watch new posts in the feed (newest first)
 4. Open the `Logs` tab to view the latest sync summary (includes provider and auth status)
 
-## 4) Hourly sync runner (GitHub Actions)
+## 4) 2-hour sync runner (GitHub Actions)
 
-Hourly sync is configured via:
+Scheduled sync is configured via:
 
 - `.github/workflows/tcg-sync.yml`
-- schedule: every hour (`0 * * * *`, UTC)
+- schedule: every 2 hours (`0 */2 * * *`, UTC)
 
 Set these GitHub repository secrets (Settings -> Secrets and variables -> Actions):
 
@@ -130,6 +130,7 @@ Password-protected (`x-tcg-password` header):
 - `GET /api/tcg/feed?limit=60`
 - `DELETE /api/tcg/feed` (clear visible active-handle feed posts)
 - `POST /api/tcg/sync`
+- `POST /api/tcg/test-telegram`
 
 Cron endpoint:
 
