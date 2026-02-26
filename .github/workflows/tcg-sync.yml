@@ -9,6 +9,8 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      INSTALOADER_SESSION_B64: ${{ secrets.INSTALOADER_SESSION_B64 }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,10 +33,10 @@ jobs:
           python -m pip install instaloader
 
       - name: Prepare Instaloader session
-        if: ${{ secrets.INSTALOADER_SESSION_B64 != '' }}
+        if: ${{ env.INSTALOADER_SESSION_B64 != '' }}
         shell: bash
         run: |
-          echo "${{ secrets.INSTALOADER_SESSION_B64 }}" | base64 --decode > "$RUNNER_TEMP/instaloader-session"
+          echo "$INSTALOADER_SESSION_B64" | base64 --decode > "$RUNNER_TEMP/instaloader-session"
           chmod 600 "$RUNNER_TEMP/instaloader-session"
           echo "INSTALOADER_SESSIONFILE=$RUNNER_TEMP/instaloader-session" >> "$GITHUB_ENV"
 
