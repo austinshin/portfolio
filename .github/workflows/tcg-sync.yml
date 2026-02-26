@@ -43,9 +43,12 @@ jobs:
       - name: Run TCG sync
         run: npm run tcg:sync
         env:
+          TCG_SCRAPER_PROVIDER: apify
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           TCG_POSTS_PER_HANDLE: ${{ secrets.TCG_POSTS_PER_HANDLE }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          APIFY_ACTOR_ID: ${{ secrets.APIFY_ACTOR_ID }}
           TCG_PYTHON_BIN: python3
           INSTALOADER_USERNAME: ${{ secrets.INSTALOADER_USERNAME }}
           INSTALOADER_PASSWORD: ${{ secrets.INSTALOADER_PASSWORD }}

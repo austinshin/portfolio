@@ -506,7 +506,7 @@ const TcgDashboard = () => {
 
             <article className="tcg-panel">
               <h2>Scraper Provider</h2>
-              <p className="tcg-muted">Instaloader (fixed)</p>
+              <p className="tcg-muted">Apify (server-configured)</p>
             </article>
 
             <article className="tcg-panel">

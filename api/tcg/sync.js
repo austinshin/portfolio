@@ -1,7 +1,7 @@
 import { isTcgAuthorized, rejectUnauthorized } from '../../lib/tcg/auth.js'
+import { getScraperProvider } from '../../lib/tcg/config.js'
 import { syncInstagramPosts } from '../../lib/tcg/sync.js'
-import { getFirstString } from '../../lib/tcg/utils.js'
-import { normalizeHandle } from '../../lib/tcg/utils.js'
+import { getFirstString, normalizeHandle } from '../../lib/tcg/utils.js'
 
 const parseBody = (req) => {
   if (!req.body) return {}
@@ -63,14 +63,18 @@ const getGithubDispatchConfig = () => {
   }
 }
 
-const resolveSyncExecutor = () => {
+const resolveSyncExecutor = (provider) => {
+  if (provider === 'apify') {
+    return 'local'
+  }
+
   const configured = normalizeSyncExecutor(process.env.TCG_SYNC_EXECUTOR)
 
   if (configured !== 'auto') {
     return configured
   }
 
-  // In cloud runtime we default to workflow dispatch to avoid python spawn issues.
+  // In cloud runtime Instaloader defaults to workflow dispatch.
   if (process.env.VERCEL === '1') {
     return 'github'
   }
@@ -90,7 +94,7 @@ const assertGithubDispatchConfig = (config) => {
   }
 }
 
-const dispatchGithubWorkflow = async (config) => {
+const dispatchGithubWorkflow = async (config, provider) => {
   assertGithubDispatchConfig(config)
 
   const endpoint = `https://api.github.com/repos/${config.owner}/${config.name}/actions/workflows/${encodeURIComponent(config.workflowId)}/dispatches`
@@ -113,7 +117,7 @@ const dispatchGithubWorkflow = async (config) => {
   }
 
   return {
-    provider: 'instaloader',
+    provider,
     authStatus: 'queued',
     handles: [],
     fetched: 0,
@@ -144,10 +148,11 @@ export default async function handler(req, res) {
       : undefined
     const postsPerHandle = Number(body.postsPerHandle)
     const notify = body.notify !== false
-    const executor = resolveSyncExecutor()
+    const provider = getScraperProvider()
+    const executor = resolveSyncExecutor(provider)
 
     if (executor === 'github') {
-      const result = await dispatchGithubWorkflow(getGithubDispatchConfig())
+      const result = await dispatchGithubWorkflow(getGithubDispatchConfig(), provider)
       return res.status(202).json({ ok: true, result })
     }
 
@@ -155,6 +160,7 @@ export default async function handler(req, res) {
       handles,
       postsPerHandle: Number.isFinite(postsPerHandle) && postsPerHandle > 0 ? postsPerHandle : undefined,
       notify,
+      provider,
     })
 
     return res.status(200).json({ ok: true, result })

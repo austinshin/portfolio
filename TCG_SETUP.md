@@ -19,14 +19,17 @@ Copy `.env.example` to `.env` and fill in:
 - `VITE_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `TCG_PAGE_PASSWORD` (default: `tcg115`)
-- `TCG_SYNC_EXECUTOR` (`github` in cloud, `local` for local-only direct sync)
+- `TCG_SCRAPER_PROVIDER` (`apify` recommended)
+- `APIFY_TOKEN` (required for `apify` provider)
+- `APIFY_ACTOR_ID` (default `apify/instagram-scraper`)
+- `TCG_SYNC_EXECUTOR` (`auto` recommended: direct for `apify`, github dispatch for cloud `instaloader`)
 - `GITHUB_ACTIONS_TOKEN` (required if `TCG_SYNC_EXECUTOR=github`)
 - `GITHUB_REPOSITORY` (`owner/repo`, required if `TCG_SYNC_EXECUTOR=github`)
 - `GITHUB_WORKFLOW_ID` (default `tcg-sync.yml`)
 - `GITHUB_WORKFLOW_REF` (default `main`)
-- `TCG_PYTHON_BIN` (default `python3`)
-- `INSTALOADER_USERNAME` + `INSTALOADER_PASSWORD` (optional, for login)
-- `INSTALOADER_SESSIONFILE` (optional, alternative to username/password)
+- `TCG_PYTHON_BIN` (default `python3`, only for `instaloader`)
+- `INSTALOADER_USERNAME` + `INSTALOADER_PASSWORD` (optional, for `instaloader`)
+- `INSTALOADER_SESSIONFILE` (optional, alternative to username/password for `instaloader`)
 - `TCG_POSTS_PER_HANDLE` (default `6`)
 - `CRON_SECRET` (recommended for secure cron calls)
 - Optional:
@@ -55,6 +58,8 @@ Set these GitHub repository secrets (Settings -> Secrets and variables -> Action
 - `VITE_SUPABASE_URL`
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `TCG_POSTS_PER_HANDLE`
+- `APIFY_TOKEN` (required if workflow uses `apify`)
+- `APIFY_ACTOR_ID` (optional override)
 - `INSTALOADER_USERNAME` (optional)
 - `INSTALOADER_PASSWORD` (optional)
 - `INSTALOADER_SESSION_B64` (recommended, base64 of a valid session file)
@@ -64,20 +69,17 @@ Set these GitHub repository secrets (Settings -> Secrets and variables -> Action
 
 ## 5) Cloud manual trigger from `/tcg`
 
-When you click `Run Sync` in the deployed dashboard, the API dispatches the GitHub workflow (instead of trying to run Python inside Vercel).
+When you click `Run Sync` in the deployed dashboard:
+
+- `apify` provider runs directly in the Vercel API route
+- `instaloader` on cloud dispatches the GitHub workflow by default
 
 Required Vercel env vars for this:
 
-- `TCG_SYNC_EXECUTOR=github`
-- `GITHUB_ACTIONS_TOKEN` (token with permission to dispatch workflows on the repo)
-- `GITHUB_REPOSITORY` (`owner/repo`, example: `austinshin/portfolio`)
-- `GITHUB_WORKFLOW_ID` (`tcg-sync.yml`)
-- `GITHUB_WORKFLOW_REF` (`main`)
-
-If you see repeated Instagram `429 Too Many Requests` in Actions logs, run authenticated mode:
-
-1. Set `INSTALOADER_USERNAME` and `INSTALOADER_PASSWORD` as GitHub secrets.
-2. Optionally generate a session file locally and set `INSTALOADER_SESSION_B64` in GitHub secrets (base64 content of the session file).
+- `TCG_SCRAPER_PROVIDER=apify`
+- `APIFY_TOKEN`
+- optional: `APIFY_ACTOR_ID`
+- optional (only if using github dispatch mode): `TCG_SYNC_EXECUTOR=github`, `GITHUB_ACTIONS_TOKEN`, `GITHUB_REPOSITORY`, `GITHUB_WORKFLOW_ID`, `GITHUB_WORKFLOW_REF`
 
 ## 6) Local/manual sync
 
@@ -89,7 +91,7 @@ npm run tcg:sync
 
 This uses the same sync logic as the cron route and will send notifications when configured.
 
-### Instaloader requirement
+### Instaloader requirement (fallback mode)
 
 1. Install Instaloader:
 ```bash
