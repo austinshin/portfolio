@@ -21,7 +21,7 @@ Copy `.env.example` to `.env` and fill in:
 - `TCG_PAGE_PASSWORD` (default: `tcg115`)
 - `TCG_SCRAPER_PROVIDER` (`apify` recommended)
 - `APIFY_TOKEN` (required for `apify` provider)
-- `APIFY_ACTOR_ID` (default `apify/instagram-scraper`)
+- `APIFY_ACTOR_ID` (default `apify~instagram-scraper`)
 - `TCG_SYNC_EXECUTOR` (`auto` recommended: direct for `apify`, github dispatch for cloud `instaloader`)
 - `GITHUB_ACTIONS_TOKEN` (required if `TCG_SYNC_EXECUTOR=github`)
 - `GITHUB_REPOSITORY` (`owner/repo`, required if `TCG_SYNC_EXECUTOR=github`)
