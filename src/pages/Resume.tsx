@@ -83,7 +83,7 @@ const Resume = () => {
         <h1>RESUME</h1>
         <div className="header-line"></div>
         <motion.a
-          href="https://docs.google.com/document/d/1ymPbw5Vk9lI6TSC7xU1gq7BXzcX22zJiqdWdqtFteeY/edit?usp=sharing"
+          href="https://drive.google.com/file/d/1depxhrLL9jSSTUO5R3BaoXAzjic6GnvH/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="download-btn"
