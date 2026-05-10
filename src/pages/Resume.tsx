@@ -5,6 +5,32 @@ import './Pages.css'
 const Resume = () => {
   const experiences = [
     {
+      title: 'csreplays.com — AI Coach for CS2 Demos',
+      company: 'Independent (Founder / Engineer)',
+      period: 'May 2026 - Present',
+      description: [
+        'Built end-to-end SaaS that turns a Counter-Strike 2 .dem replay into a coaching report grounded in specific rounds and timestamps',
+        'Stack: Next.js 15 + TypeScript webapp, Python parsing worker on Modal (scale-to-zero), Inngest for durable async pipeline orchestration, Supabase Postgres + Cloudflare R2 storage',
+        'Demo parsing built on ValveResourceFormat to extract per-round events, player ticks, and grenade trajectories from the CS2 binary format',
+        'Claude Sonnet 4.6 generates the coaching report from a structured digest; hallucination guard rejects any output citing rounds or lineups not in the digest',
+        'Stripe subscriptions ($9.99/mo Pro tier) with idempotent webhook handlers and a Postgres credits ledger',
+        'Roadmap: PyTorch model trained on pro-level demos for play-pattern classification, surfaced via RAG to ground Claude with retrieved pro-player examples',
+      ],
+    },
+    {
+      title: 'Billable — iOS Time-Capture App (CTO)',
+      company: 'Co-founder / iOS Engineer',
+      period: 'Apr 2026 - Present',
+      description: [
+        'Co-founded as CTO; building a native iOS app (SwiftUI, iOS 17+, SwiftData) that auto-generates timesheets for hourly-billing professionals (lawyers, CPAs, consultants)',
+        'Architected passive-capture pipeline across EventKit (calendar), CallKit (calls), and the Gmail API (email metadata only — never message bodies)',
+        'Heuristic email-to-client matching: domain validator, address parser, time-gap clusterer, keyword classifier, all combined with confidence scoring',
+        'StoreKit 2 subscriptions for Pro tier (day-by-day breakdown), PDFKit-based report exporter, full delete-all-data compliance flow',
+        '~1,500 LOC of service-layer Swift with 16 dedicated XCTest suites covering capture, classification, reporting, and OAuth flows',
+        'XcodeGen-managed project, Google Sign-In via SPM; on track for TestFlight in 12 weeks',
+      ],
+    },
+    {
       title: 'Day trading & AI Learning',
       company: 'Independent',
       period: 'Nov 2023 - Present',

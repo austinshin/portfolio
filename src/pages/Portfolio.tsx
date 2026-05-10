@@ -1,13 +1,18 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Briefcase, Code } from 'lucide-react'
+import { ArrowRight, Briefcase, Code, Rocket } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import './Pages.css'
 import { professionalProjects, personalProjects } from '../data/projects'
+
+const SOLO_VENTURE_IDS = ['csreplays', 'billable']
 
 const Portfolio = () => {
   // Separate Poynt and GoDaddy projects
   const poyntProjects = professionalProjects.filter(p => p.company === 'Poynt')
   const godaddyProjects = professionalProjects.filter(p => p.company === 'GoDaddy')
+
+  const soloVentures = personalProjects.filter(p => SOLO_VENTURE_IDS.includes(p.id))
+  const otherPersonalProjects = personalProjects.filter(p => !SOLO_VENTURE_IDS.includes(p.id))
 
   const renderProjectCard = (project: any, index: number) => {
     const linkTo = project.demoUrl || `/portfolio/${project.id}`
@@ -51,7 +56,7 @@ const Portfolio = () => {
           {project.description.slice(0, 3).map((item: string, idx: number) => (
             <li key={idx}>{item}</li>
           ))}
-          {!project.demoUrl && project.description.length > 3 && (
+          {(project.description.length > 3 || project.detailedInfo) && (
             <li className="read-more">
               <Link to={`/portfolio/${project.id}`}>
                 Read more →
@@ -113,6 +118,25 @@ const Portfolio = () => {
         </div>
       </motion.div>
 
+      {/* Solo Entrepreneurship Section */}
+      <motion.div
+        className="portfolio-section"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.35 }}
+      >
+        <div className="section-header">
+          <Rocket size={32} style={{ color: 'var(--accent)' }} />
+          <h2>Solo Entrepreneurship</h2>
+        </div>
+        <p className="section-description">
+          Products I'm building from scratch — design, code, infra, and go-to-market
+        </p>
+        <div className="projects-grid">
+          {soloVentures.map((project, i) => renderProjectCard(project, i))}
+        </div>
+      </motion.div>
+
       {/* Personal Projects Section */}
       <motion.div
         className="portfolio-section"
@@ -128,7 +152,7 @@ const Portfolio = () => {
           Side projects showcasing scripts, automation, personal apps using code & AI
         </p>
         <div className="projects-grid">
-          {personalProjects.map((project, i) => renderProjectCard(project, i))}
+          {otherPersonalProjects.map((project, i) => renderProjectCard(project, i))}
         </div>
       </motion.div>
     </div>
