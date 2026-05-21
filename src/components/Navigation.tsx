@@ -1,12 +1,32 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import './Navigation.css'
+
+interface NavItem {
+  id: string
+  label: string
+  kind: 'scroll' | 'route' | 'email'
+  url?: string
+}
+
+const navItems: NavItem[] = [
+  { id: 'resume', label: 'RESUME', kind: 'scroll' },
+  { id: 'portfolio', label: 'PORTFOLIO', kind: 'scroll' },
+  { id: 'gaming', label: 'GAMING', kind: 'scroll' },
+  { id: 'socials', label: 'SOCIALS', kind: 'scroll' },
+  { id: 'uses', label: 'USES', kind: 'route', url: '/uses' },
+  { id: 'contact', label: 'CONTACT', kind: 'email', url: 'mailto:shinaustin@gmail.com' },
+]
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const location = useLocation()
+  const navigate = useNavigate()
+  const onHome = location.pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +48,7 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollWithinPage = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
       const offsetTop = element.offsetTop - 80 // Account for fixed nav height
@@ -37,16 +57,18 @@ const Navigation = () => {
         behavior: 'smooth'
       })
     }
-    setIsOpen(false)
   }
 
-  const navItems = [
-    { id: 'resume', label: 'RESUME' },
-    { id: 'portfolio', label: 'PORTFOLIO' },
-    { id: 'gaming', label: 'GAMING' },
-    { id: 'socials', label: 'SOCIALS' },
-    { id: 'contact', label: 'CONTACT', isEmail: true, url: 'mailto:shinaustin@gmail.com' },
-  ]
+  const scrollToSection = (sectionId: string) => {
+    if (onHome) {
+      scrollWithinPage(sectionId)
+    } else {
+      // Coming from a routed page (e.g. /uses): go home first, then scroll once it renders.
+      navigate('/')
+      setTimeout(() => scrollWithinPage(sectionId), 80)
+    }
+    setIsOpen(false)
+  }
 
   return (
     <motion.nav
@@ -73,7 +95,7 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              {item.isEmail ? (
+              {item.kind === 'email' ? (
                 <a
                   href={item.url}
                   className="nav-link"
@@ -81,9 +103,17 @@ const Navigation = () => {
                 >
                   {item.label}
                 </a>
+              ) : item.kind === 'route' ? (
+                <Link
+                  to={item.url ?? '/'}
+                  className={`nav-link ${location.pathname === item.url ? 'active' : ''}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
               ) : (
                 <div
-                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                  className={`nav-link ${onHome && activeSection === item.id ? 'active' : ''}`}
                   onClick={() => scrollToSection(item.id)}
                 >
                   {item.label}

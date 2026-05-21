@@ -1,0 +1,168 @@
+.uses-page {
+  max-width: 1000px;
+}
+
+.uses-status {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  padding: 3rem 0;
+}
+
+.uses-status a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.uses-status a:hover {
+  color: var(--accent-hover);
+}
+
+.uses-list {
+  display: grid;
+  gap: 2rem;
+}
+
+.config-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.config-card:hover {
+  border-color: var(--accent);
+}
+
+.config-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 1.5rem 1rem;
+  flex-wrap: wrap;
+}
+
+.config-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.config-file-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.config-title h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.config-path {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace;
+  word-break: break-word;
+}
+
+.config-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.lang-badge {
+  background: rgba(255, 68, 68, 0.15);
+  color: var(--accent);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.config-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.config-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+}
+
+.config-blurb {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  padding: 0 1.5rem 1rem;
+  margin: 0;
+}
+
+.plugin-tags {
+  padding: 0 1.5rem 1.25rem;
+}
+
+.plugin-tags-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+.plugin-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.config-code {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-primary);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.config-code code {
+  color: #d6d6d6;
+  white-space: pre;
+}
+
+@media (max-width: 768px) {
+  .config-head {
+    flex-direction: column;
+  }
+
+  .config-actions {
+    flex-wrap: wrap;
+  }
+
+  .config-code {
+    font-size: 0.78rem;
+  }
+}
