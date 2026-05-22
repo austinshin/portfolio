@@ -9,6 +9,7 @@ interface NavItem {
   label: string
   kind: 'scroll' | 'route' | 'email'
   url?: string
+  hidden?: boolean
 }
 
 const navItems: NavItem[] = [
@@ -16,7 +17,8 @@ const navItems: NavItem[] = [
   { id: 'portfolio', label: 'PORTFOLIO', kind: 'scroll' },
   { id: 'gaming', label: 'GAMING', kind: 'scroll' },
   { id: 'socials', label: 'SOCIALS', kind: 'scroll' },
-  { id: 'uses', label: 'USES', kind: 'route', url: '/uses' },
+  // Hidden for now — flip `hidden` to false to surface the /dev page in the nav.
+  { id: 'dev', label: 'DEV', kind: 'route', url: '/dev', hidden: true },
   { id: 'contact', label: 'CONTACT', kind: 'email', url: 'mailto:shinaustin@gmail.com' },
 ]
 
@@ -63,7 +65,7 @@ const Navigation = () => {
     if (onHome) {
       scrollWithinPage(sectionId)
     } else {
-      // Coming from a routed page (e.g. /uses): go home first, then scroll once it renders.
+      // Coming from a routed page (e.g. /dev): go home first, then scroll once it renders.
       navigate('/')
       setTimeout(() => scrollWithinPage(sectionId), 80)
     }
@@ -88,7 +90,7 @@ const Navigation = () => {
         </div>
 
         <div className={`nav-links ${isOpen ? 'active' : ''}`}>
-          {navItems.map((item, index) => (
+          {navItems.filter((item) => !item.hidden).map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: -20 }}

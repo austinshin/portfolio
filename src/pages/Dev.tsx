@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Copy, Check, ExternalLink, FileCode } from 'lucide-react'
-import './Uses.css'
+import './Dev.css'
 
 const REPO = 'austinshin/dotfiles'
 const BRANCH = 'main'
@@ -83,7 +83,7 @@ const parseEnabledPlugins = (content: string): string[] | undefined => {
   }
 }
 
-const Uses = () => {
+const Dev = () => {
   const [configs, setConfigs] = useState<ConfigFile[]>([])
   const [status, setStatus] = useState<LoadStatus>('loading')
   const [copiedPath, setCopiedPath] = useState<string | null>(null)
@@ -141,7 +141,7 @@ const Uses = () => {
   }
 
   return (
-    <div className="page uses-page">
+    <div className="page dev-page">
       <motion.div
         className="page-header"
         initial={{ opacity: 0, y: -50 }}
@@ -159,10 +159,10 @@ const Uses = () => {
         </p>
       </motion.div>
 
-      {status === 'loading' && <p className="uses-status">Loading configs from GitHub…</p>}
+      {status === 'loading' && <p className="dev-status">Loading configs from GitHub…</p>}
 
       {status === 'error' && (
-        <p className="uses-status">
+        <p className="dev-status">
           Couldn&apos;t reach GitHub right now. Browse the configs directly at{' '}
           <a href={`https://github.com/${REPO}`} target="_blank" rel="noopener noreferrer">
             the dotfiles repo
@@ -171,7 +171,7 @@ const Uses = () => {
         </p>
       )}
 
-      <div className="uses-list">
+      <div className="dev-list">
         {configs.map((cfg, index) => (
           <motion.section
             key={cfg.path}
@@ -231,4 +231,4 @@ const Uses = () => {
   )
 }
 
-export default Uses
+export default Dev

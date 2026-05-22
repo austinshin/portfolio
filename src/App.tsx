@@ -9,7 +9,7 @@ import Socials from './pages/Socials'
 import QuickLinks from './components/QuickLinks'
 import ArtFlow from './pages/ArtFlow'
 import TcgDashboard from './pages/TcgDashboard'
-import Uses from './pages/Uses'
+import Dev from './pages/Dev'
 
 // Single-page scroller home
 const HomePage = () => {
@@ -47,7 +47,7 @@ const AppLayout = () => {
         <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
         <Route path="/artflow" element={<ArtFlow />} />
         <Route path="/tcg" element={<TcgDashboard />} />
-        <Route path="/uses" element={<Uses />} />
+        <Route path="/dev" element={<Dev />} />
       </Routes>
     </div>
   )

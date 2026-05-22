@@ -1,24 +1,24 @@
-.uses-page {
+.dev-page {
   max-width: 1000px;
 }
 
-.uses-status {
+.dev-status {
   text-align: center;
   color: var(--text-secondary);
   font-size: 1.05rem;
   padding: 3rem 0;
 }
 
-.uses-status a {
+.dev-status a {
   color: var(--accent);
   text-decoration: none;
 }
 
-.uses-status a:hover {
+.dev-status a:hover {
   color: var(--accent-hover);
 }
 
-.uses-list {
+.dev-list {
   display: grid;
   gap: 2rem;
 }
