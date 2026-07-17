@@ -483,3 +483,60 @@ textarea {
   background: #dcfce7;
   color: #15803d;
 }
+
+/* ---------- Resume embed ---------- */
+
+.resume-embed {
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--hover-bg);
+}
+
+/* ---------- Standalone tool pages (/dev, /tcg) keep the old dark theme ---------- */
+
+.dev-page,
+.tcg-page {
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent: #ff4444;
+  --accent-hover: #ff6666;
+}
+
+.page.dev-page {
+  max-width: none;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 5rem max(2rem, calc((100vw - 1000px) / 2)) 4rem;
+}
+
+.dev-page .page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.dev-page .page-header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.dev-page .header-line {
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  margin: 0.75rem auto 1rem;
+  border-radius: 2px;
+}
+
+.dev-page .subtitle {
+  color: var(--text-secondary);
+}
+
+.dev-page a {
+  color: var(--accent);
+}

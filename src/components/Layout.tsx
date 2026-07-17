@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   { to: '/read', label: 'Read' },
   { to: '/reading', label: 'Currently Reading' },
   { to: '/food', label: 'Food' },
-  { to: '/ai-tools', label: 'AI Tools' },
+  // AI Tools tab hidden for now — pages still reachable at /ai-tools
 ]
 
 const SOCIAL_LINKS = [

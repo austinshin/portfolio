@@ -52,8 +52,10 @@ export const professionalProjects: Project[] = [
   {
     id: 'poynt-pay-links',
     title: 'Poynt Collect Pay Links',
-    company: 'GoDaddy',
+    company: 'Poynt (acquired by GoDaddy)',
     period: 'May 2018 - Jan 2021',
+    demoUrl: 'https://support.poynt.com/hc/en-us/articles/1500001772841-Online-Pay-Links',
+    docsUrl: 'https://docs.poynt.com/api-reference/index.html#head-merchants',
     description: [
       'Led implementation of shareable payment links for social media commerce',
       'Designed security process using credit card tokenization with double-layer security',
@@ -124,8 +126,6 @@ export const professionalProjects: Project[] = [
     ],
     tags: ['React', 'TypeScript', 'E-commerce', 'Order Management', 'Fulfillment', 'REST API'],
     type: 'professional',
-    demoUrl: 'https://support.poynt.com/hc/en-us/articles/1500001772841-Online-Pay-Links',
-    docsUrl: 'https://docs.poynt.com/api-reference/index.html#head-merchants',
     detailedInfo: {
       howItWorks: [
         'IPS page displays catalog of available Poynt payment devices on Payments Hub',
@@ -438,7 +438,6 @@ export const personalProjects: Project[] = [
     ],
     tags: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Tailwind'],
     type: 'personal',
-    demoUrl: 'https://github.com/austinshin/PlayfulParents',
     githubUrl: 'https://github.com/austinshin/PlayfulParents',
   },
   {
@@ -452,7 +451,6 @@ export const personalProjects: Project[] = [
     ],
     tags: ['React', 'TypeScript', 'Vite', 'Supabase', 'Capacitor'],
     type: 'personal',
-    demoUrl: 'https://github.com/austinshin/LeagueLibrary',
     githubUrl: 'https://github.com/austinshin/LeagueLibrary',
   },
   {
@@ -466,7 +464,6 @@ export const personalProjects: Project[] = [
     ],
     tags: ['React', 'TypeScript', 'Vite', 'Finance', 'Plaid'],
     type: 'personal',
-    demoUrl: 'https://github.com/austinshin/chase-budget-dashboard',
     githubUrl: 'https://github.com/austinshin/chase-budget-dashboard',
   },
   {
@@ -480,7 +477,6 @@ export const personalProjects: Project[] = [
     ],
     tags: ['Tauri', 'Rust', 'React', 'TypeScript', 'Speech-to-Text'],
     type: 'personal',
-    demoUrl: 'https://github.com/austinshin/Handy',
     githubUrl: 'https://github.com/austinshin/Handy',
   },
 ]
