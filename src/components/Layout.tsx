@@ -1,4 +1,5 @@
-import { NavLink, Link, Outlet } from 'react-router-dom'
+import { useEffect } from 'react'
+import { NavLink, Link, Outlet, useLocation } from 'react-router-dom'
 import { Github, Twitter, Linkedin } from 'lucide-react'
 
 const NAV_ITEMS = [
@@ -19,7 +20,30 @@ const SOCIAL_LINKS = [
   { href: 'https://www.linkedin.com/in/austin-s-5704693a4/', label: 'LinkedIn', icon: Linkedin },
 ]
 
+const PAGE_TITLES: Record<string, string> = {
+  '/': 'Austin Shin',
+  '/portfolio': 'Portfolio',
+  '/resume': 'Resume',
+  '/blog': 'Blog',
+  '/notes': 'Notes',
+  '/read': 'Read',
+  '/reading': 'Currently Reading',
+  '/food': 'Food',
+  '/ai-tools': 'AI Tools',
+  '/yt-lecture-summary': 'YouTube Lecture Summary',
+  '/docs-summary': 'Repo Docs Summary',
+  '/login': 'Login',
+  '/admin': 'Admin',
+}
+
 const Layout = () => {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    const title = PAGE_TITLES[pathname]
+    document.title = title && title !== 'Austin Shin' ? `${title} — Austin Shin` : 'Austin Shin'
+  }, [pathname])
+
   return (
     <div className="site">
       <aside className="sidebar">

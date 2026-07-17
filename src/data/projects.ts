@@ -9,6 +9,7 @@ export interface Project {
   period?: string
   demoUrl?: string
   githubUrl?: string
+  docsUrl?: string
   detailedInfo?: {
     howItWorks?: string[]
     challenges?: string[]
@@ -124,6 +125,7 @@ export const professionalProjects: Project[] = [
     tags: ['React', 'TypeScript', 'E-commerce', 'Order Management', 'Fulfillment', 'REST API'],
     type: 'professional',
     demoUrl: 'https://support.poynt.com/hc/en-us/articles/1500001772841-Online-Pay-Links',
+    docsUrl: 'https://docs.poynt.com/api-reference/index.html#head-merchants',
     detailedInfo: {
       howItWorks: [
         'IPS page displays catalog of available Poynt payment devices on Payments Hub',

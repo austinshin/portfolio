@@ -12,19 +12,22 @@ const ProjectBlock = ({ project }: { project: Project }) => (
         <li key={i}>{line}</li>
       ))}
     </ul>
-    {(project.demoUrl || project.githubUrl) && (
+    {(project.demoUrl || project.githubUrl || project.docsUrl) && (
       <p>
-        {project.demoUrl && (
-          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-            Live demo
-          </a>
-        )}
-        {project.demoUrl && project.githubUrl && ' · '}
-        {project.githubUrl && (
-          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-        )}
+        {[
+          project.demoUrl && { label: 'Live demo', url: project.demoUrl },
+          project.githubUrl && { label: 'GitHub', url: project.githubUrl },
+          project.docsUrl && { label: 'API docs', url: project.docsUrl },
+        ]
+          .filter((link): link is { label: string; url: string } => Boolean(link))
+          .map((link, i) => (
+            <span key={link.label}>
+              {i > 0 && ' · '}
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </span>
+          ))}
       </p>
     )}
     <div className="tag-row">

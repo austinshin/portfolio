@@ -20,6 +20,7 @@ const PostPage = ({ section, backLabel }: PostPageProps) => {
       .then((p) => {
         setPost(p)
         setState(p ? 'ready' : 'missing')
+        if (p) document.title = `${p.title} — Austin Shin`
       })
       .catch(() => setState('error'))
   }, [section, slug])

@@ -14,8 +14,8 @@
 
 ## 🌐 Website General
 
-- [ ] **Website-1**: Update `<title>` tag in index.html (currently shows "Portfolio - Your Name")
-- [ ] **Website-2**: Add custom favicon (currently using default Vite icon)
+- [x] **Website-1**: Update `<title>` tag in index.html (now "Austin Shin" + per-page titles)
+- [x] **Website-2**: Add custom favicon (purple "A" SVG at public/favicon.svg)
 - [ ] **Website-3**: Remove pointer cursor on images if clicking does nothing
 - [ ] **Website-4**: Speed up or remove hover glow animation (keep zoom)
 - [ ] **Website-5**: Fix down arrow skipping timeline section
@@ -31,8 +31,8 @@
 ## 💼 Portfolio Section
 
 - [ ] **Portfolio-1**: Add demos, links to articles, or actual apps/games
-- [ ] **Portfolio-2**: Add Poynt Online Pay Links demo/link (https://support.poynt.com/hc/en-us/articles/1500001772841-Online-Pay-Links)
-- [ ] **Portfolio-3**: Add Poynt API docs link (https://docs.poynt.com/api-reference/index.html#head-merchants)
+- [x] **Portfolio-2**: Add Poynt Online Pay Links demo/link (https://support.poynt.com/hc/en-us/articles/1500001772841-Online-Pay-Links)
+- [x] **Portfolio-3**: Add Poynt API docs link (https://docs.poynt.com/api-reference/index.html#head-merchants)
 - [ ] **Portfolio-4**: Replace stock images with actual screenshots/pictures
 
 ## ♿ Accessibility & Misc

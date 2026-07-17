@@ -1,4 +1,5 @@
 import Anthropic from '@anthropic-ai/sdk'
+import { requireUser } from '../../lib/ai/auth.js'
 
 export const config = { maxDuration: 60 }
 
@@ -71,6 +72,9 @@ export default async function handler(req, res) {
   if (!process.env.ANTHROPIC_API_KEY) {
     return res.status(500).json({ error: 'ANTHROPIC_API_KEY is not configured on the server' })
   }
+
+  const user = await requireUser(req, res)
+  if (!user) return
 
   const { repo: repoInput } = req.body || {}
   if (!repoInput || typeof repoInput !== 'string') {

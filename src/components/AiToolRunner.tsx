@@ -1,5 +1,7 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
+import { supabase } from '../lib/supabaseClient'
 
 interface AiToolRunnerProps {
   inputLabel: string
@@ -27,6 +29,19 @@ const AiToolRunner = ({
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+  const [signedIn, setSignedIn] = useState<boolean | null>(null)
+
+  useEffect(() => {
+    if (!supabase) {
+      setSignedIn(false)
+      return
+    }
+    supabase.auth.getSession().then(({ data }) => setSignedIn(!!data.session))
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSignedIn(!!session)
+    })
+    return () => sub.subscription.unsubscribe()
+  }, [])
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -35,16 +50,24 @@ const AiToolRunner = ({
     setMarkdown(null)
     setCopied(false)
     try {
+      const { data } = (await supabase?.auth.getSession()) ?? { data: { session: null } }
+      const token = data.session?.access_token
+      if (!token) {
+        throw new Error('You need to be signed in to use this tool.')
+      }
       const resp = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({ [paramName]: input.trim() }),
       })
-      const data = await resp.json().catch(() => null)
+      const respData = await resp.json().catch(() => null)
       if (!resp.ok) {
-        throw new Error(data?.error || `Request failed with status ${resp.status}`)
+        throw new Error(respData?.error || `Request failed with status ${resp.status}`)
       }
-      setMarkdown(data.markdown)
+      setMarkdown(respData.markdown)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
     } finally {
@@ -68,6 +91,15 @@ const AiToolRunner = ({
     a.download = `${downloadName}.md`
     a.click()
     URL.revokeObjectURL(url)
+  }
+
+  if (signedIn === false) {
+    return (
+      <p className="muted">
+        This tool calls Claude on the server, so it's for signed-in use only.{' '}
+        <Link to="/login">Sign in</Link> to run it.
+      </p>
+    )
   }
 
   return (

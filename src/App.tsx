@@ -11,6 +11,7 @@ import YtLectureSummary from './pages/YtLectureSummary'
 import DocsSummary from './pages/DocsSummary'
 import Login from './pages/Login'
 import Admin from './pages/Admin'
+import NotFound from './pages/NotFound'
 import ArtFlow from './pages/ArtFlow'
 import TcgDashboard from './pages/TcgDashboard'
 import Dev from './pages/Dev'
@@ -77,6 +78,8 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
+
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>
