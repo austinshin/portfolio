@@ -16,8 +16,7 @@ const NAV_ITEMS = [
 const SOCIAL_LINKS = [
   { href: 'https://github.com/austinshin', label: 'GitHub', icon: Github },
   { href: 'https://twitter.com/link115_', label: 'Twitter', icon: Twitter },
-  // TODO: update once the LinkedIn profile URL is fixed (see TODO.md Resume-2)
-  { href: 'https://www.linkedin.com/in/shinaustin', label: 'LinkedIn', icon: Linkedin },
+  { href: 'https://www.linkedin.com/in/austin-s-5704693a4/', label: 'LinkedIn', icon: Linkedin },
 ]
 
 const Layout = () => {

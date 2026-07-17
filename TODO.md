@@ -3,7 +3,7 @@
 ## 🎯 High Priority - Resume
 
 - [ ] **Resume-1**: Reverse order to most recent first (descending) - currently showing oldest first
-- [ ] **Resume-2**: Fix broken LinkedIn URL (linkedin.com/in/shinaustin) - profile doesn't exist
+- [x] **Resume-2**: Fix broken LinkedIn URL - sidebar now links to linkedin.com/in/austin-s-5704693a4
 - [ ] **Resume-3**: Ensure PDF saves as 1 page (currently 2 pages with blank 2nd page)
 - [ ] **Resume-4**: Reduce emphasis on education section or move it lower
 - [ ] **Resume-5**: Fix indentation alignment issues
