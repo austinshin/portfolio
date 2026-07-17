@@ -61,9 +61,14 @@ const SectionPage = ({ section, title, display, emptyMessage }: SectionPageProps
       {posts !== null &&
         display === 'inline' &&
         posts.map((post) => (
-          <div key={post.id} className="post-entry">
-            <h2>{post.title}</h2>
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+          <div key={post.id} className={`post-entry${post.image_url ? ' has-cover' : ''}`}>
+            {post.image_url && (
+              <img className="post-cover" src={post.image_url} alt={post.title} loading="lazy" />
+            )}
+            <div className="post-entry-body">
+              <h2>{post.title}</h2>
+              <ReactMarkdown>{post.content}</ReactMarkdown>
+            </div>
           </div>
         ))}
     </>

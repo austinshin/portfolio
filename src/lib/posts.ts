@@ -16,6 +16,7 @@ export interface Post {
   slug: string
   section: Section
   content: string
+  image_url: string | null
   published: boolean
   created_at: string
   updated_at: string
@@ -63,6 +64,7 @@ export interface PostInput {
   slug: string
   section: Section
   content: string
+  image_url: string | null
   published: boolean
 }
 

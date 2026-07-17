@@ -267,6 +267,34 @@ body {
   margin-bottom: 0;
 }
 
+.post-entry.has-cover {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.post-cover {
+  width: 7rem;
+  flex-shrink: 0;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+.post-entry-body {
+  min-width: 0;
+}
+
+.post-entry-body h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 480px) {
+  .post-entry.has-cover {
+    flex-direction: column;
+  }
+}
+
 /* ---------- Portfolio / resume ---------- */
 
 .item-block {

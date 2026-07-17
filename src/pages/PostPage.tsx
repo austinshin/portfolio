@@ -44,6 +44,7 @@ const PostPage = ({ section, backLabel }: PostPageProps) => {
       </p>
       <h1>{post.title}</h1>
       <p className="muted small">{formatDate(post.created_at)}</p>
+      {post.image_url && <img src={post.image_url} alt={post.title} loading="lazy" />}
       <ReactMarkdown>{post.content}</ReactMarkdown>
     </>
   )

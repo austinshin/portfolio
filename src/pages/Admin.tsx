@@ -20,6 +20,7 @@ const EMPTY_DRAFT: PostInput = {
   slug: '',
   section: 'blog',
   content: '',
+  image_url: null,
   published: true,
 }
 
@@ -73,6 +74,7 @@ const Admin = () => {
       slug: post.slug,
       section: post.section,
       content: post.content,
+      image_url: post.image_url,
       published: post.published,
     })
     setSlugTouched(true)
@@ -86,7 +88,11 @@ const Admin = () => {
     setSaving(true)
     setStatus(null)
     try {
-      const input = { ...draft, slug: draft.slug || slugify(draft.title) }
+      const input = {
+        ...draft,
+        slug: draft.slug || slugify(draft.title),
+        image_url: draft.image_url?.trim() || null,
+      }
       if (editingId) {
         await updatePost(editingId, input)
         setStatus({ kind: 'success', text: 'Post updated.' })
@@ -202,6 +208,29 @@ const Admin = () => {
                   style={{ width: 'auto', marginTop: '0.75rem' }}
                 />
               </div>
+            </div>
+
+            <div>
+              <label htmlFor="image-url">Image URL (optional — book cover, show poster, etc.)</label>
+              <input
+                id="image-url"
+                type="text"
+                value={draft.image_url ?? ''}
+                onChange={(e) => setDraft((d) => ({ ...d, image_url: e.target.value }))}
+                placeholder="https://..."
+              />
+              {draft.image_url?.trim() && (
+                <img
+                  src={draft.image_url}
+                  alt="Preview"
+                  style={{
+                    marginTop: '0.5rem',
+                    maxHeight: '8rem',
+                    borderRadius: '0.375rem',
+                    border: '1px solid var(--border)',
+                  }}
+                />
+              )}
             </div>
 
             <div className="editor-grid">
