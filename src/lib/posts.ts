@@ -1,13 +1,13 @@
 import { supabase } from './supabaseClient'
 
-export type Section = 'blog' | 'notes' | 'read' | 'reading' | 'food'
+export type Section = 'blog' | 'read' | 'reading' | 'food' | 'shows'
 
 export const SECTIONS: { value: Section; label: string }[] = [
   { value: 'blog', label: 'Blog' },
-  { value: 'notes', label: 'Notes' },
   { value: 'read', label: 'Read' },
   { value: 'reading', label: 'Currently Reading' },
   { value: 'food', label: 'Food' },
+  { value: 'shows', label: 'Shows & Movies' },
 ]
 
 export interface Post {

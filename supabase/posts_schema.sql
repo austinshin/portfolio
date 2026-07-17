@@ -9,7 +9,7 @@ create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
   title text not null,
   slug text not null,
-  section text not null check (section in ('blog', 'notes', 'read', 'reading', 'food')),
+  section text not null check (section in ('blog', 'read', 'reading', 'food', 'shows')),
   content text not null default '',
   published boolean not null default true,
   created_at timestamptz not null default now(),

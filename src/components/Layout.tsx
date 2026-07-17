@@ -7,10 +7,10 @@ const NAV_ITEMS = [
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/resume', label: 'Resume' },
   { to: '/blog', label: 'Blog' },
-  { to: '/notes', label: 'Notes' },
   { to: '/read', label: 'Read' },
   { to: '/reading', label: 'Currently Reading' },
   { to: '/food', label: 'Food' },
+  { to: '/shows', label: 'Shows & Movies' },
   // AI Tools tab hidden for now — pages still reachable at /ai-tools
 ]
 
@@ -25,10 +25,10 @@ const PAGE_TITLES: Record<string, string> = {
   '/portfolio': 'Portfolio',
   '/resume': 'Resume',
   '/blog': 'Blog',
-  '/notes': 'Notes',
   '/read': 'Read',
   '/reading': 'Currently Reading',
   '/food': 'Food',
+  '/shows': 'Shows & Movies',
   '/ai-tools': 'AI Tools',
   '/yt-lecture-summary': 'YouTube Lecture Summary',
   '/docs-summary': 'Repo Docs Summary',

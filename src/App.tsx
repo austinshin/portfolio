@@ -35,9 +35,6 @@ function App() {
           <Route path="/blog" element={<SectionPage section="blog" title="Blog" display="links" />} />
           <Route path="/blog/:slug" element={<PostPage section="blog" backLabel="Blog" />} />
 
-          <Route path="/notes" element={<SectionPage section="notes" title="Notes" display="links" />} />
-          <Route path="/notes/:slug" element={<PostPage section="notes" backLabel="Notes" />} />
-
           <Route
             path="/read"
             element={
@@ -68,6 +65,17 @@ function App() {
                 title="Food"
                 display="inline"
                 emptyMessage="Favorite spots and dishes will show up here."
+              />
+            }
+          />
+          <Route
+            path="/shows"
+            element={
+              <SectionPage
+                section="shows"
+                title="Shows & Movies"
+                display="inline"
+                emptyMessage="Shows and movies I've watched will show up here."
               />
             }
           />
