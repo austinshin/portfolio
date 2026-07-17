@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { supabase } from '../lib/supabaseClient'
 
+interface FallbackField {
+  /** JSON field name sent alongside the main param */
+  name: string
+  label: string
+  /** Shown above the textarea when the server asks for the fallback */
+  help: string
+  placeholder: string
+}
+
 interface AiToolRunnerProps {
   inputLabel: string
   placeholder: string
@@ -13,6 +22,8 @@ interface AiToolRunnerProps {
   /** Filename (without extension) for the markdown download */
   downloadName: string
   loadingMessage: string
+  /** Textarea offered when the API responds with code "transcript_unavailable" */
+  fallbackField?: FallbackField
 }
 
 const AiToolRunner = ({
@@ -23,6 +34,7 @@ const AiToolRunner = ({
   paramName,
   downloadName,
   loadingMessage,
+  fallbackField,
 }: AiToolRunnerProps) => {
   const [input, setInput] = useState('')
   const [markdown, setMarkdown] = useState<string | null>(null)
@@ -30,6 +42,8 @@ const AiToolRunner = ({
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [signedIn, setSignedIn] = useState<boolean | null>(null)
+  const [showFallback, setShowFallback] = useState(false)
+  const [fallbackText, setFallbackText] = useState('')
 
   useEffect(() => {
     if (!supabase) {
@@ -55,16 +69,23 @@ const AiToolRunner = ({
       if (!token) {
         throw new Error('You need to be signed in to use this tool.')
       }
+      const body: Record<string, string> = { [paramName]: input.trim() }
+      if (fallbackField && showFallback && fallbackText.trim()) {
+        body[fallbackField.name] = fallbackText.trim()
+      }
       const resp = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ [paramName]: input.trim() }),
+        body: JSON.stringify(body),
       })
       const respData = await resp.json().catch(() => null)
       if (!resp.ok) {
+        if (fallbackField && respData?.code === 'transcript_unavailable') {
+          setShowFallback(true)
+        }
         throw new Error(respData?.error || `Request failed with status ${resp.status}`)
       }
       setMarkdown(respData.markdown)
@@ -116,7 +137,26 @@ const AiToolRunner = ({
             required
           />
         </div>
-        <button className="btn" type="submit" disabled={loading || !input.trim()}>
+        {fallbackField && showFallback && (
+          <div>
+            <label htmlFor="fallback-input">{fallbackField.label}</label>
+            <p className="muted small" style={{ marginBottom: '0.5rem' }}>
+              {fallbackField.help}
+            </p>
+            <textarea
+              id="fallback-input"
+              rows={8}
+              value={fallbackText}
+              onChange={(e) => setFallbackText(e.target.value)}
+              placeholder={fallbackField.placeholder}
+            />
+          </div>
+        )}
+        <button
+          className="btn"
+          type="submit"
+          disabled={loading || !input.trim() || (showFallback && !fallbackText.trim())}
+        >
           {loading ? 'Working…' : buttonLabel}
         </button>
       </form>

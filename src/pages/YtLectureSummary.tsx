@@ -20,6 +20,12 @@ const YtLectureSummary = () => (
       paramName="url"
       downloadName="lecture-notes"
       loadingMessage="Fetching the transcript and writing your notes — this can take a minute for long lectures…"
+      fallbackField={{
+        name: 'transcript',
+        label: 'Paste the transcript',
+        help: 'On the video page, click "...more" under the title, then "Show transcript", select all of it, and paste it here.',
+        placeholder: 'Paste the full transcript from YouTube here…',
+      }}
     />
     <p className="muted small" style={{ marginTop: '2rem' }}>
       Note: the video needs captions (auto-generated is fine) for this to work.

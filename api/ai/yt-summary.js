@@ -29,33 +29,45 @@ export default async function handler(req, res) {
   const user = await requireUser(req, res)
   if (!user) return
 
-  const { url } = req.body || {}
+  const { url, transcript: pastedTranscript } = req.body || {}
   if (!url || typeof url !== 'string') {
     return res.status(400).json({ error: 'Missing "url" in request body' })
   }
 
-  let segments
-  try {
-    segments = await YoutubeTranscript.fetchTranscript(url)
-  } catch (err) {
-    return res.status(422).json({
-      error: `Could not fetch a transcript for that video (${err.message}). The video may not have captions enabled.`,
-    })
-  }
-
-  if (!segments || segments.length === 0) {
-    return res.status(422).json({ error: 'No transcript found for that video.' })
-  }
-
-  // Timestamp roughly once per minute so the summary can cite them
   let transcript = ''
-  let lastStamp = -60_000
-  for (const seg of segments) {
-    if (seg.offset - lastStamp >= 60_000) {
-      transcript += `\n[${formatTimestamp(seg.offset)}] `
-      lastStamp = seg.offset
+  if (pastedTranscript && typeof pastedTranscript === 'string' && pastedTranscript.trim()) {
+    // User pasted the transcript from YouTube's "Show transcript" panel —
+    // used when YouTube blocks server-side fetches from datacenter IPs.
+    transcript = pastedTranscript.trim()
+  } else {
+    let segments
+    try {
+      segments = await YoutubeTranscript.fetchTranscript(url)
+    } catch (err) {
+      return res.status(422).json({
+        code: 'transcript_unavailable',
+        error:
+          'YouTube blocked the server-side transcript fetch (this happens from cloud IPs even when the video has captions). ' +
+          'Paste the transcript below instead.',
+        detail: err.message,
+      })
     }
-    transcript += seg.text + ' '
+
+    if (!segments || segments.length === 0) {
+      return res
+        .status(422)
+        .json({ code: 'transcript_unavailable', error: 'No transcript found for that video.' })
+    }
+
+    // Timestamp roughly once per minute so the summary can cite them
+    let lastStamp = -60_000
+    for (const seg of segments) {
+      if (seg.offset - lastStamp >= 60_000) {
+        transcript += `\n[${formatTimestamp(seg.offset)}] `
+        lastStamp = seg.offset
+      }
+      transcript += seg.text + ' '
+    }
   }
   const truncated = transcript.length > MAX_TRANSCRIPT_CHARS
   if (truncated) transcript = transcript.slice(0, MAX_TRANSCRIPT_CHARS)
