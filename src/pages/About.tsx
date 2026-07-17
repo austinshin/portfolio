@@ -1,91 +1,70 @@
-import { motion } from 'framer-motion'
-import { User, Target, Heart, Briefcase } from 'lucide-react'
-import './Pages.css'
-
 const About = () => {
   return (
-    <div className="page about-page">
-      <motion.div
-        className="page-header"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1>WHO I AM</h1>
-        <div className="header-line"></div>
-      </motion.div>
+    <>
+      <h1>About</h1>
+      <p>
+        Hi! I'm Austin. I'm a software engineer and former professional League of Legends
+        player. I spent my early career competing at the highest level of esports, then
+        returned to building software — and these days I split my time between shipping
+        products, day trading, and learning everything I can about AI.
+      </p>
+      <p>
+        The best way to reach me is via{' '}
+        <a href="https://twitter.com/link115_" target="_blank" rel="noopener noreferrer">
+          Twitter DM
+        </a>{' '}
+        or <a href="mailto:shinaustin@gmail.com">email</a>.
+      </p>
 
-      <div className="content-grid">
-        <motion.div
-          className="content-section"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="section-icon">
-            <User size={40} />
-          </div>
-          <h2>Background</h2>
-          <p className="intro-text">
-            31-year-old Californian Korean American. Studied Computer Science at UC Berkeley before pursuing professional esports. After competing at the highest level in League of Legends with Counter Logic Gaming and Team Liquid, I returned to software engineering to build innovative products and contribute to the tech industry.
-          </p>
-        </motion.div>
+      <h3>Current work</h3>
+      <ul>
+        <li>
+          Building{' '}
+          <a href="https://csreplays.com" target="_blank" rel="noopener noreferrer">
+            csreplays.com
+          </a>{' '}
+          — an AI coach for Counter-Strike 2 that turns a .dem replay into a coaching
+          report grounded in specific rounds and timestamps.
+        </li>
+        <li>
+          Co-founder and CTO of <strong>Billable</strong> — a native iOS app that
+          auto-generates timesheets for hourly-billing professionals like lawyers, CPAs,
+          and consultants.
+        </li>
+        <li>
+          Day trading, and building tools around it — trading scripts, journaling
+          systems, news scrapers, and algorithmic strategies.
+        </li>
+      </ul>
 
-        <motion.div
-          className="content-section"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <div className="section-icon">
-            <Target size={40} />
-          </div>
-          <h2>Mission</h2>
-          <p>
-            My current goal is to enter the game development industry and build innovative cool products.
-            I want to living a balanced and fulfilling life, while aiming to be the absolute best at whatever I pursue.
-            I'm very competitive and driven. I love sharing ideas and teaching others and just in general, being a good friend.
-          </p>
-        </motion.div>
+      <h3>Past work</h3>
+      <ul>
+        <li>
+          Senior Software Engineer at <strong>GoDaddy</strong>, where I helped refactor
+          Merchant HQ from Ember to React/TypeScript and led sprints on the in-person
+          selling team.
+        </li>
+        <li>
+          Software Engineer at <strong>Poynt</strong>, where I led the implementation of
+          shareable payment links and PCI-compliant card tokenization.
+        </li>
+        <li>
+          Professional League of Legends player — mid laner for{' '}
+          <strong>Counter Logic Gaming</strong> (2011–2015) and <strong>Team Liquid</strong>{' '}
+          (2017). Shotcaller, drafter, and one of the pioneering NA LCS mid laners.
+        </li>
+        <li>Studied Computer Science at UC Berkeley.</li>
+      </ul>
 
-        <motion.div
-          className="content-section"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <div className="section-icon">
-            <Heart size={40} />
-          </div>
-          <h2>Passion</h2>
-          <p>
-            Competitive gaming shaped who I am—it taught me strategic thinking, rapid
-            decision-making, and how to perform under pressure. Today, I channel that same
-            intensity into software engineering, building tools and systems to make my life and the others around me a bit easier.
-            I'm a big advocate on health and wellness, constantly self-reflecting on how I can make my life 1% better everyday. 
-            I strongly believe that I can accomplish anything I put my mind to.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="content-section"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <div className="section-icon">
-            <Briefcase size={40} />
-          </div>
-          <h2>Expertise</h2>
-          <p>
-            Senior Software Engineer with experience at GoDaddy and Poynt startup.
-            Full-stack development specializing in React, TypeScript, Node.js. 
-            Recent focus on trading automation, scripting, and AI tools. Strong foundation
-            in system architecture, performance optimization, and building scalable applications.
-          </p>
-        </motion.div>
-      </div>
-    </div>
+      <h3>Interests</h3>
+      <ul>
+        <li>Gaming and competing</li>
+        <li>Building tools that make life easier for myself and others</li>
+        <li>Trading and markets</li>
+        <li>Health and wellness</li>
+        <li>Improving at life by 1% every day</li>
+      </ul>
+    </>
   )
 }
 

@@ -1,161 +1,57 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, Briefcase, Code, Rocket } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import './Pages.css'
-import { professionalProjects, personalProjects } from '../data/projects'
+import { professionalProjects, personalProjects, Project } from '../data/projects'
 
-const SOLO_VENTURE_IDS = ['csreplays', 'billable']
+const ProjectBlock = ({ project }: { project: Project }) => (
+  <div className="item-block">
+    <div className="item-header">
+      <h3>{project.title}</h3>
+      {project.period && <span className="item-period">{project.period}</span>}
+    </div>
+    {project.company && <div className="item-sub">{project.company}</div>}
+    <ul>
+      {project.description.map((line, i) => (
+        <li key={i}>{line}</li>
+      ))}
+    </ul>
+    {(project.demoUrl || project.githubUrl) && (
+      <p>
+        {project.demoUrl && (
+          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+            Live demo
+          </a>
+        )}
+        {project.demoUrl && project.githubUrl && ' · '}
+        {project.githubUrl && (
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        )}
+      </p>
+    )}
+    <div className="tag-row">
+      {project.tags.map((tag) => (
+        <span key={tag} className="tag">
+          {tag}
+        </span>
+      ))}
+    </div>
+  </div>
+)
 
 const Portfolio = () => {
-  // Separate Poynt and GoDaddy projects
-  const poyntProjects = professionalProjects.filter(p => p.company === 'Poynt')
-  const godaddyProjects = professionalProjects.filter(p => p.company === 'GoDaddy')
-
-  const soloVentures = personalProjects.filter(p => SOLO_VENTURE_IDS.includes(p.id))
-  const otherPersonalProjects = personalProjects.filter(p => !SOLO_VENTURE_IDS.includes(p.id))
-
-  const renderProjectCard = (project: any, index: number) => {
-    const linkTo = project.demoUrl || `/portfolio/${project.id}`
-    const isExternal = typeof linkTo === 'string' && linkTo.startsWith('http')
-    const LinkTag: any = isExternal ? 'a' : Link
-    const linkProps = isExternal ? { href: linkTo, target: '_blank', rel: 'noopener noreferrer' } : { to: linkTo }
-    const ctaLabel = project.demoUrl ? 'Open App' : 'View Details'
-
-    return (
-    <motion.div
-      key={project.id}
-      className="project-card"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -10 }}
-    >
-      {project.image && (
-        <LinkTag {...linkProps} className="project-link">
-          <div className="project-image">
-            <img src={project.image} alt={project.title} />
-            <div className="project-overlay">
-              <motion.div
-                className="view-details-btn"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <ArrowRight size={24} />
-                <span>{ctaLabel}</span>
-              </motion.div>
-            </div>
-          </div>
-        </LinkTag>
-      )}
-
-      <div className="project-info">
-        <LinkTag {...linkProps} className="project-title-link">
-          <h3>{project.title}</h3>
-        </LinkTag>
-        <ul className="project-description-list">
-          {project.description.slice(0, 3).map((item: string, idx: number) => (
-            <li key={idx}>{item}</li>
-          ))}
-          {(project.description.length > 3 || project.detailedInfo) && (
-            <li className="read-more">
-              <Link to={`/portfolio/${project.id}`}>
-                Read more →
-              </Link>
-            </li>
-          )}
-        </ul>
-        <div className="project-tags">
-          {project.tags.map((tag: string) => (
-            <span key={tag} className="tag">{tag}</span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-    )
-  }
-
   return (
-    <div className="page portfolio-page">
-      <motion.div
-        className="page-header"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1>MY WORK</h1>
-        <div className="header-line"></div>
-        <p className="subtitle">Technical portfolio of professional and personal projects</p>
-      </motion.div>
+    <>
+      <h1>Portfolio</h1>
 
-      {/* Professional Projects Section */}
-      <motion.div
-        className="portfolio-section"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <div className="section-header">
-          <Briefcase size={32} style={{ color: 'var(--accent)' }} />
-          <h2>Professional Experience</h2>
-        </div>
+      <h2>Professional</h2>
+      {professionalProjects.map((project) => (
+        <ProjectBlock key={project.id} project={project} />
+      ))}
 
-        {/* GoDaddy Subsection */}
-        <div className="subsection">
-          <h3 className="subsection-title">GoDaddy</h3>
-          <p className="subsection-description">Jan 2021 - May 2023 | Senior Software Engineer</p>
-          <div className="projects-grid">
-            {godaddyProjects.map((project, i) => renderProjectCard(project, i))}
-          </div>
-        </div>
-
-        {/* Poynt Subsection */}
-        <div className="subsection">
-          <h3 className="subsection-title">Poynt</h3>
-          <p className="subsection-description">May 2018 - Jan 2021 | Software Engineer</p>
-          <div className="projects-grid">
-            {poyntProjects.map((project, i) => renderProjectCard(project, i))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Solo Entrepreneurship Section */}
-      <motion.div
-        className="portfolio-section"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.35 }}
-      >
-        <div className="section-header">
-          <Rocket size={32} style={{ color: 'var(--accent)' }} />
-          <h2>Solo Entrepreneurship</h2>
-        </div>
-        <p className="section-description">
-          Products I'm building from scratch — design, code, infra, and go-to-market
-        </p>
-        <div className="projects-grid">
-          {soloVentures.map((project, i) => renderProjectCard(project, i))}
-        </div>
-      </motion.div>
-
-      {/* Personal Projects Section */}
-      <motion.div
-        className="portfolio-section"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        <div className="section-header">
-          <Code size={32} style={{ color: 'var(--accent)' }} />
-          <h2>Personal Projects</h2>
-        </div>
-        <p className="section-description">
-          Side projects showcasing scripts, automation, personal apps using code & AI
-        </p>
-        <div className="projects-grid">
-          {otherPersonalProjects.map((project, i) => renderProjectCard(project, i))}
-        </div>
-      </motion.div>
-    </div>
+      <h2>Personal</h2>
+      {personalProjects.map((project) => (
+        <ProjectBlock key={project.id} project={project} />
+      ))}
+    </>
   )
 }
 
