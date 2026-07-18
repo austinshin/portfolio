@@ -25,6 +25,18 @@ const META: Record<string, ConfigMeta> = {
     target: '~/.claude/settings.json',
     blurb: 'AI coding agent — enabled plugins, theme, and permission defaults.',
   },
+  'claude-agents': {
+    title: 'Claude Code — Review Agents',
+    target: '<project>/.claude/agents/',
+    blurb:
+      'Custom review subagents from my CS2 AI coach project — each one enforces a standards doc for its domain (Python, TypeScript, React, SQL, styling, testing, SaaS patterns, API design).',
+  },
+  'claude-rules': {
+    title: 'Claude Code — Project Rules',
+    target: '<project>/CLAUDE.md',
+    blurb:
+      'The CLAUDE.md rules file and standards-check hook that keep Claude Code on-rails in a real production repo.',
+  },
   alacritty: {
     title: 'Alacritty',
     target: 'Windows: %APPDATA%\\alacritty\\alacritty.toml  ·  macOS/Linux: ~/.config/alacritty/alacritty.toml',
@@ -49,6 +61,7 @@ interface ConfigFile {
 type LoadStatus = 'loading' | 'ready' | 'error'
 
 const LANG_BY_EXT: Record<string, string> = {
+  md: 'Markdown',
   toml: 'TOML',
   json: 'JSON',
   lua: 'Lua',
