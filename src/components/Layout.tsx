@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink, Link, Outlet, useLocation } from 'react-router-dom'
-import { Github, Twitter, Linkedin } from 'lucide-react'
+import { Github, Twitter, Linkedin, Moon, Sun } from 'lucide-react'
 
 const NAV_ITEMS = [
   { to: '/', label: 'About' },
@@ -40,11 +40,25 @@ const PAGE_TITLES: Record<string, string> = {
 
 const Layout = () => {
   const { pathname } = useLocation()
+  const [theme, setTheme] = useState<'light' | 'dark'>(
+    () => (document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light')
+  )
 
   useEffect(() => {
     const title = PAGE_TITLES[pathname]
     document.title = title && title !== 'Austin Shin' ? `${title} — Austin Shin` : 'Austin Shin'
   }, [pathname])
+
+  const toggleTheme = () => {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    setTheme(next)
+    document.documentElement.dataset.theme = next
+    try {
+      localStorage.setItem('theme', next)
+    } catch {
+      // private browsing — theme just won't persist
+    }
+  }
 
   return (
     <div className="site">
@@ -83,6 +97,14 @@ const Layout = () => {
                 <link.icon size={20} />
               </a>
             ))}
+            <button
+              className="icon-btn"
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </div>
         </div>
       </aside>
