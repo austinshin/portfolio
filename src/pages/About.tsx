@@ -5,8 +5,9 @@ const About = () => {
       <p>
         Hi! I'm Austin. I'm a software engineer and former professional League of Legends
         player. I spent my early career competing at the highest level of esports, then
-        returned to building software — and these days I split my time between shipping
-        products, day trading, and learning everything I can about AI.
+        became a software engineer. I split my time between shipping products, learning
+        how to harness AI, trading markets, and gaming when I can. I am currently looking
+        for new career opportunities.
       </p>
       <p>
         The best way to reach me is via{' '}
