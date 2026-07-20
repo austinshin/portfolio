@@ -12,6 +12,7 @@ import DocsSummary from './pages/DocsSummary'
 import Login from './pages/Login'
 import Admin from './pages/Admin'
 import NotFound from './pages/NotFound'
+import GamingAchievements from './pages/GamingAchievements'
 import ArtFlow from './pages/ArtFlow'
 import TcgDashboard from './pages/TcgDashboard'
 import Dev from './pages/Dev'
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/gaming" element={<GamingAchievements />} />
 
           <Route path="/blog" element={<SectionPage section="blog" title="Blog" display="links" />} />
           <Route path="/blog/:slug" element={<PostPage section="blog" backLabel="Blog" />} />

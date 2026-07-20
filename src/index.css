@@ -427,6 +427,37 @@ body {
   border-radius: 9999px;
 }
 
+/* ---------- Gaming achievements ---------- */
+
+.game-block {
+  border-left: 3px solid var(--border);
+  padding-left: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.game-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.game-title-row {
+  flex: 1;
+}
+
+.game-title-row h3 {
+  margin: 0;
+}
+
 /* ---------- Forms (login / admin) ---------- */
 
 .form-stack {

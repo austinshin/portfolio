@@ -17,25 +17,23 @@ const About = () => {
       </p>
 
       <h3>Current work</h3>
-      <ul>
+      <p>
+        Building{' '}
+        <a href="https://csreplays.com" target="_blank" rel="noopener noreferrer">
+          csreplays.com
+        </a>{' '}
+        — a CS2 replay analyzer that utilizes trained AI models via machine learning in
+        order to:
+      </p>
+      <ol>
+        <li>Analyze pro replays and output grenade lineups</li>
+        <li>Give statistical reports to players based on their match history</li>
         <li>
-          Building{' '}
-          <a href="https://csreplays.com" target="_blank" rel="noopener noreferrer">
-            csreplays.com
-          </a>{' '}
-          — an AI coach for Counter-Strike 2 that turns a .dem replay into a coaching
-          report grounded in specific rounds and timestamps.
+          Build an AI coach trained on thousands of demos to provide insight at a
+          holistic level
         </li>
-        <li>
-          Co-founder and CTO of <strong>Billable</strong> — a native iOS app that
-          auto-generates timesheets for hourly-billing professionals like lawyers, CPAs,
-          and consultants.
-        </li>
-        <li>
-          Day trading, and building tools around it — trading scripts, journaling
-          systems, news scrapers, and algorithmic strategies.
-        </li>
-      </ul>
+        <li>Automated content generation pipeline via shortform content</li>
+      </ol>
 
       <h3>Past work</h3>
       <ul>
