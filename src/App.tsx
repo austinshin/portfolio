@@ -41,11 +41,12 @@ function App() {
               <SectionPage
                 section="read"
                 title="Read"
-                display="inline"
+                display="books"
                 emptyMessage="Books I've finished will show up here."
               />
             }
           />
+          <Route path="/read/:slug" element={<PostPage section="read" backLabel="Read" />} />
           <Route
             path="/reading"
             element={

@@ -16,9 +16,10 @@ interface SectionPageProps {
   /**
    * 'links' — dated list linking to detail pages;
    * 'inline' — full markdown entries on the page;
-   * 'cards' — image + title grid linking to detail pages
+   * 'cards' — image + title grid linking to detail pages;
+   * 'books' — dense portrait-cover grid with author, linking to detail pages
    */
-  display: 'links' | 'inline' | 'cards'
+  display: 'links' | 'inline' | 'cards' | 'books'
   emptyMessage?: string
 }
 
@@ -61,6 +62,24 @@ const SectionPage = ({ section, title, display, emptyMessage }: SectionPageProps
             </li>
           ))}
         </ul>
+      )}
+
+      {posts !== null && display === 'books' && posts.length > 0 && (
+        <div className="card-grid book-grid">
+          {posts.map((post) => (
+            <Link key={post.id} to={`/${section}/${post.slug}`} className="card">
+              {post.image_url ? (
+                <img className="card-image" src={post.image_url} alt={post.title} loading="lazy" />
+              ) : (
+                <div className="card-image card-image-placeholder" aria-hidden="true">
+                  📚
+                </div>
+              )}
+              <span className="card-title">{post.title}</span>
+              {post.author && <span className="card-author">{post.author}</span>}
+            </Link>
+          ))}
+        </div>
       )}
 
       {posts !== null && display === 'cards' && posts.length > 0 && (
