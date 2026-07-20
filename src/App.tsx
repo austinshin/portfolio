@@ -63,11 +63,12 @@ function App() {
               <SectionPage
                 section="food"
                 title="Food"
-                display="inline"
-                emptyMessage="Favorite spots and dishes will show up here."
+                display="cards"
+                emptyMessage="Recipes will show up here."
               />
             }
           />
+          <Route path="/food/:slug" element={<PostPage section="food" backLabel="Food" />} />
           <Route
             path="/shows"
             element={
