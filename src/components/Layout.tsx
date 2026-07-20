@@ -4,10 +4,10 @@ import { Github, Twitter, Linkedin } from 'lucide-react'
 
 const NAV_ITEMS = [
   { to: '/', label: 'About' },
+  { to: '/blog', label: 'Blog' },
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/resume', label: 'Resume' },
   { to: '/gaming', label: 'Gaming Achievements' },
-  { to: '/blog', label: 'Blog' },
   { to: '/read', label: 'Read' },
   { to: '/reading', label: 'Currently Reading' },
   { to: '/food', label: 'Food' },
