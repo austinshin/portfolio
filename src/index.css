@@ -287,6 +287,18 @@ body {
 
 .post-entry-body h2 {
   margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+.entry-author {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.entry-tags {
+  margin-bottom: 0.75rem;
 }
 
 @media (max-width: 480px) {

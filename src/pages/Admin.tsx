@@ -21,6 +21,8 @@ const EMPTY_DRAFT: PostInput = {
   section: 'blog',
   content: '',
   image_url: null,
+  author: null,
+  tags: null,
   published: true,
 }
 
@@ -75,6 +77,8 @@ const Admin = () => {
       section: post.section,
       content: post.content,
       image_url: post.image_url,
+      author: post.author,
+      tags: post.tags,
       published: post.published,
     })
     setSlugTouched(true)
@@ -92,6 +96,8 @@ const Admin = () => {
         ...draft,
         slug: draft.slug || slugify(draft.title),
         image_url: draft.image_url?.trim() || null,
+        author: draft.author?.trim() || null,
+        tags: draft.tags?.trim() || null,
       }
       if (editingId) {
         await updatePost(editingId, input)
@@ -206,6 +212,29 @@ const Admin = () => {
                   checked={draft.published}
                   onChange={(e) => setDraft((d) => ({ ...d, published: e.target.checked }))}
                   style={{ width: 'auto', marginTop: '0.75rem' }}
+                />
+              </div>
+            </div>
+
+            <div className="editor-meta">
+              <div>
+                <label htmlFor="author">Author (optional — for books, shows)</label>
+                <input
+                  id="author"
+                  type="text"
+                  value={draft.author ?? ''}
+                  onChange={(e) => setDraft((d) => ({ ...d, author: e.target.value }))}
+                  placeholder="e.g. Patrick Rothfuss"
+                />
+              </div>
+              <div>
+                <label htmlFor="tags">Tags (comma-separated, optional)</label>
+                <input
+                  id="tags"
+                  type="text"
+                  value={draft.tags ?? ''}
+                  onChange={(e) => setDraft((d) => ({ ...d, tags: e.target.value }))}
+                  placeholder="e.g. Fantasy, Sci-Fi"
                 />
               </div>
             </div>

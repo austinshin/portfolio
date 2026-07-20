@@ -12,6 +12,8 @@ create table if not exists public.posts (
   section text not null check (section in ('blog', 'read', 'reading', 'food', 'shows')),
   content text not null default '',
   image_url text,
+  author text,
+  tags text, -- comma-separated
   published boolean not null default true,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),

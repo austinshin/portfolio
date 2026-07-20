@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
-import { Section, Post, getPostBySlug, formatDate } from '../lib/posts'
+import { Section, Post, getPostBySlug, formatDate, parseTags } from '../lib/posts'
 
 interface PostPageProps {
   section: Section
@@ -43,7 +43,17 @@ const PostPage = ({ section, backLabel }: PostPageProps) => {
         <Link to={`/${section}`}>← {backLabel}</Link>
       </p>
       <h1>{post.title}</h1>
+      {post.author && <p className="entry-author">by {post.author}</p>}
       <p className="muted small">{formatDate(post.created_at)}</p>
+      {parseTags(post.tags).length > 0 && (
+        <div className="tag-row entry-tags">
+          {parseTags(post.tags).map((tag) => (
+            <span key={tag} className="tag">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
       {post.image_url && <img src={post.image_url} alt={post.title} loading="lazy" />}
       <ReactMarkdown>{post.content}</ReactMarkdown>
     </>

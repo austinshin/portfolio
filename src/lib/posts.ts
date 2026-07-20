@@ -17,6 +17,8 @@ export interface Post {
   section: Section
   content: string
   image_url: string | null
+  author: string | null
+  tags: string | null
   published: boolean
   created_at: string
   updated_at: string
@@ -65,7 +67,17 @@ export interface PostInput {
   section: Section
   content: string
   image_url: string | null
+  author: string | null
+  tags: string | null
   published: boolean
+}
+
+export function parseTags(tags: string | null): string[] {
+  if (!tags) return []
+  return tags
+    .split(',')
+    .map((t) => t.trim())
+    .filter(Boolean)
 }
 
 export async function createPost(input: PostInput): Promise<Post> {

@@ -6,6 +6,7 @@ import {
   Post,
   getPublishedPosts,
   formatDate,
+  parseTags,
   isSupabaseConfigured,
 } from '../lib/posts'
 
@@ -88,6 +89,16 @@ const SectionPage = ({ section, title, display, emptyMessage }: SectionPageProps
             )}
             <div className="post-entry-body">
               <h2>{post.title}</h2>
+              {post.author && <p className="entry-author">by {post.author}</p>}
+              {parseTags(post.tags).length > 0 && (
+                <div className="tag-row entry-tags">
+                  {parseTags(post.tags).map((tag) => (
+                    <span key={tag} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
               <ReactMarkdown>{post.content}</ReactMarkdown>
             </div>
           </div>
