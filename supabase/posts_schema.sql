@@ -1,5 +1,5 @@
 -- Posts table for the markdown-driven content sections
--- (Blog, Notes, Read, Currently Reading, Food).
+-- (Blog, Shows & Movies).
 --
 -- Run this in the Supabase SQL editor, then create your login user under
 -- Authentication → Users (email + password). Anyone authenticated can write;
@@ -9,7 +9,7 @@ create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
   title text not null,
   slug text not null,
-  section text not null check (section in ('blog', 'read', 'reading', 'food', 'shows')),
+  section text not null check (section in ('blog', 'shows')),
   content text not null default '',
   image_url text,
   author text,
@@ -53,7 +53,4 @@ create policy "Authenticated users can delete posts"
 
 -- Example seed data (uncomment to try it out):
 -- insert into public.posts (title, slug, section, content) values
---   ('Hello world', 'hello-world', 'blog', '# Hello\n\nFirst post written in **markdown**.'),
---   ('Atomic Habits', 'atomic-habits', 'read', 'Great book on building systems instead of goals.'),
---   ('The Pragmatic Programmer', 'pragmatic-programmer', 'reading', 'Re-reading this classic.'),
---   ('Best ramen in SF', 'best-ramen-sf', 'food', 'A running list of my favorite ramen spots.');
+--   ('Hello world', 'hello-world', 'blog', '# Hello\n\nFirst post written in **markdown**.');

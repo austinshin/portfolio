@@ -38,41 +38,6 @@ function App() {
           <Route path="/blog/:slug" element={<PostPage section="blog" backLabel="Blog" />} />
 
           <Route
-            path="/read"
-            element={
-              <SectionPage
-                section="read"
-                title="Read"
-                display="books"
-                emptyMessage="Books I've finished will show up here."
-              />
-            }
-          />
-          <Route path="/read/:slug" element={<PostPage section="read" backLabel="Read" />} />
-          <Route
-            path="/reading"
-            element={
-              <SectionPage
-                section="reading"
-                title="Currently Reading"
-                display="inline"
-                emptyMessage="What I'm reading right now will show up here."
-              />
-            }
-          />
-          <Route
-            path="/food"
-            element={
-              <SectionPage
-                section="food"
-                title="Food"
-                display="cards"
-                emptyMessage="Recipes will show up here."
-              />
-            }
-          />
-          <Route path="/food/:slug" element={<PostPage section="food" backLabel="Food" />} />
-          <Route
             path="/shows"
             element={
               <SectionPage
