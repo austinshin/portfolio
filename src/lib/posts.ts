@@ -1,10 +1,9 @@
 import { supabase } from './supabaseClient'
 
-export type Section = 'blog' | 'shows'
+export type Section = 'blog'
 
 export const SECTIONS: { value: Section; label: string }[] = [
   { value: 'blog', label: 'Blog' },
-  { value: 'shows', label: 'Shows & Movies' },
 ]
 
 export interface Post {

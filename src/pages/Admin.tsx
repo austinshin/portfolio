@@ -218,7 +218,7 @@ const Admin = () => {
 
             <div className="editor-meta">
               <div>
-                <label htmlFor="author">Author (optional — for books, shows)</label>
+                <label htmlFor="author">Author (optional)</label>
                 <input
                   id="author"
                   type="text"

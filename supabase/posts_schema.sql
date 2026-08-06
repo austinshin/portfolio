@@ -1,5 +1,4 @@
--- Posts table for the markdown-driven content sections
--- (Blog, Shows & Movies).
+-- Posts table for the markdown-driven blog.
 --
 -- Run this in the Supabase SQL editor, then create your login user under
 -- Authentication → Users (email + password). Anyone authenticated can write;
@@ -9,7 +8,7 @@ create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
   title text not null,
   slug text not null,
-  section text not null check (section in ('blog', 'shows')),
+  section text not null check (section in ('blog')),
   content text not null default '',
   image_url text,
   author text,

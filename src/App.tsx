@@ -37,18 +37,6 @@ function App() {
           <Route path="/blog" element={<SectionPage section="blog" title="Blog" display="links" />} />
           <Route path="/blog/:slug" element={<PostPage section="blog" backLabel="Blog" />} />
 
-          <Route
-            path="/shows"
-            element={
-              <SectionPage
-                section="shows"
-                title="Shows & Movies"
-                display="inline"
-                emptyMessage="Shows and movies I've watched will show up here."
-              />
-            }
-          />
-
           <Route path="/ai-tools" element={<AiTools />} />
           <Route path="/yt-lecture-summary" element={<YtLectureSummary />} />
           <Route path="/docs-summary" element={<DocsSummary />} />
