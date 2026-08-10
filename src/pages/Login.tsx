@@ -12,7 +12,7 @@ const Login = () => {
   useEffect(() => {
     if (!supabase) return
     supabase.auth.getSession().then(({ data }) => {
-      if (data.session) navigate('/admin', { replace: true })
+      if (data.session) navigate('/', { replace: true })
     })
   }, [navigate])
 
@@ -29,7 +29,7 @@ const Login = () => {
     if (authError) {
       setError(authError.message)
     } else {
-      navigate('/admin')
+      navigate('/')
     }
   }
 

@@ -4,13 +4,10 @@ import ScrollToTop from './components/ScrollToTop'
 import About from './pages/About'
 import Portfolio from './pages/Portfolio'
 import Resume from './pages/Resume'
-import SectionPage from './pages/SectionPage'
-import PostPage from './pages/PostPage'
 import AiTools from './pages/AiTools'
 import YtLectureSummary from './pages/YtLectureSummary'
 import DocsSummary from './pages/DocsSummary'
 import Login from './pages/Login'
-import Admin from './pages/Admin'
 import NotFound from './pages/NotFound'
 import GamingAchievements from './pages/GamingAchievements'
 import ArtFlow from './pages/ArtFlow'
@@ -34,15 +31,11 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/gaming" element={<GamingAchievements />} />
 
-          <Route path="/blog" element={<SectionPage section="blog" title="Blog" display="links" />} />
-          <Route path="/blog/:slug" element={<PostPage section="blog" backLabel="Blog" />} />
-
           <Route path="/ai-tools" element={<AiTools />} />
           <Route path="/yt-lecture-summary" element={<YtLectureSummary />} />
           <Route path="/docs-summary" element={<DocsSummary />} />
 
           <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<Admin />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

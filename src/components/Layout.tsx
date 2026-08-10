@@ -4,7 +4,6 @@ import { Github, Twitter, Linkedin, Moon, Sun } from 'lucide-react'
 
 const NAV_ITEMS = [
   { to: '/', label: 'About' },
-  { to: '/blog', label: 'Blog' },
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/resume', label: 'Resume' },
   { to: '/gaming', label: 'Gaming Achievements' },
@@ -22,12 +21,10 @@ const PAGE_TITLES: Record<string, string> = {
   '/portfolio': 'Portfolio',
   '/resume': 'Resume',
   '/gaming': 'Gaming Achievements',
-  '/blog': 'Blog',
   '/ai-tools': 'AI Tools',
   '/yt-lecture-summary': 'YouTube Lecture Summary',
   '/docs-summary': 'Repo Docs Summary',
   '/login': 'Login',
-  '/admin': 'Admin',
 }
 
 const Layout = () => {
