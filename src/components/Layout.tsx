@@ -25,6 +25,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/yt-lecture-summary': 'YouTube Lecture Summary',
   '/docs-summary': 'Repo Docs Summary',
   '/login': 'Login',
+  '/interview': 'Interview Prep',
 }
 
 const Layout = () => {

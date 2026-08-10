@@ -8,6 +8,7 @@ import AiTools from './pages/AiTools'
 import YtLectureSummary from './pages/YtLectureSummary'
 import DocsSummary from './pages/DocsSummary'
 import Login from './pages/Login'
+import Interview from './pages/Interview'
 import NotFound from './pages/NotFound'
 import GamingAchievements from './pages/GamingAchievements'
 import ArtFlow from './pages/ArtFlow'
@@ -36,6 +37,9 @@ function App() {
           <Route path="/docs-summary" element={<DocsSummary />} />
 
           <Route path="/login" element={<Login />} />
+
+          {/* Hidden — reachable only by direct URL */}
+          <Route path="/interview" element={<Interview />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
