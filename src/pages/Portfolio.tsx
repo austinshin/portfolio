@@ -25,6 +25,11 @@ function parsePeriod(period?: string): { start: number; end: number } {
   return { start, end }
 }
 
+const SIDE_PROJECT_IDS = ['mew-claude-relay']
+
+const sideProjects = personalProjects.filter((p) => SIDE_PROJECT_IDS.includes(p.id))
+const otherPersonalProjects = personalProjects.filter((p) => !SIDE_PROJECT_IDS.includes(p.id))
+
 // Newest first: ongoing projects lead (most recently started first),
 // finished projects follow by how recently they ended
 function byRecency(a: Project, b: Project): number {
@@ -84,8 +89,13 @@ const Portfolio = () => {
         <ProjectBlock key={project.id} project={project} />
       ))}
 
+      <h2>Side Projects</h2>
+      {[...sideProjects].sort(byRecency).map((project) => (
+        <ProjectBlock key={project.id} project={project} />
+      ))}
+
       <h2>Personal</h2>
-      {[...personalProjects].sort(byRecency).map((project) => (
+      {[...otherPersonalProjects].sort(byRecency).map((project) => (
         <ProjectBlock key={project.id} project={project} />
       ))}
     </>

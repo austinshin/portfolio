@@ -217,6 +217,52 @@ export const professionalProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
+    id: 'mew-claude-relay',
+    title: 'Mew ↔ Claude Code Relay',
+    period: 'Oct 2026',
+    description: [
+      'A bridge that lets my personal AI assistant (Mew on Meta Muse) hand coding work to Claude Code on my Mac and get results back — no human in the loop',
+      'A message goes in and 2–7 minutes later a headless Claude Code session has picked it up, done the work, and replied',
+      'The whole bridge is a shared inbox (one relay.json in a secret GitHub gist) plus a wake-up timer — the two agents never connect directly',
+      'Custom Python MCP server gives Claude four tools: ask_mew / get_mew_reply for questions, check_mew_messages / reply_to_mew for tasks',
+      'launchd poller runs every 2 minutes: claims pending messages, launches one batched `claude -p` run, and retries or flags failures',
+      'Locked down for headless use: deny-by-default permissions, a short allow-list scoped to one workspace folder, no outbound actions, and a $5 per-run budget cap',
+      'First real workload: Mew built and kept current a local-first React job-search tracker across 9 relayed tasks in two days',
+    ],
+    tags: ['Claude Code', 'MCP', 'Python', 'AI Agents', 'launchd', 'GitHub Gist', 'React', 'Node.js'],
+    type: 'personal',
+    detailedInfo: {
+      howItWorks: [
+        'Everything travels through one JSON file holding a single list of messages in both directions, each with a sender, timestamp, and status',
+        'Status moves pending → claimed → done (reply attached), or failed after two attempts with a macOS notification',
+        'Claude → Mew: ask_mew appends a pending question; get_mew_reply polls every 15s (up to 7 min) until Mew\'s ~5-minute scheduled check answers it',
+        'Mew → Claude: a launchd job runs a plain Python poller every 2 minutes — if nothing is pending it exits after one API call and zero model usage',
+        'When work is waiting, the poller resets stale claims (>45 min), marks every pending message claimed, and starts one headless `claude -p` run listing them oldest first',
+        'Claude does the work and calls reply_to_mew for each message; anything left claimed goes back to pending or to failed',
+        'A LOG.md in the workspace records every past task and where its output lives — each run reads it first and appends to it last',
+      ],
+      challenges: [
+        'Waking Claude up: Claude Code only acts when something starts a turn, so an inbox-reading tool alone isn\'t enough — the poller is what makes it autonomous',
+        'Safety for headless runs: relayed text is effectively a command on my machine, so the fence lives in config (`--permission-mode dontAsk`, Edit-scoped allow rules, `--max-budget-usd 5`), not good intentions',
+        'Concurrency on a gist with no locking: every write re-reads, merges by message id, verifies the change stuck, and retries — on both sides',
+        'Batching corrections: Mew often sends a task then an amendment minutes later; handing all pending messages to one run lets the follow-up amend instead of race',
+      ],
+      impact: [
+        'Removed me as the copy-paste courier between an assistant that knows my life and an agent that knows my computer',
+        'Job tracker built and maintained hands-free: pipeline + board views, interview countdowns with Join links, a Needs-review panel, idempotent sync importer, atomic writes with backups, 12 green tests',
+        'Each relayed task handled in 1–7 minutes with no prompting from me while I was busy interviewing',
+        'General pattern: any assistant that can write JSON to a shared place can hand work to a coding agent that can act on a computer',
+      ],
+      learnings: [
+        'Verify what assistants say they can do — Mew confidently described a tool that didn\'t exist yet, so its messages landed in an unread inbox',
+        'Keep one source of truth — a headless run rebuilt the tracker in a new folder while I edited it interactively; LOG.md had the answer all along',
+        'Validate the reply path — the server rejecting a wrong message id is what kept a reply from vanishing silently',
+        'In Claude Code, Write(path) allow rules don\'t scope file writes; Edit(path) rules cover all file-editing tools',
+        'Let the guardrails stop you — auto mode refused to install the persistent launchd job itself; the agent builds it, a human turns it on',
+      ],
+    },
+  },
+  {
     id: 'billable',
     title: 'Billable — iOS Time-Capture App',
     period: 'Apr 2026 - Present',
