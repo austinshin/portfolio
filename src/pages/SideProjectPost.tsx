@@ -2,11 +2,11 @@ import { Link, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import NotFound from './NotFound'
-import mewClaudeRelay from '../content/side-projects/mew-claude-relay.md?raw'
+import museClaudeRelay from '../content/side-projects/muse-claude-relay.md?raw'
 
 // Write-ups rendered verbatim from their source markdown
 const POSTS: Record<string, string> = {
-  'mew-claude-relay': mewClaudeRelay,
+  'muse-claude-relay': museClaudeRelay,
 }
 
 const SideProjectPost = () => {
