@@ -244,6 +244,29 @@ body {
   padding: 0;
 }
 
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  font-size: 0.9375rem;
+}
+
+.content th,
+.content td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.content th {
+  background: var(--hover-bg);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
 .content img {
   max-width: 100%;
   border-radius: 0.5rem;

@@ -14,6 +14,8 @@ import GamingAchievements from './pages/GamingAchievements'
 import ArtFlow from './pages/ArtFlow'
 import TcgDashboard from './pages/TcgDashboard'
 import Dev from './pages/Dev'
+import SideProjects from './pages/SideProjects'
+import SideProjectPost from './pages/SideProjectPost'
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/side-projects" element={<SideProjects />} />
+          <Route path="/side-projects/:slug" element={<SideProjectPost />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/gaming" element={<GamingAchievements />} />
 

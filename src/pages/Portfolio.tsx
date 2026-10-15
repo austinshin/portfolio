@@ -1,4 +1,5 @@
-import { professionalProjects, personalProjects, Project } from '../data/projects'
+import { Link } from 'react-router-dom'
+import { professionalProjects, personalProjects, SIDE_PROJECT_IDS, Project } from '../data/projects'
 
 const MONTHS: Record<string, number> = {
   jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
@@ -25,21 +26,18 @@ function parsePeriod(period?: string): { start: number; end: number } {
   return { start, end }
 }
 
-const SIDE_PROJECT_IDS = ['mew-claude-relay']
-
-const sideProjects = personalProjects.filter((p) => SIDE_PROJECT_IDS.includes(p.id))
 const otherPersonalProjects = personalProjects.filter((p) => !SIDE_PROJECT_IDS.includes(p.id))
 
 // Newest first: ongoing projects lead (most recently started first),
 // finished projects follow by how recently they ended
-function byRecency(a: Project, b: Project): number {
+export function byRecency(a: Project, b: Project): number {
   const pa = parsePeriod(a.period)
   const pb = parsePeriod(b.period)
   if (pb.end !== pa.end) return pb.end - pa.end
   return pb.start - pa.start
 }
 
-const ProjectBlock = ({ project }: { project: Project }) => (
+export const ProjectBlock = ({ project }: { project: Project }) => (
   <div className="item-block">
     <div className="item-header">
       <h3>{project.title}</h3>
@@ -51,6 +49,11 @@ const ProjectBlock = ({ project }: { project: Project }) => (
         <li key={i}>{line}</li>
       ))}
     </ul>
+    {project.writeupPath && (
+      <p>
+        <Link to={project.writeupPath}>Read the write-up →</Link>
+      </p>
+    )}
     {(project.demoUrl || project.githubUrl || project.docsUrl) && (
       <p>
         {[
@@ -86,11 +89,6 @@ const Portfolio = () => {
 
       <h2>Professional</h2>
       {[...professionalProjects].sort(byRecency).map((project) => (
-        <ProjectBlock key={project.id} project={project} />
-      ))}
-
-      <h2>Side Projects</h2>
-      {[...sideProjects].sort(byRecency).map((project) => (
         <ProjectBlock key={project.id} project={project} />
       ))}
 

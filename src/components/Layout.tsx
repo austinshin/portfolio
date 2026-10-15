@@ -5,6 +5,7 @@ import { Github, Twitter, Linkedin, Moon, Sun } from 'lucide-react'
 const NAV_ITEMS = [
   { to: '/', label: 'About' },
   { to: '/portfolio', label: 'Portfolio' },
+  { to: '/side-projects', label: 'Side Projects' },
   { to: '/resume', label: 'Resume' },
   { to: '/gaming', label: 'Gaming Achievements' },
   // AI Tools tab hidden for now — pages still reachable at /ai-tools
@@ -19,6 +20,8 @@ const SOCIAL_LINKS = [
 const PAGE_TITLES: Record<string, string> = {
   '/': 'Austin Shin',
   '/portfolio': 'Portfolio',
+  '/side-projects': 'Side Projects',
+  '/side-projects/mew-claude-relay': 'How I Got My AI Assistant to Hand Off Work to Claude Code',
   '/resume': 'Resume',
   '/gaming': 'Gaming Achievements',
   '/ai-tools': 'AI Tools',

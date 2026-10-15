@@ -10,6 +10,8 @@ export interface Project {
   demoUrl?: string
   githubUrl?: string
   docsUrl?: string
+  /** Site path to a full write-up, e.g. /side-projects/<id> */
+  writeupPath?: string
   detailedInfo?: {
     howItWorks?: string[]
     challenges?: string[]
@@ -215,11 +217,14 @@ export const professionalProjects: Project[] = [
   },
 ]
 
+export const SIDE_PROJECT_IDS = ['mew-claude-relay']
+
 export const personalProjects: Project[] = [
   {
     id: 'mew-claude-relay',
     title: 'Mew ↔ Claude Code Relay',
     period: 'Oct 2026',
+    writeupPath: '/side-projects/mew-claude-relay',
     description: [
       'A bridge that lets my personal AI assistant (Mew on Meta Muse) hand coding work to Claude Code on my Mac and get results back — no human in the loop',
       'A message goes in and 2–7 minutes later a headless Claude Code session has picked it up, done the work, and replied',
